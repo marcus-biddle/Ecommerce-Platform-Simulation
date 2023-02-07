@@ -1,0 +1,28 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: thin solid;
+    background-color: aliceblue;
+}
+
+a, a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+a:active {
+    color: #ce450a;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.nav-body a {
+    padding-right: 10px;
+    padding-left: 10px;
+}

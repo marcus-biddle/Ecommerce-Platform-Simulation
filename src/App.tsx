@@ -1,26 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Link,
+  Outlet,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import { Cart, Electronics, Home, Jewelery, MClothing, WClothing } from './pages/index.js';
+import { Navbar } from './Components/Navbar/Navbar';
+
+const Root = () => {
+  return (
+    <>
+    <Navbar />
+
+    <div>
+      <Outlet />
+    </div>
+    </>
+  )
+}
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<Root />}>
+      <Route index element={<Home />} />
+      <Route path='/electronics' element={<Electronics />} />
+      <Route path='/jewelery' element={<Jewelery />} />
+      <Route path='/mensclothing' element={<MClothing />} />
+      <Route path='/womensclothing' element={<WClothing />} />
+      <Route path='/cart' element={<Cart />} />
+    </Route>
+  )
+);
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <RouterProvider router={router} />
     </div>
   );
 }
+
+
 
 export default App;
