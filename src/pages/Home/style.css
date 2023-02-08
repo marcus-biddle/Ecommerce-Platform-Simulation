@@ -1,0 +1,42 @@
+.banner-image {
+    width: 100%;
+}
+
+.banner-info {
+    position: absolute;
+    top: 10rem;
+    right: 4rem;
+    padding-top: 2rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: solid;
+    background-color: #000000b3;
+    color: white;
+}
+
+.subheader {
+    
+    padding-top: 1.5rem;
+    display: grid;
+    padding: 5px;
+}
+
+.btn {
+    background-color: #ead307;
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+    align-content: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.small-banner {
+    background-color: #f597236d;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    padding: 1.5rem;
+}

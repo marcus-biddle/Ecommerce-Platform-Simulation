@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { Cart, Electronics, Home, Jewelery, MClothing, WClothing } from './pages/index.js';
 import { Navbar } from './Components/Navbar/Navbar';
+import { Footer } from './Components/Footer/Footer';
 
 const Root = () => {
   return (
@@ -19,6 +20,8 @@ const Root = () => {
     <div>
       <Outlet />
     </div>
+
+    <Footer />
     </>
   )
 }
