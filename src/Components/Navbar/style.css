@@ -3,9 +3,14 @@
     justify-content: space-between;
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: aliceblue;
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+.store-title {
+    font-weight: bolder;
+    color: #ce450a !important;
+    text-decoration-line: none !important;
 }
 
 a, a:visited {

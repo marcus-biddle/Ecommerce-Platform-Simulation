@@ -1,11 +1,12 @@
 import React from 'react'
 import './style.css'
 import pic from '../../constants/images/traveler.jpg'
+import { Trending } from '../../sub-components/Trending/Trending'
 
 export const Home = () => {
 
     const handleClick = () => {
-        console.log('button pushed')
+        alert('You pressed a button! The developer has not made a landing page for this button yet. Whoops...')
     }
   return (
     <>
@@ -24,16 +25,17 @@ export const Home = () => {
 
         {/* Top Items */}
         <section>
-            <h2>Trending Items</h2>
-
+            <h2 style={{ paddingLeft: '18px'}}>Trending Items</h2>
+            <Trending />
 
             {/* Carousal */}
         </section>
 
         {/* smaller banner */}
-        <section className='small-banner'>
-            <h2 className='small-banner-header'>Not a member? Join today!</h2>
-        </section>
+        <button className='small-banner' onClick={() => alert('You clicked this button! The developer has not made a login page yet. Whoops...')}>
+            <h2 >Free Standard Shipping Over $30 for Members</h2>
+            <span>Not a member? Join Today!</span>
+        </button>
     </>
   )
 }

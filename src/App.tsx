@@ -9,8 +9,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { Cart, Electronics, Home, Jewelery, MClothing, WClothing } from './pages/index.js';
-import { Navbar } from './Components/Navbar/Navbar';
-import { Footer } from './Components/Footer/Footer';
+import { Navbar } from './components/Navbar/Navbar';
+import { Footer } from './components/Footer/Footer';
 
 const Root = () => {
   return (

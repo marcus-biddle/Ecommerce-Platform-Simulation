@@ -1,0 +1,36 @@
+/* .circle-img {
+    transform: scale(.1);
+    background-color: black;
+    border: solid;
+} */
+
+.circle-img {
+
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+    transform: scale(1.2);
+}
+
+.trending {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    margin-bottom: 13px;
+}
+
+.item:hover {
+    transform: scale(1.2);
+    color: #ce450a;
+}
+
+.item:hover > .category-container {
+    color: #ce450a;
+}
+
+.category-container {
+    padding-top: 10px;
+    padding-left: 11px;
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.61);
+}
