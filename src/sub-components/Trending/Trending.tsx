@@ -27,7 +27,7 @@ export const Trending = () => {
                 return (
                     <>
                     <div className='item'  key={item.id} >
-                        <img className='circle-img' src={item.image} />
+                        <img className='circle-img' src={item.image} alt={''}/>
                         <div className='category-container'>
                         <span>{item.category}</span>
                         </div>

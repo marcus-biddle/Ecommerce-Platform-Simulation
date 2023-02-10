@@ -3,14 +3,13 @@ import './App.css';
 import {
   createBrowserRouter,
   createRoutesFromElements,
-  Link,
   Outlet,
   Route,
   RouterProvider,
 } from "react-router-dom";
 import { Cart, Electronics, Home, Jewelery, MClothing, WClothing } from './pages/index.js';
 import { Navbar } from './components/Navbar/Navbar';
-import { Footer } from './components/Footer/Footer';
+import Footer from './components/Footer/index';
 
 const Root = () => {
   return (

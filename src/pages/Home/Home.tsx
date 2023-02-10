@@ -11,7 +11,7 @@ export const Home = () => {
   return (
     <>
         {/* Banner */}
-        <img className='banner-image' src={pic} />
+        <img className='banner-image' src={pic} alt={''} />
         
         {/* Info */}
         <section className='banner-info'>
