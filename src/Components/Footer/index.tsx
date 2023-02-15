@@ -1,5 +1,5 @@
 import { Column } from '../../component-library/Column'
-import { desktopFooter } from '../../data/fakeFooterData'
+// import { desktopFooter } from '../../data/fakeFooterData'
 import { FooterNavLink, FooterNavWrapper, FooterStyle, NavHeader, StyledUL } from './styled'
 
 
@@ -31,7 +31,7 @@ const Footer = () => {
     <FooterStyle>
         <Column>
             <FooterNavWrapper>
-                <DesktopLinks items={desktopFooter} />
+                {/* <DesktopLinks items={desktopFooter} /> */}
             </FooterNavWrapper>
             {/* Fix this, we want to  include it somehow */}
             <section>
