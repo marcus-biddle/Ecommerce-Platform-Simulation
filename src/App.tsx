@@ -8,7 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { Cart, Electronics, Home, Jewelery, MClothing, WClothing } from './pages/index.js';
-import { Navbar } from './components/Navbar/Navbar';
+import { Navbar } from './components/Navbar';
 import Footer from './components/Footer/index';
 
 const Root = () => {

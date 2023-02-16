@@ -10,3 +10,10 @@ export const Column = styled.div`
     padding-top: 0px;
     padding-bottom: 0px;
 `;
+
+export const Row = styled.div`
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
+`;
