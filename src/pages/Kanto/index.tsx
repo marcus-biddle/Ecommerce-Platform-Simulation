@@ -1,12 +1,13 @@
 import React from 'react'
-import { SideMenu } from '../../components/SideMenu/SideMenu'
+import { CLP } from '../../components/CLP'
+import { SideMenu } from '../../components/SideMenu'
 import { REGIONS } from '../../constants'
 
-export const Electronics = () => {
+export const Kanto = () => {
   return (
     <div>
       {REGIONS[0].label}
-      <SideMenu region={REGIONS[0].label}/>
+      <CLP region={REGIONS[0]}/>
       {/* create our own prices data */}
     </div>
   )

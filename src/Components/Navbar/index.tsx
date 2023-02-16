@@ -4,6 +4,7 @@ import { RiShoppingCartLine } from 'react-icons/ri';
 import { NavbarCategoryWrapper, NavbarHeaderWrapper, NavbarStyle, StyledNavUL, UserWrapper } from './styled';
 import { NavHeader } from '../Footer/styled';
 import { Row } from '../../component-library/Column';
+import { REGIONS, ROUTES } from '../../constants';
 
 const NAV_CATEGORIES = [
   {
@@ -24,13 +25,13 @@ const NAV_CATEGORIES = [
   },
 ]
 
-const NavbarLinks = ({ categories }: any) => {
+const NavbarLinks = () => {
   return (
     <>
-      {categories.map((category: any, index: any) => {
+      {REGIONS.map((region: any, index: any) => {
         return (
           <StyledNavUL key={index}>
-            <Link to={category.to}>{category.title}</Link>
+            <Link to={ROUTES[index].location}>{region.label}</Link>
           </StyledNavUL>
         )
       })}
@@ -42,11 +43,11 @@ export const Navbar = () => {
   return (
     <NavbarStyle>
         <NavbarHeaderWrapper>
-          <Link to='/'>Faux Store</Link>
+          <Link to='/'>POKE LORE</Link>
         </NavbarHeaderWrapper>
 
         <NavbarCategoryWrapper>
-          <NavbarLinks categories={NAV_CATEGORIES} />
+          <NavbarLinks />
         </NavbarCategoryWrapper>
 
         <UserWrapper>
