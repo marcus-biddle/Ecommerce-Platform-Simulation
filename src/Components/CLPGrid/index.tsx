@@ -14,22 +14,37 @@ export const CLPGrid = () => {
         
             const fetchPokemonNames = () => {
                 pokemonNamesClient.get(`?limit=${REGIONS[0].value.last}&offset=${REGIONS[0].value.first}`) // include limit and offset to get specific region
-                .then(response => {
-                    setPokemonNames(response.data.results)
-                    setLoading(false);
-                })}
+                .then((response) => {
+                    const requestPokemon = [];
+
+                    for (let pokemon of response.data.results) {
+                        const url = pokemon.url;
+                        requestPokemon.push(axios.get(`${url}`));
+                    }
+
+                    return Promise.all(requestPokemon);
+                    // setPokemonNames(response.data.results)
+                    // setLoading(false);
+                })
+                .then((responseList) => {
+                    for (let response of responseList) {
+                        setPokemonNames((curr) => [...curr, response.data])
+                    }
+                })
+            }
 
             fetchPokemonNames();
         }, [])
 
-        useEffect(() => {
-            pokemonNames.forEach(() => {
-                
-            })
-            const pokemonClient = axios.create({
-                baseURL: ``
-            })
-        })
+        // useEffect(() => {
+        //     pokemonNames.forEach((pokemon) => {
+
+        //         const pokemonClient = axios.create({
+        //             baseURL: ``
+        //         })
+        //     })
+            
+        // })
 
     return (
     <div>
