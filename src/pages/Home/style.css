@@ -1,17 +1,19 @@
 .banner-image {
+    transform: scale(.75) translate(-250px);
     width: 100%;
+    position: relative;
+    margin-top: -5rem;
+    background-color: #ad60099d;
+    align-items: flex-start;
+    
 }
 
 .banner-info {
-    position: absolute;
-    top: 10rem;
-    right: 4rem;
-    padding-top: 2rem;
-    padding-left: 20px;
+
     padding-right: 20px;
     border: solid;
     background-color: #000000b3;
-    color: white;
+    color: #050245;
 }
 
 .subheader {
@@ -22,7 +24,7 @@
 }
 
 .btn {
-    background-color: #ead307;
+    background-color: #ad600950;
     color: black;
     text-align: center;
     vertical-align: middle;

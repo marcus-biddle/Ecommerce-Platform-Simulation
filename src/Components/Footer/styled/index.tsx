@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const FooterStyle = styled.div`
     display: flex;
-    flex-direction: column;
     margin: 2rem auto 0;
     max-width: 100%;
     width: 100%;
@@ -13,6 +12,7 @@ export const FooterStyle = styled.div`
 export const FooterNavWrapper = styled.div`
     display: flex;
     margin: 4rem;
+    padding-left: 8rem;
     
 `;
 

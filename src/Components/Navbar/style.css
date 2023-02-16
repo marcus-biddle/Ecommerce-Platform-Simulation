@@ -1,10 +1,12 @@
-.navbar {
+/* .navbar {
     display: flex;
     justify-content: space-between;
     padding-left: 10px;
     padding-right: 10px;
     padding: 20px;
     text-transform: uppercase;
+    transform: skewY();
+    
 }
 
 .store-title {
@@ -29,4 +31,9 @@ a:hover {
 .nav-body a {
     padding-right: 10px;
     padding-left: 10px;
+} */
+
+.nav {
+    background-color: beige;
+    font-weight: lighter;
 }
