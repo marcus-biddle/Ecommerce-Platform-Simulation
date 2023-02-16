@@ -7,9 +7,10 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import { Cart, Electronics, Home, Jewelery, MClothing, WClothing } from './pages/index.js';
+import { Cart, Kanto, Johto, Sinnoh, Home } from './pages/index.js';
 import { Navbar } from './components/Navbar';
 import Footer from './components/Footer/index';
+import { REGIONS, ROUTES } from './constants';
 
 const Root = () => {
   return (
@@ -29,10 +30,9 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Root />}>
       <Route index element={<Home />} />
-      <Route path='/electronics' element={<Electronics />} />
-      <Route path='/jewelery' element={<Jewelery />} />
-      <Route path='/mensclothing' element={<MClothing />} />
-      <Route path='/womensclothing' element={<WClothing />} />
+      <Route path={`/${ROUTES[0].location}`} element={<Kanto />} />
+      <Route path={`/${ROUTES[1].location}`} element={<Johto />} />
+      <Route path={`/${ROUTES[2].location}`} element={<Sinnoh />} />
       <Route path='/cart' element={<Cart />} />
     </Route>
   )
