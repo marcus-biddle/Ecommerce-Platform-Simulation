@@ -2,7 +2,35 @@ import styled from 'styled-components';
 
 
 export const MenuStyle = styled.div`
-background-color: #ad60099d; 
+    width: 17rem;
+    text-align: left;
+    padding-left: 14.5px;
+`;
+
+export const StyledMenuH1 = styled.h1`
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: 900;
+    font-size: 2.2rem;
+    letter-spacing: .05px
+`;
+
+export const StyledMenuH4 = styled.h4`
+    font-size: 0.8555rem;
+    line-height: 1.35rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+`;
+
+export const StyledMenuP = styled.p`
+    text-transform: capitalize;
+    line-height: 1.05rem;
+    font-weight: 300;
+    letter-spacing: 1.05px;
+    &:hover {
+        cursor: pointer;
+        color: blue;
+    }
 `;
 
 export const MenuHeader = styled.div`

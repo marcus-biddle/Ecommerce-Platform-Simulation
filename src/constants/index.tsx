@@ -1,5 +1,6 @@
 
-// ADD CONSTANTS FOR ALL REGIONS/ TYPES / ANYTHING ELSE
+// ****************** Regions ************************
+
 export type PokedexRegion = { first: number, last: number }
 export type RegionType = { region: string, value: PokedexRegion, label: string, index: number}
 
@@ -48,7 +49,7 @@ export const STARTER_POKEMON: StarterType[] = [
     { region: RegionOptions.SINNOH, fire: StarterOptions.SINNOH_FIRE, water: StarterOptions.SINNOH_WATER, grass: StarterOptions.SINNOH_GRASS, label: 'Sinnoh Starter Pokemon' },
 ]
 
-// ********** RARE PER REGION ***********
+// ****************** Lengendaries ************************
 
 export enum LegendaryOptions {
     MEWTWO_KANTO = 149,
@@ -70,7 +71,7 @@ export const LEGENDARIES: LegendaryType[] = [
     { region: RegionOptions.SINNOH, first: LegendaryOptions.DARKRAI_SINNOH, second: LegendaryOptions.DIALGA_SINNOH, third: LegendaryOptions.MANAPHY_SINNOH, label: 'Sinnoh Legendaries' },
 ]
 
-// ********** ROUTES *******************
+// ****************** Routes ************************
 
 export enum RouteOptions {
     KANTO_ROUTE = '/kanto',

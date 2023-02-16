@@ -1,5 +1,6 @@
 import React from 'react'
 import { REGIONS } from '../../constants';
+import { CLPGrid } from '../CLPGrid';
 import { SideMenu } from '../SideMenu';
 import { CLPStyle } from './styled';
 
@@ -8,9 +9,9 @@ export const CLP = ({ region }: any) => {
     <CLPStyle>
         {/* SideMenu */}
         <SideMenu region={region} />
-        TEST
         {/* Banner */}
         {/* Grid */}
+        <CLPGrid />
     </CLPStyle>
   )
 };

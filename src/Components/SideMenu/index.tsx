@@ -1,14 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { LEGENDARIES, STARTER_POKEMON } from '../../constants';
-// import { usePokemon } from '../../data';
-// import { Data } from '../../sub-components/Trending/Trending';
+import { LEGENDARIES, RegionType, STARTER_POKEMON } from '../../constants';
+import { MenuStyle, StyledMenuH1, StyledMenuH4, StyledMenuP } from './styled';
 
-interface SideMenuProps {
-  region: string;
+interface RegionProps {
+  region : RegionType;
 }
 
-export const SideMenu = ({ region }: any) => {
+const Starters = ({ pokemonNames, region }: any) => {
+  return (
+    <div>
+      <StyledMenuH4>{STARTER_POKEMON[region.index].label}</StyledMenuH4>
+      <div>
+        <StyledMenuP>{pokemonNames[STARTER_POKEMON[region.index].fire].name}</StyledMenuP>
+        <StyledMenuP>{pokemonNames[STARTER_POKEMON[region.index].water].name}</StyledMenuP>
+        <StyledMenuP>{pokemonNames[STARTER_POKEMON[region.index].grass].name}</StyledMenuP>
+      </div>
+    </div>
+  )
+}
+
+const Legendaries = ({ pokemonNames, region }: any) => {
+  return (
+    <div>
+        <StyledMenuH4>{LEGENDARIES[region.index].label}</StyledMenuH4>
+        <div>
+          <StyledMenuP>{pokemonNames[LEGENDARIES[region.index].first].name}</StyledMenuP>
+          <StyledMenuP>{pokemonNames[LEGENDARIES[region.index].second].name}</StyledMenuP>
+          <StyledMenuP>{pokemonNames[LEGENDARIES[region.index].third].name}</StyledMenuP>
+        </div>
+    </div>
+  )
+}
+
+export const SideMenu = ({ region }: RegionProps) => {
   const [pokemonNames, setPokemonNames] = useState<any[]>([]);
   const [isLoading, setLoading] = useState(true);
 
@@ -35,37 +60,16 @@ export const SideMenu = ({ region }: any) => {
     }, [])
     console.log(pokemonNames)
 
-// change to list type
 if (isLoading) {
   return (
     <div>Loading...</div>
   )
 }
   return (
-    <div>
-      <div>
-        <h1>{region.label}</h1>
-        <div>
-          <h4>{STARTER_POKEMON[region.index].label}</h4>
-          <div>
-            <p>{pokemonNames[STARTER_POKEMON[region.index].fire].name}</p>
-            <p>{pokemonNames[STARTER_POKEMON[region.index].water].name}</p>
-            <p>{pokemonNames[STARTER_POKEMON[region.index].grass].name}</p>
-          </div>
-        </div>
-        <div>
-          <h4>{LEGENDARIES[region.index].label}</h4>
-          <div>
-            <p>{pokemonNames[LEGENDARIES[region.index].first].name}</p>
-            <p>{pokemonNames[LEGENDARIES[region.index].second].name}</p>
-            <p>{pokemonNames[LEGENDARIES[region.index].third].name}</p>
-          </div>
-        </div>
-      </div>
-      <div>
-
-      </div>
-      
-    </div>
+    <MenuStyle>
+      <StyledMenuH1>{region.label}</StyledMenuH1>
+      <Starters pokemonNames={pokemonNames} region={region} />
+      <Legendaries pokemonNames={pokemonNames} region={region} />
+    </MenuStyle>
   )
 }
