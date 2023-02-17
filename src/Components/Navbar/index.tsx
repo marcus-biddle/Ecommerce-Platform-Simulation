@@ -6,25 +6,6 @@ import { NavHeader } from '../Footer/styled';
 import { Row } from '../../component-library/Column';
 import { REGIONS, ROUTES } from '../../constants';
 
-const NAV_CATEGORIES = [
-  {
-    title: 'Men\'s Clothing',
-    to: '/mensclothing'
-  },
-  {
-    title: 'Women\'s Clothing',
-    to: '/womensclothing'
-  },
-  {
-    title: 'Jewelery',
-    to: '/jewelery'
-  },
-  {
-    title: 'Electronics',
-    to: '/electronics'
-  },
-]
-
 const NavbarLinks = () => {
   return (
     <>
