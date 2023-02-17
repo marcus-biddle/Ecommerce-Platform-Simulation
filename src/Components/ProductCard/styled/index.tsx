@@ -16,7 +16,7 @@ export const CardHeader = styled.div`
     padding-left: 10px;
     padding-right: 10px;
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto auto;
     grid-column-gap: 3.85rem;
 `;
 

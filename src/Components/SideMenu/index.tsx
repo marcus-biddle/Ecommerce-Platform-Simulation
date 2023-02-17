@@ -45,7 +45,7 @@ export const SideMenu = ({ region }: RegionProps) => {
   }
   return (
     <MenuStyle>
-      <StyledMenuH1>{region.label}</StyledMenuH1>
+      
       <Starters pokemon={pokemon} region={region} />
       <Legendaries pokemon={pokemon} region={region} />
     </MenuStyle>

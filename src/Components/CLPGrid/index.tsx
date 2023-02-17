@@ -8,7 +8,7 @@ import { Grid, GridWrapper } from './styled';
 
 export const CLPGrid = ({ region }: RegionProps) => {
    const { pokemon } = usePokemonContext();
-   const regional_pokemon = pokemon.filter(region.filter);
+   const regional_pokemon = pokemon.filter(region.filter).slice(0,18);
     return (
         <GridWrapper>
             <Grid>

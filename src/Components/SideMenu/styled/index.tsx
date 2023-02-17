@@ -4,13 +4,15 @@ import styled from 'styled-components';
 export const MenuStyle = styled.div`
     text-align: left;
     padding-left: 14.5px;
+    width: 100%;
 `;
 
 export const StyledMenuH1 = styled.h1`
     font-family: "Lucida Console", "Courier New", monospace;
     font-weight: 900;
-    font-size: 2.2rem;
-    letter-spacing: .05px
+    font-size: 2.02rem;
+    letter-spacing: .05px;
+    padding-left: 14.5px;
 `;
 
 export const StyledMenuH4 = styled.h4`

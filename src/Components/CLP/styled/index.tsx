@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 
 export const CLPStyle = styled.div`
-    display: flex;
-    height: 87vh
+`;
+
+export const Column = styled.div`
+    display: grid;
 `;

@@ -6,7 +6,6 @@ import { REGIONS } from '../../constants'
 export const Kanto = () => {
   return (
     <div>
-      {REGIONS[0].label}
       <CLP region={REGIONS[0]}/>
       {/* create our own prices data */}
     </div>

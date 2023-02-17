@@ -1,6 +1,5 @@
 import React from 'react'
 import pic from '../../constants/images/traveler.jpg'
-import { Trending } from '../../sub-components/Trending/Trending'
 import { BannerButton, BannerWrapper, HeroImage, HeroImageWrapper, HeroInfo, HeroWrapper, HomeStyle, TrendingWrapper } from './styled'
 
 
@@ -48,7 +47,7 @@ export const Home = () => {
 
         <TrendingWrapper>
             <h2 style={{ paddingLeft: '18px'}}>Trending Items</h2>
-            <Trending />
+
         </TrendingWrapper>
         
         <BannerWrapper>
