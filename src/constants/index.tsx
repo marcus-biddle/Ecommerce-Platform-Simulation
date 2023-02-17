@@ -2,12 +2,12 @@
 // ****************** Regions ************************
 
 export type PokedexRegion = { first: number, last: number }
-export type RegionType = { region: string, value: PokedexRegion, label: string, index: number}
+export type RegionType = { region: string, filter: (pokemon: any) => boolean, label: string, index: number}
 
 export enum RegionOptions {
-    KANTO = 'kanto-region',
-    JOHTO = 'johto-region',
-    SINNOH = 'sinnoh-region'
+    KANTO = 'KANTO',
+    JOHTO = 'JOHTO',
+    SINNOH = 'SINNOH'
 }
 
 export enum PokedexOptions {
@@ -16,14 +16,23 @@ export enum PokedexOptions {
     KANTO_LAST = 151,
     JOHTO_FIRST = 152,
     JOHTO_LAST = 303,
-    SINNOH_FIRST = 304,
-    SINNOH_LAST = 0,
+    SINNOH_FIRST = 387,
+    SINNOH_LAST = 491,
+}
+
+export type FilterType = { ALL: () => boolean, KANTO: (pokemon: any) => boolean, JOHTO: (pokemon: any) => boolean, SINNOH: (pokemon: any) => boolean}
+
+export const POKEMONFILTER: FilterType = {
+    'ALL': () => true,
+    'KANTO': (pokemon: any) => pokemon.id <= PokedexOptions.KANTO_LAST,
+    'JOHTO': (pokemon: any) => pokemon.id > PokedexOptions.KANTO_LAST && pokemon.id <= PokedexOptions.JOHTO_LAST,
+    'SINNOH': (pokemon: any) => pokemon.id >= PokedexOptions.SINNOH_FIRST
 }
 
 export const REGIONS: RegionType[] = [
-    { region: RegionOptions.KANTO, value: { first: PokedexOptions.KANTO_FIRST, last: PokedexOptions.KANTO_LAST }, label: 'Kanto Region', index: 0 },
-    { region: RegionOptions.JOHTO, value: { first: PokedexOptions.JOHTO_FIRST, last: PokedexOptions.JOHTO_LAST }, label: 'Johto Region', index: 1 },
-    { region: RegionOptions.SINNOH, value: { first: PokedexOptions.SINNOH_FIRST, last: PokedexOptions.SINNOH_LAST }, label: 'Sinnoh Region', index: 2 },
+    { region: RegionOptions.KANTO, filter: POKEMONFILTER[RegionOptions.KANTO], label: 'Kanto Region', index: 0 },
+    { region: RegionOptions.JOHTO, filter: POKEMONFILTER[RegionOptions.JOHTO], label: 'Johto Region', index: 1 },
+    { region: RegionOptions.SINNOH, filter: POKEMONFILTER[RegionOptions.SINNOH], label: 'Sinnoh Region', index: 2 },
 ]
 
 // ****************** Starters ************************
