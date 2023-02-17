@@ -7,4 +7,5 @@ export const CLPStyle = styled.div`
 
 export const Column = styled.div`
     display: grid;
+    width: 100%;
 `;

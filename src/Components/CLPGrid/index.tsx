@@ -7,16 +7,29 @@ import { RegionProps } from '../SideMenu';
 import { Grid, GridWrapper } from './styled';
 
 export const CLPGrid = ({ region }: RegionProps) => {
-   const { pokemon } = usePokemonContext();
-   const regional_pokemon = pokemon.filter(region.filter).slice(0,18);
+   const { kantoPokemon, johtoPokemon, sinnohPokemon } = usePokemonContext();
+   const [pokemonRegion, setPokemonRegion] = useState([]);
+
+   const PokemonCard = () => {
+        region.index === 0 ? setPokemonRegion(kantoPokemon) 
+        : 
+        region.index === 1 ? setPokemonRegion(johtoPokemon)
+        : setPokemonRegion(sinnohPokemon); 
+        return (
+            <>
+            {pokemonRegion.slice(0, 18).map((pokemon: any) => {
+                return (
+                    <ProductCard pokemon={pokemon} />
+                )
+            })}
+            </>
+        )
+    }
+   
     return (
         <GridWrapper>
             <Grid>
-                {regional_pokemon.map((pokemon: any) => {
-                    return (
-                        <ProductCard pokemon={pokemon} />
-                    )
-                })}
+                <PokemonCard />
             </Grid>
         </GridWrapper>
     

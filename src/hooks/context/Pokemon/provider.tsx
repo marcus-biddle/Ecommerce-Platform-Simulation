@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { REGIONS } from "../../../constants";
 import { PokemonContext } from "./context"
 
 export const PokemonProvider = ({ children }: any) => {
@@ -38,8 +39,14 @@ export const PokemonProvider = ({ children }: any) => {
             fetchPokemonNames();
         }, [])
 
+        const kantoPokemon = pokemon.filter(REGIONS[0].filter);
+        const johtoPokemon = pokemon.filter(REGIONS[1].filter);
+        const sinnohPokemon = pokemon.filter(REGIONS[2].filter);
         const value = {
             pokemon,
+            kantoPokemon,
+            johtoPokemon,
+            sinnohPokemon,
             isLoading
         }
     return (

@@ -4,7 +4,8 @@ import styled from 'styled-components';
 export const MenuStyle = styled.div`
     text-align: left;
     padding-left: 14.5px;
-    width: 100%;
+    width: 20rem;
+    max-width: 20rem;
 `;
 
 export const StyledMenuH1 = styled.h1`
