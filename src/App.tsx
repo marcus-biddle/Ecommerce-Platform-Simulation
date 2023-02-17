@@ -12,6 +12,7 @@ import { Navbar } from './components/Navbar';
 import Footer from './components/Footer/index';
 import { REGIONS, ROUTES } from './constants';
 import { usePokemonContext } from './hooks';
+import { PDP } from './components/PDP';
 
 const Root = () => {
   
@@ -28,43 +29,27 @@ const Root = () => {
 
 
 
-const router = ({ kantoPokemon, johtoPokemon, sinnohPokemon }: any) => createBrowserRouter(
+const router = createBrowserRouter(
   createRoutesFromElements(
-    
     <Route path='/' element={<Root />}>
       <Route index element={<Home />} />
       {/* replace element with clp and pass region to it */}
-      <Route path={`/${ROUTES[0].location}`} element={<Kanto />}>
-        {kantoPokemon.map((pokemon: any) => {
-          return (
-            <Route path={`${pokemon.id}`} element={<Kanto />} />
-          )
-        })}
-      </Route>
-      <Route path={`/${ROUTES[1].location}`} element={<Johto />} />
-        {johtoPokemon.map((pokemon: any) => {
-            return (
-              <Route path={`${pokemon.id}`} element={<Johto />} />
-            )
-          })}
-      <Route path={`/${ROUTES[2].location}`} element={<Sinnoh />} />
-        {sinnohPokemon.map((pokemon: any) => {
-          console.log(pokemon.id)
-            return (
-              <Route path={`${pokemon.id}`} element={<Sinnoh />} />
-            )
-          })}
+      <Route path={`${ROUTES[0].location}`} element={<Kanto />} />
+      <Route path={`${ROUTES[0].location}/:id`} element={<PDP />} />
+      <Route path={`${ROUTES[1].location}`} element={<Johto />} />
+      <Route path={`${ROUTES[1].location}/:id`} element={<PDP />} />
+      <Route path={`${ROUTES[2].location}`} element={<Sinnoh />} />
+      <Route path={`${ROUTES[2].location}/:id`} element={<PDP />} />
       <Route path='/cart' element={<Cart />} />
     </Route>
   )
 );
 
 function App() {
-  const { kantoPokemon, johtoPokemon, sinnohPokemon } = usePokemonContext();
 
   return (
     <div>
-    <RouterProvider router={router({ kantoPokemon, johtoPokemon, sinnohPokemon })} />
+    <RouterProvider router={router} />
     </div>
   );
 }

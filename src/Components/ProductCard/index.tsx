@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../../constants';
 import { CardHeader, CardInfoWrapper, CardName, CardStyle, ImageWrapper, StyledImg, StyledSpan } from './styled';
 
 const PokemonPrice = ({ pokemon }: any) => {
@@ -23,9 +25,10 @@ const PokemonTypes = ({ pokemon }: any) => {
     )
 }
 
-export const ProductCard = ({ pokemon }: any) => {
+export const ProductCard = ({ pokemon, region }: any) => {
   return (
     <CardStyle>
+        <Link to={`${ROUTES[region.index].location}/${pokemon.id - 1}`}>
         <ImageWrapper>
             <StyledImg src={pokemon.sprites.front_default} alt=''/>
         </ImageWrapper>
@@ -37,8 +40,8 @@ export const ProductCard = ({ pokemon }: any) => {
                 <PokemonPrice pokemon={pokemon} />
             </CardHeader>
             <PokemonTypes pokemon={pokemon} />
-            
         </CardInfoWrapper>
+        </Link>
         
     </CardStyle>
   )

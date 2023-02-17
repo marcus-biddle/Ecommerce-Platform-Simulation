@@ -19,7 +19,7 @@ export const CLPGrid = ({ region }: RegionProps) => {
             <>
             {pokemonRegion.slice(0, 18).map((pokemon: any) => {
                 return (
-                    <ProductCard pokemon={pokemon} />
+                    <ProductCard pokemon={pokemon} region={region} />
                 )
             })}
             </>
