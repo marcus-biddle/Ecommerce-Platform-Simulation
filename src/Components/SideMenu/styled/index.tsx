@@ -1,5 +1,5 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
 
 export const MenuStyle = styled.div`
     text-align: left;
@@ -25,15 +25,16 @@ export const StyledMenuH4 = styled.h4`
     font-weight: 500;
 `;
 
-export const StyledMenuP = styled.p`
-    text-transform: capitalize;
+export const StyledMenuLink = styled(Link)`
+    display: block;
+    padding-bottom: 10px;
     line-height: 1.05rem;
     font-weight: 300;
-    letter-spacing: 1.05px;
+    text-transform: capitalize;
     &:hover {
         cursor: pointer;
         color: blue;
-    }
+    };
 `;
 
 export const MenuHeader = styled.div`

@@ -8,13 +8,6 @@ export const NavbarStyle = styled.div`
     padding-right: 16px;
     padding-top: 1.56rem;
     padding-bottom: 1.34rem;
-    a {
-        text-decoration: none;
-        color: black;
-        font-size: .83rem;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-    }
     a:hover {
         color: #ce450a;
     }
