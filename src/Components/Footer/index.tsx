@@ -1,4 +1,4 @@
-import { Column } from '../../component-library/Column'
+import { ColumnFooter } from '../../component-library/Column'
 import { desktopFooter } from '../../data/Footer';
 import { FooterNavLink, FooterNavWrapper, FooterStyle, NavHeader, StyledUL } from './styled'
 
@@ -28,7 +28,7 @@ const DesktopLinks = ({ items }: any) => {
 const Footer = () => {
   return (
     <FooterStyle>
-        <Column>
+        <ColumnFooter>
             <FooterNavWrapper>
                 <DesktopLinks items={desktopFooter} />
                 <StyledUL>
@@ -37,7 +37,7 @@ const Footer = () => {
                     <p>READ MORE -{'>'}</p>
                 </StyledUL>
             </FooterNavWrapper>
-        </Column>
+        </ColumnFooter>
         
         
     </FooterStyle>

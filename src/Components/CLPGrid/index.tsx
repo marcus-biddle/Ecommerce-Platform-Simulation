@@ -1,27 +1,43 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { POKEMONFILTER, REGIONS } from '../../constants';
+import React from 'react'
+import { REGIONS } from '../../constants';
 import { usePokemonContext } from '../../hooks';
 import { ProductCard } from '../ProductCard';
-import { RegionProps } from '../SideMenu';
 import { Grid, GridWrapper } from './styled';
 
-export const CLPGrid = ({ region }: RegionProps) => {
-   const { kantoPokemon, johtoPokemon, sinnohPokemon } = usePokemonContext();
-   const [pokemonRegion, setPokemonRegion] = useState([]);
+export const CLPGrid = ({ currentRegion }: any) => {
+    const { kantoPokemon, johtoPokemon, sinnohPokemon } = usePokemonContext();
 
-   const PokemonCard = () => {
-        region.index === 0 ? setPokemonRegion(kantoPokemon) 
-        : 
-        region.index === 1 ? setPokemonRegion(johtoPokemon)
-        : setPokemonRegion(sinnohPokemon); 
+    const PokemonCards = () => {
+        // Must be a better way to do this.
         return (
             <>
-            {pokemonRegion.slice(0, 18).map((pokemon: any) => {
-                return (
-                    <ProductCard pokemon={pokemon} region={region} />
-                )
-            })}
+                {currentRegion.path === REGIONS[0].path ? 
+                kantoPokemon.slice(0, 18).map((pokemon: any) => {
+                    return (
+                        <React.Fragment key={pokemon.id}>
+                            <ProductCard pokemon={pokemon} region={currentRegion} />
+                        </React.Fragment>
+                        
+                    )
+                })
+                :
+                currentRegion.path === REGIONS[1].path ? 
+                johtoPokemon.slice(0, 18).map((pokemon: any) => {
+                    return (
+                        <React.Fragment key={pokemon.id}>
+                            <ProductCard pokemon={pokemon} region={currentRegion} />
+                        </React.Fragment>
+                    )
+                })
+                :
+                sinnohPokemon.slice(0, 18).map((pokemon: any) => {
+                    return (
+                        <React.Fragment key={pokemon.id}>
+                            <ProductCard pokemon={pokemon} region={currentRegion} />
+                        </React.Fragment>
+                    )
+                })
+                }
             </>
         )
     }
@@ -29,7 +45,7 @@ export const CLPGrid = ({ region }: RegionProps) => {
     return (
         <GridWrapper>
             <Grid>
-                <PokemonCard />
+                <PokemonCards />
             </Grid>
         </GridWrapper>
     

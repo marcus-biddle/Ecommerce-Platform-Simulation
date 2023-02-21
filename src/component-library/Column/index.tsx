@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Column = styled.div`
+export const ColumnFooter = styled.div`
     box-sizing: border-box;
     flex: 0 0 auto;
     flex-grow: 1;
@@ -11,9 +11,3 @@ export const Column = styled.div`
     padding-bottom: 0px;
 `;
 
-export const Row = styled.div`
-    box-sizing: border-box;
-    flex: 1 1 auto;
-    min-width: 0;
-    max-width: 100%;
-`;

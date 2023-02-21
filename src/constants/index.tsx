@@ -2,7 +2,7 @@
 // ****************** Regions ************************
 
 export type PokedexRegion = { first: number, last: number }
-export type RegionType = { region: string, filter: (pokemon: any) => boolean, label: string, index: number}
+export type RegionType = { label: string, path: string, filter: (pokemon: any) => boolean, index: number}
 
 export enum RegionOptions {
     KANTO = 'KANTO',
@@ -29,10 +29,16 @@ export const POKEMONFILTER: FilterType = {
     'SINNOH': (pokemon: any) => pokemon.id >= PokedexOptions.SINNOH_FIRST
 }
 
+export enum RouteOptions {
+    KANTO_ROUTE = 'kanto',
+    JOHTO_ROUTE = 'johto',
+    SINNOH_ROUTE = 'sinnoh'
+}
+
 export const REGIONS: RegionType[] = [
-    { region: RegionOptions.KANTO, filter: POKEMONFILTER[RegionOptions.KANTO], label: 'Kanto Region', index: 0 },
-    { region: RegionOptions.JOHTO, filter: POKEMONFILTER[RegionOptions.JOHTO], label: 'Johto Region', index: 1 },
-    { region: RegionOptions.SINNOH, filter: POKEMONFILTER[RegionOptions.SINNOH], label: 'Sinnoh Region', index: 2 },
+    { label: 'Kanto Region', path: RouteOptions.KANTO_ROUTE, filter: POKEMONFILTER[RegionOptions.KANTO], index: 0 },
+    { label: 'Johto Region', path: RouteOptions.JOHTO_ROUTE, filter: POKEMONFILTER[RegionOptions.JOHTO], index: 1 },
+    { label: 'Sinnoh Region', path: RouteOptions.SINNOH_ROUTE, filter: POKEMONFILTER[RegionOptions.SINNOH], index: 2 },
 ]
 
 // ****************** Starters ************************
@@ -82,16 +88,12 @@ export const LEGENDARIES: LegendaryType[] = [
 
 // ****************** Routes ************************
 
-export enum RouteOptions {
-    KANTO_ROUTE = '/kanto',
-    JOHTO_ROUTE = '/johto',
-    SINNOH_ROUTE = '/sinnoh'
-}
 
-export type RouteType = { location: string }
 
-export const ROUTES: RouteType[] = [
-    { location: RouteOptions.KANTO_ROUTE },
-    { location: RouteOptions.JOHTO_ROUTE },
-    { location: RouteOptions.SINNOH_ROUTE },
-]
+// export type RouteType = { location: string }
+
+// export const ROUTES: RouteType[] = [
+//     { location: RouteOptions.KANTO_ROUTE },
+//     { location: RouteOptions.JOHTO_ROUTE },
+//     { location: RouteOptions.SINNOH_ROUTE },
+// ]

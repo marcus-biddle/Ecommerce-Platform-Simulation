@@ -8,7 +8,7 @@ export const HomeStyle = styled.div`
 // ************ Hero ***************
 
 export const HeroWrapper = styled.div`
-    background-color: #ad60099d;
+    background-color: rgba(11, 97, 147, 0.4);
     height: 76vh;
     width: 100%;
     margin: 0 auto;
@@ -18,27 +18,31 @@ export const HeroWrapper = styled.div`
 export const HeroInfo = styled.div`
     flex-basis: 50%;
     text-align: center;
-    padding-top: 6rem;
+    padding-top: 12rem;
     font-size: larger;
     h2 {
-        transform: scale(1.3);
-    }
+        font-family: "Lucida Console", "Courier New", monospace;
+    };
     span {
-        color: white;
-        font-weight: lighter;
+        font-weight: 600;
+        color: red;
     };
     p {
-        font-size: medium;
+        font-weight: 500;
+        font-size: 1.05rem;
     };
-    button {
-        border: none;
-        background-color: transparent;
-        padding-top: 5rem;
-        transform: scale(1.4);
-    }
-    button:hover {
-        text-decoration-line: underline;
-    }
+`;
+
+export const HomeButton = styled.div`
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 2.5rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    cursor: pointer;
 `;
 
 export const HeroImage = styled.img`
@@ -53,6 +57,39 @@ export const HeroImageWrapper = styled.div`
 // ************ Trending ***************
 export const TrendingWrapper = styled.div`
 
+`;
+
+export const ImgCover = styled.img`
+    height: 10rem;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 25px;
+    transition: transform 5s ease-in;
+    &:hover {
+        opacity: 0;
+    }
+`;
+
+export const ImgContainer = styled.div`
+    padding: 10px
+`;
+
+export const StyledImg = styled.img`
+padding-left: 9px;
+    transform: scale(1.7);
+    transition: transform 5s ease-in;
+    opacity: 0;
+
+    &:hover {
+        opacity: 1;
+        background-color: white;
+    }
+`;
+
+export const PokeImg = styled.div`
+    position: absolute;
+    top: 50rem;
+    left: 2rem;
 `;
 
 // ************ Banner ***************
