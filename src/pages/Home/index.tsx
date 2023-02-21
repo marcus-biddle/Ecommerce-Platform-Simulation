@@ -40,17 +40,25 @@ const Banner = () => {
     )
 };
 
+
+
 const PokeBall = ({ index }: any) => {
     const { pokemon, isLoading } = usePokemonContext();
+    const navigate = useNavigate();
     // This doesn't work because pokeimg is all stacked over one position.
+
+    const handleClick = () => {
+        // Eventually figure out way to link to pokemon PDP.
+        navigate('/kanto/pokemon'); 
+    }
     return (
-        <>
+        <div>
             <ImgCover src={pic2} alt='' />
-            <PokeImg>
+            <PokeImg onClick={handleClick}>
                 <StyledImg src={ pokemon[index].sprites.front_default} alt='' />
             </PokeImg>
             
-        </>
+        </div>
     )
 }
 
@@ -60,6 +68,8 @@ const Trending = () => {
         <ImgContainer>
          {isLoading === false? 
          <>
+            <PokeBall index={Math.floor(pokemon.length * Math.random())}/>
+            <PokeBall index={Math.floor(pokemon.length * Math.random())}/>
             <PokeBall index={Math.floor(pokemon.length * Math.random())}/>
             <PokeBall index={Math.floor(pokemon.length * Math.random())}/>
             <PokeBall index={Math.floor(pokemon.length * Math.random())}/>
@@ -83,7 +93,7 @@ export const Home = () => {
             <h2 style={{ paddingLeft: '18px'}}>Trending Pokemon</h2>
             <Trending />
         </TrendingWrapper>
-        
+        {/* need to fix this lower banner */}
         <BannerWrapper>
             <Banner />
         </BannerWrapper>

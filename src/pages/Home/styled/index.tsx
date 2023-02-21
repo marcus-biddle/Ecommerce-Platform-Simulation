@@ -56,15 +56,18 @@ export const HeroImageWrapper = styled.div`
 
 // ************ Trending ***************
 export const TrendingWrapper = styled.div`
-
+    margin-bottom: 12rem;
 `;
 
 export const ImgCover = styled.img`
+position: absolute;
+padding-left: 8.4rem;
+
     height: 10rem;
     margin-right: auto;
     margin-left: auto;
     border-radius: 25px;
-    transition: transform 5s ease-in;
+    transition: 5s ease-out;
     &:hover {
         opacity: 0;
     }
@@ -77,7 +80,7 @@ export const ImgContainer = styled.div`
 export const StyledImg = styled.img`
 padding-left: 9px;
     transform: scale(1.7);
-    transition: transform 5s ease-in;
+    transition: 1s ease-in;
     opacity: 0;
 
     &:hover {
@@ -87,9 +90,11 @@ padding-left: 9px;
 `;
 
 export const PokeImg = styled.div`
-    position: absolute;
-    top: 50rem;
-    left: 2rem;
+    position: float;
+    float: left;
+    padding-left: 10rem;
+    padding-top: 1.5rem;
+    cursor: pointer;
 `;
 
 // ************ Banner ***************
