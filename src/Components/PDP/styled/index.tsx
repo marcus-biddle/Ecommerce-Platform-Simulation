@@ -10,7 +10,7 @@ export const ProductImg = styled.img`
 export const HeaderContainer = styled.div`
     width: 100%;
     border-bottom: thin solid grey;
-    line-height: 2.5rem;
+    line-height: 3rem;
 `;
 
 export const ProductHeader = styled.div`

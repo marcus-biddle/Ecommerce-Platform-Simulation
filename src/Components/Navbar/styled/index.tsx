@@ -4,12 +4,12 @@ import styled from 'styled-components';
 export const NavbarStyle = styled.div`
     display: flex;
     justify-content: space-between;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    margin-right: 10rem;
+    margin-left: 10rem;
     padding-top: 1.56rem;
     padding-bottom: 1.34rem;
     a:hover {
-        color: red;
+        color: rgba(205, 77, 8, 0.885);
     }
 `;
 

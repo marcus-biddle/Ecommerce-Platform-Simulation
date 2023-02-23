@@ -1,11 +1,19 @@
 import React from 'react'
 import { useParams } from 'react-router';
 import { REGIONS, RegionType } from '../../constants';
+import { Banner } from '../../pages/Home';
 import { CLPGrid } from '../CLPGrid';
 import { RegionProps, SideMenu } from '../SideMenu';
 import { StyledMenuH1 } from '../SideMenu/styled';
-import { CLPBanner } from './CLPBanner';
-import { CLPStyle, Column } from './styled';
+import { BannerStyle, CLPStyle, Column } from './styled';
+
+export const CLPBanner = () => {
+  return (
+    <BannerStyle>
+        BUY ONE GET ONE POKEMON FOR FREE
+    </BannerStyle>
+  )
+}
 
 export const CLP = () => {
   // Need to add pagination next
@@ -18,7 +26,7 @@ export const CLP = () => {
       <div style={{ display: 'flex'}}>
         <SideMenu region={currentRegion} />
         <Column>
-          <CLPBanner />
+          <Banner />
           <CLPGrid currentRegion={currentRegion}/>
         </Column>
       </div>

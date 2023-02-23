@@ -8,29 +8,12 @@ export const HomeStyle = styled.div`
 // ************ Hero ***************
 
 export const HeroWrapper = styled.div`
-    background-color: rgba(11, 97, 147, 0.4);
-    height: 76vh;
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 86vh;
     width: 100%;
-    margin: 0 auto;
     display: flex;
-`;
-
-export const HeroInfo = styled.div`
-    flex-basis: 50%;
-    text-align: center;
-    padding-top: 12rem;
-    font-size: larger;
-    h2 {
-        font-family: "Lucida Console", "Courier New", monospace;
-    };
-    span {
-        font-weight: 600;
-        color: red;
-    };
-    p {
-        font-weight: 500;
-        font-size: 1.05rem;
-    };
+    justify-content: space-between;
+    z-index: 1;
 `;
 
 export const HomeButton = styled.div`
@@ -45,13 +28,39 @@ export const HomeButton = styled.div`
     cursor: pointer;
 `;
 
-export const HeroImage = styled.img`
-    height: 76vh;
+export const HeroImgStyle = styled.div`
+    background-color: grey;
+    width: 27rem; 
+    border: solid;
+    button {
+        opacity: .75;
+    }
 `;
 
-export const HeroImageWrapper = styled.div`
-    width: fit-content;
-    flex-basis: 50%;
+export const HeroImg = styled.img`
+    width: 100%;
+    height: 100%; 
+    object-fit: fill;
+    position: relative;
+    z-index: 2;
+`;
+
+export const HeroMessage = styled.button`
+    position: relative;
+    background-color: white;
+    z-index: 3;
+    top: -10rem;
+    width: 75%;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px;
+    margin-left: 3.35rem;
+    border-radius: 20px;
+    cursor: pointer;
+    &:hover {
+        opacity: 1;
+    }
 `;
 
 // ************ Trending ***************
@@ -60,8 +69,8 @@ export const TrendingWrapper = styled.div`
 `;
 
 export const ImgCover = styled.img`
-position: absolute;
-padding-left: 8.4rem;
+    position: absolute;
+    padding-left: 8.4rem;
 
     height: 10rem;
     margin-right: auto;
@@ -99,14 +108,19 @@ export const PokeImg = styled.div`
 
 // ************ Banner ***************
 export const BannerWrapper = styled.div`
-
+    margin-left: 10rem;
+    margin-right: 10rem;
+    
 `;
 
 export const BannerButton = styled.button`
     text-align: center;
     width: 100%;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
-    background-color: #ad600950;
+    background-color: rgba(205, 77, 8, 0.766);
     padding: 1.5rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
 `;

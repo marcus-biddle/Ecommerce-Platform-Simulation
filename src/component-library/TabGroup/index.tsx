@@ -53,7 +53,7 @@ export const PokeInfo = ({ id, pokemonPDP }: any) => {
                 {info.flavor_text_entries.slice(2,5).map((item: any, index: number) => {
                     if (info.flavor_text_entries[index + 1].flavor_text !== item.flavor_text) {
                         return (
-                            <li style={{ fontSize: '18px', fontWeight: '300'}}>
+                            <li key={`item-text-${index}`} style={{ fontSize: '18px', fontWeight: '300'}}>
                             {item.flavor_text}
                             </li>
                         );
@@ -135,6 +135,12 @@ export const PokeInfo = ({ id, pokemonPDP }: any) => {
         )
     }
     
+    if (isLoadingInfo === true) {
+        return (
+            <>Loading...</>
+        )
+    }
+
     return (
         <>
             <Tabs />

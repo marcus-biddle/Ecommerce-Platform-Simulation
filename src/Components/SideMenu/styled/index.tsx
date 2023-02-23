@@ -33,7 +33,7 @@ export const StyledMenuLink = styled(Link)`
     text-transform: capitalize;
     &:hover {
         cursor: pointer;
-        color: blue;
+        color: rgba(205, 77, 8, 0.885);
     };
 `;
 
