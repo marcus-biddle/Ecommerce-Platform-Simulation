@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { numToUSD } from '../../helpers/currency';
 import { CardHeader, CardInfoWrapper, CardName, CardStyle, ImageWrapper, StyledImg, StyledSpan } from './styled';
 
 export const PokemonPrice = ({ pokemon }: any) => {
-    const price = ((pokemon.weight / pokemon.id) + pokemon.base_experience).toFixed(2);
+    const price = ((pokemon.weight / pokemon.id) + pokemon.base_experience)
 
     return (
         <div>
-            ${ price }
+            { numToUSD(price) }
         </div>
     )
 }

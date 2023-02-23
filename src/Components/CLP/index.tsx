@@ -3,9 +3,8 @@ import { useParams } from 'react-router';
 import { REGIONS, RegionType } from '../../constants';
 import { Banner } from '../../pages/Home';
 import { CLPGrid } from '../CLPGrid';
-import { RegionProps, SideMenu } from '../SideMenu';
-import { StyledMenuH1 } from '../SideMenu/styled';
-import { BannerStyle, CLPStyle, Column } from './styled';
+import { SideMenu } from '../SideMenu';
+import { BannerStyle, CLPStyle, Column, H1Style } from './styled';
 
 export const CLPBanner = () => {
   return (
@@ -22,7 +21,7 @@ export const CLP = () => {
 
   return (
     <CLPStyle>
-      <StyledMenuH1>{currentRegion.label}</StyledMenuH1>
+      <H1Style>{currentRegion.label}</H1Style>
       <div style={{ display: 'flex'}}>
         <SideMenu region={currentRegion} />
         <Column>
