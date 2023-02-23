@@ -2,13 +2,14 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { usePokemonContext, useShoppingCartContext } from '../../hooks';
 import pic from '../../data/assets/pokeballs.gif';
-import { BreadCrumbStyling, CartButton, HeaderContainer, InfoContainer, PDPContainer, PDPStyling, PokemonContainer, PriceStyling, ProductHeader, ProductImg } from './styled';
+import { BreadCrumbWrapper, CartButton, HeaderContainer, InfoContainer, PDPContainer, PDPStyling, PokemonContainer, PriceStyling, ProductHeader, ProductImg } from './styled';
 import { PokeInfo } from '../../component-library/TabGroup';
 import { PokemonPrice } from '../ProductCard';
 import { showOnLoad } from '../../helpers/conditionals';
+import { getPathname } from '../../helpers/navigation';
 
 export const PDP = () => {
-    const { id, region } = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
     const { pokemon, isLoading } = usePokemonContext();
     const { increaseCartQuantity } = useShoppingCartContext();
@@ -25,19 +26,13 @@ export const PDP = () => {
     
     increaseCartQuantity(pokemonPDP.id, price);
     navigate('/cart');
-  }
-
-  if (isLoading === true) {
-    return (
-      <div>Loading...</div>
-    )
-  }
+  };
 
   return (
     <PDPStyling>
-        <BreadCrumbStyling>
-          ../{region}/pokemon/{id}
-        </BreadCrumbStyling>
+        <BreadCrumbWrapper>
+          ..{getPathname()}
+        </BreadCrumbWrapper>
 
         <PDPContainer>
           <ProductImg src={pic} alt='' />
