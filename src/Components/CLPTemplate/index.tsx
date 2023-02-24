@@ -3,7 +3,7 @@ import { REGIONS } from '../../constants';
 import { showOnLoad } from '../../helpers/conditionals';
 import { usePokemonContext } from '../../hooks';
 import { ProductCard } from '../ProductCard';
-import { Grid, GridWrapper } from './styled';
+import { Grid } from './styled';
 
 export const CLPTemplate = ({ currentRegion }: any) => {
     const { kantoPokemon, johtoPokemon, sinnohPokemon, isLoading } = usePokemonContext();
@@ -48,11 +48,8 @@ export const CLPTemplate = ({ currentRegion }: any) => {
     };
    
     return (
-        <GridWrapper>
             <Grid>
                 <PokemonCards />
             </Grid>
-        </GridWrapper>
-    
     )
 }

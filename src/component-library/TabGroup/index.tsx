@@ -1,10 +1,29 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { ActiveTab, ButtonGroup, Column, StyledLi, Tab } from './styled';
-const tabs: string[] = ['stats', 'pokedex', 'wilderness'];
+const tabChoices: string[] = ['stats', 'pokedex', 'wilderness'];
+
+export const Tabs = ({tabs, active, setActive}: any) => {
+    return (
+        <ButtonGroup>
+            {tabs.map((tab: string) => {
+                const tabProps = {
+                    key: `tab-${tab}`,
+                    activeTab: active === tab,
+                    onClick: () => setActive(tab)
+                };
+                if (active === tab) {
+                    return <ActiveTab {...tabProps}>{tab}</ActiveTab>
+                }
+                return <Tab {...tabProps}>{tab}</Tab>
+                
+            }) }
+        </ButtonGroup>
+    )
+}
 
 export const PokeInfo = ({ id, pokemonPDP }: any) => {
-    const [active, setActive] = useState(tabs[0]);
+    const [active, setActive] = useState(tabChoices[0]);
     const [info, setInfo] = useState<any>({});
     const [isLoadingInfo, setLoadingInfo] = useState(true);
 
@@ -26,24 +45,7 @@ export const PokeInfo = ({ id, pokemonPDP }: any) => {
             fetchInfo();
         }, [])
 
-    const Tabs = () => {
-        return (
-            <ButtonGroup>
-                {tabs.map((tab) => {
-                    const tabProps = {
-                        key: `tab-${tab}`,
-                        activeTab: active === tab,
-                        onClick: () => setActive(tab)
-                    };
-                    if (active === tab) {
-                        return <ActiveTab {...tabProps}>{tab}</ActiveTab>
-                    }
-                    return <Tab {...tabProps}>{tab}</Tab>
-                    
-                }) }
-            </ButtonGroup>
-        )
-    }
+    
 
     const Pokedex = () => {
         return (
@@ -139,13 +141,15 @@ export const PokeInfo = ({ id, pokemonPDP }: any) => {
         )
     }
 
+    const tabsProps = { tabChoices, active, setActive}
+
     return (
         <>
-            <Tabs />
-            {active === tabs[1] 
+            <Tabs tabs={tabChoices} active={active} setActive={setActive} />
+            {active === tabChoices[1] 
             ?
             <Pokedex />
-            : active === tabs[2]
+            : active === tabChoices[2]
             ?
             <Wilderness />
             :

@@ -9,20 +9,18 @@ export const CLPStyle = styled.div`
 
 export const Row = styled.div`
     display: grid;
+    grid-template-rows: 200px;
+    grid-template-columns: 925px;
     gap: 2rem;
-    background-color: yellow;
-    margin-right: 10rem;
 `;
 
 export const Column = styled.div`
     display: grid;
     grid-template-columns: auto auto;
-    background-color: black
-    width: fit-content;
+    
 `;
 
 export const BannerStyle = styled.div`
-    background-color: grey;
     padding-top: 5rem;
     padding-bottom: 5rem;
     margin-bottom: 1.99rem;

@@ -12,7 +12,7 @@ export const HeroWrapper = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    z-index: 1;
+    margin-bottom: 3rem;
 `;
 
 export const HomeButton = styled.div`
@@ -113,8 +113,8 @@ export const BannerWrapper = styled.div`
 `;
 
 export const BannerButton = styled.button`
-    max-width: 71.3rem;
     text-align: center;
+    width: 100%;
     border: none;
     border-radius: 8px;
     cursor: pointer;

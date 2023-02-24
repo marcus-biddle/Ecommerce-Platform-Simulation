@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CardStyle = styled.div`
-    padding: 3rem;
+    transform: scale(1);
     box-sizing: border-box;
     transition: transform .2s ease-out;
     &:hover {
