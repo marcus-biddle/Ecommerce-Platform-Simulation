@@ -11,3 +11,5 @@ export const getTotal = (items: number[]) => {
     items.map((item: number) => total += item);
     return total;
 }
+
+export const checkFreeShipping = (subtotal: number): boolean => subtotal > 1000 ? true : false; 
