@@ -113,13 +113,12 @@ export const BannerWrapper = styled.div`
 `;
 
 export const BannerButton = styled.button`
+    max-width: 71.3rem;
     text-align: center;
-    width: 100%;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     background-color: rgba(205, 77, 8, 0.766);
     padding: 1.5rem;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
+    margin-top: 1.4rem;
 `;

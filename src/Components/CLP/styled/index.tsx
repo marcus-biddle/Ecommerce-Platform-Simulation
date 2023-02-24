@@ -3,11 +3,22 @@ import styled from 'styled-components';
 
 
 export const CLPStyle = styled.div`
+    margin-left: 10rem;
+    margin-right: 10rem;
+`;
+
+export const Row = styled.div`
+    display: grid;
+    gap: 2rem;
+    background-color: yellow;
+    margin-right: 10rem;
 `;
 
 export const Column = styled.div`
     display: grid;
-    width: 100%;
+    grid-template-columns: auto auto;
+    background-color: black
+    width: fit-content;
 `;
 
 export const BannerStyle = styled.div`

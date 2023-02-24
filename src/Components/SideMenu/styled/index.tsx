@@ -3,9 +3,7 @@ import styled from 'styled-components';
 
 export const SideMenuWrapper = styled.div`
     text-align: left;
-    padding-left: 14.5px;
-    width: 20rem;
-    max-width: 20rem;
+    width: 14rem;
 `;
 
 export const MenuItem = styled.div``;

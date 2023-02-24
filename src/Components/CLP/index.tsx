@@ -7,10 +7,10 @@ import { Banner } from '../../pages/Home';
 import { CLPTemplate } from '../CLPTemplate';
 import { BreadCrumbWrapper } from '../PDP/styled';
 import { SideMenu } from '../SideMenu';
-import { CLPStyle, Column, H1Style } from './styled';
+import { CLPStyle, Column, H1Style, Row } from './styled';
 
 export const CLP = () => {
-  // Need to add pagination next
+  // Need to add pagination
   const { region } = useParams();
   const currentRegion =  getCurrentRegion(REGIONS, region || '')
 
@@ -20,13 +20,13 @@ export const CLP = () => {
       <BreadCrumbWrapper>
           ..{getPathname()}
       </BreadCrumbWrapper>
-      <div style={{ display: 'flex'}}>
+      <Column>
         <SideMenu region={currentRegion} />
-        <Column>
+        <Row>
           <Banner />
           <CLPTemplate currentRegion={currentRegion}/>
-        </Column>
-      </div>
+        </Row>
+      </Column>
     </CLPStyle>
   )
 };
