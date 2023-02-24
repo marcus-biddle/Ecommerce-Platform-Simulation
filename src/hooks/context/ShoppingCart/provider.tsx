@@ -13,7 +13,8 @@ export type CartItem = {
 }
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
-    const [cartItems, setCartItems] = useState<CartItem[]>(JSON.parse(localStorage.getItem('items') || '') || []);
+    // changed from JSON.parse(localStorage.getItem('items') || '') || []
+    const [cartItems, setCartItems] = useState<CartItem[]>(JSON.parse(localStorage.getItem('items') || ''));
 
     useEffect(() => {
         localStorage.setItem('items', JSON.stringify(cartItems));
