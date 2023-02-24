@@ -8,7 +8,6 @@ export const HomeStyle = styled.div`
 // ************ Hero ***************
 
 export const HeroWrapper = styled.div`
-    background-color: rgba(0, 0, 0, 0.1);
     height: 86vh;
     width: 100%;
     display: flex;

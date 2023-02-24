@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { RiShoppingCartLine } from 'react-icons/ri';
-import { NavbarCategoryWrapper, NavbarHeaderWrapper, NavbarStyle, StyledNavUL, UserWrapper } from './styled';
+import { NavbarCategoryWrapper, NavbarHeaderWrapper, NavbarStyle, Popup, StyledNavUL, UserWrapper } from './styled';
 import { REGIONS } from '../../constants';
+import { useShoppingCartContext } from '../../hooks';
+import { cartHasItems } from '../../helpers/cart';
 
 const NavbarLinks = () => {
   return (
@@ -18,7 +20,23 @@ const NavbarLinks = () => {
   )
 }
 
+const CartNotification = () => {
+  const { cartItems } = useShoppingCartContext();
+  
+  return (
+    <>
+    {cartHasItems(cartItems) ? 
+      <Popup>{cartItems.length}</Popup>
+    :
+      ''
+    }
+    </>
+
+  )
+}
+
 export const Navbar = () => {
+  
   return (
     <NavbarStyle>
         <NavbarHeaderWrapper>
@@ -32,6 +50,7 @@ export const Navbar = () => {
         <UserWrapper>
             <Link to='/cart'>
               <RiShoppingCartLine style={{transform: 'scale(1.75)'}} />
+              <CartNotification />
             </Link>
         </UserWrapper>
     </NavbarStyle>

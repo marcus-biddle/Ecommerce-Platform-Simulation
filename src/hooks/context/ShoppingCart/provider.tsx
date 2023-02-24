@@ -12,12 +12,14 @@ export type CartItem = {
     price: number;
 }
 
+const items = JSON.parse(localStorage.getItem("cartItems") || '{}');
+
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     // changed from JSON.parse(localStorage.getItem('items') || '') || []
-    const [cartItems, setCartItems] = useState<CartItem[]>(JSON.parse(localStorage.getItem('items') || ''));
+    const [cartItems, setCartItems] = useState<CartItem[]>(items || []);
 
     useEffect(() => {
-        localStorage.setItem('items', JSON.stringify(cartItems));
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
         console.log(`Saved ${cartItems.length} items to localstorage.`)
     }, [cartItems]);
 
@@ -32,7 +34,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
             } else {
                 return currItems.map(item => {
                     if (item.id === id) {
-                        return { ...item, price: item.price + price, quantity: item.quantity + 1 };
+                        return { ...item, quantity: item.quantity + 1 };
                     } else {
                         return item;
                     }

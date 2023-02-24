@@ -64,6 +64,6 @@ export const CartButton = styled.button`
     text-transform: uppercase;
     padding: 10px;
     border-radius: 20px;
-    margin-top: 2.5rem;
+    margin-top: 5rem;
     cursor: pointer;
 `;

@@ -30,3 +30,19 @@ export const UserWrapper = styled.div`
 export const NavbarHeaderWrapper = styled.div`
     
 `;
+
+export const Popup = styled.div`
+    background-color: rgba(205, 8, 8, 0.9) !important;
+    color: black !important;
+    position: absolute;
+    top: 1.10rem;
+    border-radius: 25px;
+    margin-left: 10px;
+    width: .8rem;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 600;
+    transform: scale(1.1);
+
+
+`;

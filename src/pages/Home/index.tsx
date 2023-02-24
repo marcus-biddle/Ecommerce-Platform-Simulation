@@ -8,10 +8,6 @@ import { BannerButton, BannerWrapper, HeroImg, HeroImgStyle, HeroMessage, HeroWr
 const Hero = () => {
     const navigate = useNavigate();
 
-    // const handleClick = () => {
-    //     ;   
-    // }
-
     return (
         <>
             <HeroImgStyle>

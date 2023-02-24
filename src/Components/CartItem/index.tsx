@@ -1,16 +1,30 @@
 import React from 'react'
 import { numToUSD } from '../../helpers/currency';
-import { Column } from '../CLP/styled'
+import { useShoppingCartContext } from '../../hooks';
+import { CartColumn } from '../../pages/Cart/styled';
+import { ItemOption } from './styled';
 
 export const CartItem = ({ item }: any) => {
-    // Need to include a delete button and to change quantity
+    const { decreaseCartQuantity, increaseCartQuantity } = useShoppingCartContext();
+
+    const handleDelete = () => {
+      decreaseCartQuantity(item.id);
+    }
+
+    const handleAdd = () => {
+      increaseCartQuantity(item.id, item.price, item.name)
+    }
 
   return (
-    <div style={{backgroundColor: 'grey', width: '100%', padding: '12px', borderRadius: '5px', marginRight: '8px'}}>
-        <Column>
-            <div>{item.name}</div> 
-            <div>{numToUSD(item.price)}</div>
-        </Column>
+    <div style={{borderBottom: 'solid', width: '100%', padding: '12px', marginRight: '8px'}}>
+        <CartColumn>
+            <div>
+              <p style={{ textTransform: 'capitalize'}}>{item.name} x{item.quantity}</p>
+              <ItemOption onClick={handleDelete}>Delete</ItemOption>
+              <ItemOption onClick={handleAdd}>Add</ItemOption>
+            </div> 
+            <p style={{ textAlign: 'right'}}>{numToUSD(item.price * item.quantity)}</p>
+        </CartColumn>
     </div>
   )
 }

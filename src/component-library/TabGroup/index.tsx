@@ -26,8 +26,6 @@ export const PokeInfo = ({ id, pokemonPDP }: any) => {
             fetchInfo();
         }, [])
 
-        console.log(info);
-
     const Tabs = () => {
         return (
             <ButtonGroup>

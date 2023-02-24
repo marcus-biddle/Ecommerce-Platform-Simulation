@@ -2,21 +2,33 @@ import React from 'react'
 import { getSubtotal, getTotal } from '../../helpers/cart';
 import { numToUSD } from '../../helpers/currency'
 import { useShoppingCartContext } from '../../hooks';
+import { CartColumn } from '../../pages/Cart/styled';
 import { CartButton } from '../PDP/styled'
+
+const SummaryItem = ({ title, total }: any) => {
+    return (
+        <CartColumn>
+            <p>{title}</p>
+            <p>{total}</p>
+        </CartColumn>
+    )
+}
 
 export const CartSidebar = () => {
     const { cartItems } = useShoppingCartContext();
     const subtotal = getSubtotal(cartItems);
-    const total = [subtotal, 100, 25];
+    const tax = subtotal *.0805;
+    const shipping = 25 // shipping not implemented.
+    const total = [subtotal, tax, shipping];
 
     return (
-        <div style={{borderLeft: 'thin solid', padding: '12px', width: '25%', minHeight: '90vh'}}>
-        <h3>Cart Summary</h3>
         <div>
-            Subtotal: {numToUSD(subtotal)} <br/>
-            Tax: {numToUSD(subtotal * .0805)} <br/>
-            Shipping: $25 <br/>
-            Total: {numToUSD(getTotal(total))}
+        <h3>Cart Summary</h3>
+        <div style={{ fontWeight: 'lighter', paddingTop: '1rem'}}>
+            <SummaryItem title='Subtotal' total={numToUSD(subtotal)} />
+            <SummaryItem title='Tax' total={numToUSD(tax)} />
+            <SummaryItem title='Shipping' total={numToUSD(shipping)} />
+            <SummaryItem title='Total' total={numToUSD(getTotal(total))} />
         </div>
         <CartButton onClick={() => alert('Congrats! You\'ve finished the e-commerce presentation. Whether it\'s a store to buy pokemon, clothes, or something entirely else, the functionality works the same regardless. Thank you for checking this out!')}>Purchase</CartButton>
         </div>

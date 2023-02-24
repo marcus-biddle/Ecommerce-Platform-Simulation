@@ -1,2 +1,2 @@
-export { Cart } from './Cart/Cart.tsx';
+export { Cart } from './Cart/index';
 export { Home } from './Home/index';

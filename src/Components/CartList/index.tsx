@@ -7,7 +7,7 @@ export const CartList = () => {
     console.log(cartItems);
 
     return (
-        <div style={{width: '75%'}}>
+        <div>
         <h3>Items</h3>
         {cartItems.map((item: any) => {
         return (

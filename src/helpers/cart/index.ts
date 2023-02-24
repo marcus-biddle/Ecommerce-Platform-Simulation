@@ -2,7 +2,7 @@ export const cartHasItems = (cart: any): boolean => cart?.length ? cart.length >
 
 export const getSubtotal = (cart: any): number => {
     let subtotal = 0;
-    cart.map((item: any) => subtotal += Number(item.price));
+    cart.map((item: any) => subtotal += (Number(item.price) * item.quantity));
     return subtotal;
 }
 
