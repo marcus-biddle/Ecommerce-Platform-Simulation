@@ -1,10 +1,10 @@
 import React from 'react'
 import { useParams } from 'react-router';
-import { REGIONS, RegionType } from '../../constants';
+import { REGIONS } from '../../constants';
 import { getCurrentRegion } from '../../helpers/clp';
 import { getPathname } from '../../helpers/navigation';
 import { Banner } from '../../pages/Home';
-import { CLPGrid } from '../CLPGrid';
+import { CLPTemplate } from '../CLPTemplate';
 import { BreadCrumbWrapper } from '../PDP/styled';
 import { SideMenu } from '../SideMenu';
 import { CLPStyle, Column, H1Style } from './styled';
@@ -24,7 +24,7 @@ export const CLP = () => {
         <SideMenu region={currentRegion} />
         <Column>
           <Banner />
-          <CLPGrid currentRegion={currentRegion}/>
+          <CLPTemplate currentRegion={currentRegion}/>
         </Column>
       </div>
     </CLPStyle>

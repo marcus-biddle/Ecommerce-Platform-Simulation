@@ -5,7 +5,7 @@ import { usePokemonContext } from '../../hooks';
 import { ProductCard } from '../ProductCard';
 import { Grid, GridWrapper } from './styled';
 
-export const CLPGrid = ({ currentRegion }: any) => {
+export const CLPTemplate = ({ currentRegion }: any) => {
     const { kantoPokemon, johtoPokemon, sinnohPokemon, isLoading } = usePokemonContext();
     const fallback = (<p>Loading...</p>)
 

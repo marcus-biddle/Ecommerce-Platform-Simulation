@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { numToUSD } from '../../helpers/currency';
+import { getPriceNum, numToUSD } from '../../helpers/currency';
 import { CardHeader, CardInfoWrapper, CardName, CardStyle, ImageWrapper, StyledImg, StyledSpan } from './styled';
 
 export const PokemonPrice = ({ pokemon }: any) => {
-    const price = ((pokemon.weight / pokemon.id) + pokemon.base_experience)
+    const price = getPriceNum(pokemon);
 
     return (
         <div>
@@ -34,9 +34,7 @@ export const ProductCard = ({ pokemon, region }: any) => {
         </ImageWrapper>
         <CardInfoWrapper>
             <CardHeader>
-                <CardName>
-                    { pokemon.name }
-                </CardName>
+                <CardName>{ pokemon.name }</CardName>
                 <PokemonPrice pokemon={pokemon} />
             </CardHeader>
             <PokemonTypes pokemon={pokemon} />

@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import { ShoppingCartContext } from './context';
 
 type ShoppingCartProviderProps = {
@@ -7,25 +7,31 @@ type ShoppingCartProviderProps = {
 
 export type CartItem = {
     id: number;
+    name: string;
     quantity: number;
     price: number;
 }
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
-    const [cartItems, setCartItems] = useState<CartItem[]>([]);
+    const [cartItems, setCartItems] = useState<CartItem[]>(JSON.parse(localStorage.getItem('items') || '') || []);
+
+    useEffect(() => {
+        localStorage.setItem('items', JSON.stringify(cartItems));
+        console.log(`Saved ${cartItems.length} items to localstorage.`)
+    }, [cartItems]);
 
     function getItemQuantity(id: number) {
         return cartItems.find(item => item.id === id)?.quantity || 0;
     };
 
-    function increaseCartQuantity(id: number, price: number) {
+    function increaseCartQuantity(id: number, price: number, name: string) {
         setCartItems(currItems => {
             if (currItems.find(item => item.id === id) == null) {
-                return [...currItems, { id, price: price, quantity: 1}]
+                return [...currItems, { id, name, price, quantity: 1}]
             } else {
                 return currItems.map(item => {
                     if (item.id === id) {
-                        return { ...item, price: price, quantity: item.quantity + 1 };
+                        return { ...item, price: item.price + price, quantity: item.quantity + 1 };
                     } else {
                         return item;
                     }
@@ -41,7 +47,8 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
             } else {
                 return currItems.map(item => {
                     if (item.id === id) {
-                        return { ...item, price: item.price, quantity: item.quantity - 1 };
+                        // removing price: item.price
+                        return { ...item, quantity: item.quantity - 1 };
                     } else {
                         return item;
                     }

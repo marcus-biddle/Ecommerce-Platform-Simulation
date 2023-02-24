@@ -7,6 +7,7 @@ import { PokeInfo } from '../../component-library/TabGroup';
 import { PokemonPrice } from '../ProductCard';
 import { showOnLoad } from '../../helpers/conditionals';
 import { getPathname } from '../../helpers/navigation';
+import { getPriceNum } from '../../helpers/currency';
 
 export const PDP = () => {
     const { id } = useParams();
@@ -22,9 +23,9 @@ export const PDP = () => {
     }
 
   const handleClick = () => {
-    const price = ((pokemonPDP.weight / pokemonPDP.id) + pokemonPDP.base_experience).toFixed(2);
+    const price = getPriceNum(pokemonPDP);
     
-    increaseCartQuantity(pokemonPDP.id, price);
+    increaseCartQuantity(pokemonPDP.id, price, pokemonPDP.name);
     navigate('/cart');
   };
 
@@ -50,7 +51,9 @@ export const PDP = () => {
             </HeaderContainer>
 
             <InfoContainer>
-              <PokeInfo {...props} />
+              {showOnLoad(isLoading)(fallback)(
+                <PokeInfo {...props} />
+              )}
             </InfoContainer>
             
             {showOnLoad(isLoading)(fallback)(
