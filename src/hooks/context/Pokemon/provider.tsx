@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { REGIONS } from "../../../constants";
 import { PokemonContext } from "./context"
 
@@ -9,9 +9,9 @@ export const PokemonProvider = ({ children }: any) => {
 
     const pokemonClient = axios.create({
         baseURL: "https://pokeapi.co/api/v2/pokemon/"
-    })
+    });
 
-    const fetchPokemonNames = async() => {
+    const fetchPokemonNames = useCallback((async() => {
         pokemonClient.get(`?limit=491&offset=0`) // include limit and offset to get specific region
         .then((response) => {
 
@@ -34,11 +34,13 @@ export const PokemonProvider = ({ children }: any) => {
             setLoading(false);
 
         })
-    }
+    }), [])
+
         useEffect(() => {
             fetchPokemonNames();
-        }, [])
+        }, [fetchPokemonNames])
 
+        //these could be refactored 
         const kantoPokemon = pokemon.filter(REGIONS[0].filter);
         const johtoPokemon = pokemon.filter(REGIONS[1].filter);
         const sinnohPokemon = pokemon.filter(REGIONS[2].filter);

@@ -1,61 +1,66 @@
-import React, { useEffect, useState } from 'react'
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
+import React from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { usePokemonContext, useShoppingCartContext } from '../../hooks';
 import pic from '../../data/assets/pokeballs.gif';
-import { BreadCrumbStyling, CartButton, HeaderContainer, InfoContainer, PDPContainer, PDPStyling, PokemonContainer, PriceStyling, ProductHeader, ProductImg } from './styled';
-import axios from 'axios';
+import { BreadCrumbWrapper, CartButton, HeaderContainer, InfoContainer, PDPContainer, PDPStyling, PokemonContainer, PriceStyling, ProductHeader, ProductImg } from './styled';
 import { PokeInfo } from '../../component-library/TabGroup';
 import { PokemonPrice } from '../ProductCard';
-import { Cart } from '../../pages';
+import { showOnLoad } from '../../helpers/conditionals';
+import { getPathname } from '../../helpers/navigation';
+import { getPriceNum } from '../../helpers/currency';
 
 export const PDP = () => {
-    const { id, region } = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
     const { pokemon, isLoading } = usePokemonContext();
     const { increaseCartQuantity } = useShoppingCartContext();
     const pokeId = Number(id);
     const pokemonPDP = pokemon[pokeId || 0]
+    const fallback = (<p>Loading...</p>);
     const props = {
       id,
       pokemonPDP
     }
-    console.log(pokemonPDP)
-    
 
   const handleClick = () => {
-    const price = ((pokemonPDP.weight / pokemonPDP.id) + pokemonPDP.base_experience).toFixed(2);
+    const price = getPriceNum(pokemonPDP);
     
-    increaseCartQuantity(pokemonPDP.id, price);
+    increaseCartQuantity(pokemonPDP.id, price, pokemonPDP.name);
     navigate('/cart');
-  }
-
-  if (isLoading === true) {
-    return (
-      <div>Loading...</div>
-    )
-  }
+  };
 
   return (
     <PDPStyling>
-        <BreadCrumbStyling>
-          ../{region}/pokemon/{id}
-        </BreadCrumbStyling>
+        <BreadCrumbWrapper>
+          ..{getPathname()}
+        </BreadCrumbWrapper>
+
         <PDPContainer>
           <ProductImg src={pic} alt='' />
+
           <PokemonContainer>
             <HeaderContainer>
-              <ProductHeader>{pokemonPDP.name}</ProductHeader>
+              {showOnLoad(isLoading)(fallback)(
+                <ProductHeader>{pokemonPDP.name}</ProductHeader>
+              )}
               <PriceStyling>
-                <PokemonPrice pokemon={pokemonPDP}/>
+                {showOnLoad(isLoading)(fallback)(
+                  <PokemonPrice pokemon={pokemonPDP}/>
+                )}
               </PriceStyling>
             </HeaderContainer>
+
             <InfoContainer>
-              <PokeInfo {...props} />
+              {showOnLoad(isLoading)(fallback)(
+                <PokeInfo {...props} />
+              )}
             </InfoContainer>
-            <CartButton onClick={handleClick}>BUY {pokemonPDP.name}</CartButton>
+            
+            {showOnLoad(isLoading)(fallback)(
+              <CartButton onClick={handleClick}>BUY {pokemonPDP.name}</CartButton>
+            )}
           </PokemonContainer>
         </PDPContainer>
-        
     </PDPStyling>
   )
 }

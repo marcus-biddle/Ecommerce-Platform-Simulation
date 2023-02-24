@@ -49,7 +49,7 @@ export const InfoContainer = styled.div`
     height: 20rem;
 `;
 
-export const BreadCrumbStyling = styled.div`
+export const BreadCrumbWrapper = styled.div`
     font-family: "Lucida Console", "Courier New", monospace;
     padding: 15px;
     font-size: 1.05rem;

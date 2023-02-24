@@ -1,20 +1,14 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const MenuStyle = styled.div`
+export const SideMenuWrapper = styled.div`
     text-align: left;
     padding-left: 14.5px;
     width: 20rem;
     max-width: 20rem;
 `;
 
-export const StyledMenuH1 = styled.h1`
-    font-family: "Lucida Console", "Courier New", monospace;
-    font-weight: 900;
-    font-size: 2.02rem;
-    letter-spacing: .05px;
-    padding-left: 14.5px;
-`;
+export const MenuItem = styled.div``;
 
 export const StyledMenuH4 = styled.h4`
     font-family: "Lucida Console", "Courier New", monospace;
