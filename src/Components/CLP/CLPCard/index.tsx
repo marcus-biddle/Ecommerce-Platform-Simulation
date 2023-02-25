@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { getPriceNum, numToUSD } from '../../helpers/currency';
+import { getPriceNum, numToUSD } from '../../../helpers/currency';
 import { CardHeader, CardInfoWrapper, CardName, CardStyle, ImageWrapper, StyledImg, StyledSpan } from './styled';
 
 export const PokemonPrice = ({ pokemon }: any) => {

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 import region1 from '../../assets/region1.png';
 import region2 from '../../assets/region2.png';
 import region3 from '../../assets/region3.jpg';
-import { Tabs } from '../../component-library/TabGroup';
+import { Tabs } from '../../component-library/Tabs';
 import { BannerButton, BannerWrapper, HeroImg, HeroImgStyle, HeroMessage, HeroWrapper, HomeStyle } from './styled'
 
 const tabOptions: string[] = ['starters', 'legendaries']
@@ -15,15 +15,15 @@ const Hero = () => {
         <>
             <HeroImgStyle>
                 <HeroImg src={region2} alt='' />
-                <HeroMessage onClick={() => navigate('/johto/pokemon')}>Johto Region</HeroMessage>
+                <HeroMessage onClick={() => navigate('/johto/pokemon')}>Shop Johto Region</HeroMessage>
             </HeroImgStyle>
             <HeroImgStyle>
                 <HeroImg src={region1} alt='' />
-                <HeroMessage onClick={() => navigate('/kanto/pokemon')}>Kanto Region</HeroMessage>
+                <HeroMessage onClick={() => navigate('/kanto/pokemon')}>Shop Kanto Region</HeroMessage>
             </HeroImgStyle>
             <HeroImgStyle>
                 <HeroImg src={region3} alt='' />
-                <HeroMessage onClick={() => navigate('/sinnoh/pokemon')}>Sinnoh Region</HeroMessage>
+                <HeroMessage onClick={() => navigate('/sinnoh/pokemon')}>Shop Sinnoh Region</HeroMessage>
             </HeroImgStyle>
         </>
             

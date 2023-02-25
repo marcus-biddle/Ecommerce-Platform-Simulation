@@ -1,5 +1,5 @@
 import React from 'react'
-import { useShoppingCartContext } from '../../hooks';
+import { useShoppingCartContext } from '../../../hooks';
 import { CartItem } from '../CartItem';
 
 export const CartList = () => {

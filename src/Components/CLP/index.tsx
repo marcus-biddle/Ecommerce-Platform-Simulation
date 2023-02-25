@@ -1,12 +1,12 @@
 import React from 'react'
 import { useParams } from 'react-router';
-import { REGIONS } from '../../constants';
+import { REGIONS } from '../../constants/regions';
 import { getCurrentRegion } from '../../helpers/clp';
 import { getPathname } from '../../helpers/navigation';
 import { Banner } from '../../pages/Home';
-import { CLPTemplate } from '../CLPTemplate';
 import { BreadCrumbWrapper } from '../PDP/styled';
 import { SideMenu } from '../SideMenu';
+import { CLPTemplate } from './CLPTemplate';
 import { CLPStyle, Column, H1Style, Row } from './styled';
 
 export const CLP = () => {

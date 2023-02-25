@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
-import { REGIONS } from "../../../constants";
+import { REGIONS } from "../../../constants/regions";
 import { PokemonContext } from "./context"
 
 export const PokemonProvider = ({ children }: any) => {

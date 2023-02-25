@@ -1,7 +1,7 @@
 import React from 'react'
-import { numToUSD } from '../../helpers/currency';
-import { useShoppingCartContext } from '../../hooks';
-import { CartColumn } from '../../pages/Cart/styled';
+import { numToUSD } from '../../../helpers/currency';
+import { useShoppingCartContext } from '../../../hooks';
+import { CartColumn } from '../../../pages/Cart/styled';
 import { ItemOption } from './styled';
 
 export const CartItem = ({ item }: any) => {

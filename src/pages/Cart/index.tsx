@@ -1,6 +1,6 @@
 import React from 'react';
-import { CartList } from '../../components/CartList';
-import { CartSidebar } from '../../components/CartSidebar';
+import { CartList } from '../../components/Cart/CartList';
+import { CartSidebar } from '../../components/Cart/CartSidebar';
 import { cartHasItems } from '../../helpers/cart';
 import { useShoppingCartContext } from '../../hooks';
 import { CartColumn, CartWrapper } from './styled';

@@ -1,26 +1,9 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
-import { ActiveTab, ButtonGroup, Column, StyledLi, Tab } from './styled';
-const tabChoices: string[] = ['stats', 'pokedex', 'wilderness'];
+import { Tabs } from '../../../component-library/Tabs';
+import { tabChoices } from '../../../constants/info';
+import { Column, StyledLi, Tab } from './styled';
 
-export const Tabs = ({tabs, active, setActive}: any) => {
-    return (
-        <ButtonGroup>
-            {tabs.map((tab: string) => {
-                const tabProps = {
-                    key: `tab-${tab}`,
-                    activeTab: active === tab,
-                    onClick: () => setActive(tab)
-                };
-                if (active === tab) {
-                    return <ActiveTab {...tabProps}>{tab}</ActiveTab>
-                }
-                return <Tab {...tabProps}>{tab}</Tab>
-                
-            }) }
-        </ButtonGroup>
-    )
-}
 
 export const PokeInfo = ({ id, pokemonPDP }: any) => {
     const [active, setActive] = useState(tabChoices[0]);

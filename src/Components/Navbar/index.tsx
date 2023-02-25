@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { RiShoppingCartLine } from 'react-icons/ri';
 import { NavbarCategoryWrapper, NavbarHeaderWrapper, NavbarStyle, Popup, StyledNavUL, UserWrapper } from './styled';
-import { REGIONS } from '../../constants';
 import { useShoppingCartContext } from '../../hooks';
 import { cartHasItems } from '../../helpers/cart';
+import { REGIONS } from '../../constants/regions';
+import { useWindowDemension } from '../../hooks/mobile';
+import { showByWindowSize } from '../../helpers/media';
 
 const NavbarLinks = () => {
   return (
@@ -42,6 +44,9 @@ export const Navbar = () => {
         <NavbarHeaderWrapper>
           <Link to='/'>POKE LORE</Link>
         </NavbarHeaderWrapper>
+        <>
+        {showByWindowSize(useWindowDemension())((<div>true</div>))((<div>false</div>))}
+        </>
 
         <NavbarCategoryWrapper>
           <NavbarLinks />

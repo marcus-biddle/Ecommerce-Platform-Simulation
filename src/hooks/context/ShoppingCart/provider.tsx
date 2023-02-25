@@ -1,4 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react'
+import { getLocalStorageCart, setLocalStorageCart } from '../../../helpers/storage';
 import { ShoppingCartContext } from './context';
 
 type ShoppingCartProviderProps = {
@@ -12,14 +13,14 @@ export type CartItem = {
     price: number;
 }
 
-const items = JSON.parse(localStorage.getItem("cartItems") || '{}');
+const items = getLocalStorageCart('cartItems');
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
-    // changed from JSON.parse(localStorage.getItem('items') || '') || []
     const [cartItems, setCartItems] = useState<CartItem[]>(items || []);
 
     useEffect(() => {
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        // localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        setLocalStorageCart(cartItems, 'cartItems');
         console.log(`Saved ${cartItems.length} items to localstorage.`)
     }, [cartItems]);
 

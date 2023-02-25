@@ -1,6 +1,5 @@
-import { ColumnFooter } from '../../component-library/Column'
-import { desktopFooter } from '../../data/Footer';
-import { FooterNavLink, FooterNavWrapper, FooterStyle, NavHeader, StyledUL } from './styled'
+import { desktopFooter } from '../../constants/info';
+import { ColumnFooter, FooterNavLink, FooterNavWrapper, FooterStyle, NavHeader, StyledUL } from './styled'
 
 
 // Fix type

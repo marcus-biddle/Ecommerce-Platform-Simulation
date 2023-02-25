@@ -1,13 +1,13 @@
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { usePokemonContext, useShoppingCartContext } from '../../hooks';
-import pic from '../../data/assets/pokeballs.gif';
+import pic from '../../assets/pokeballs.gif';
 import { BreadCrumbWrapper, CartButton, HeaderContainer, InfoContainer, PDPContainer, PDPStyling, PokemonContainer, PriceStyling, ProductHeader, ProductImg } from './styled';
-import { PokeInfo } from '../../component-library/TabGroup';
-import { PokemonPrice } from '../ProductCard';
 import { showOnLoad } from '../../helpers/conditionals';
 import { getPathname } from '../../helpers/navigation';
 import { getPriceNum } from '../../helpers/currency';
+import { PokemonPrice } from '../CLP/CLPCard';
+import { PokeInfo } from './PDPInfo';
 
 export const PDP = () => {
     const { id } = useParams();

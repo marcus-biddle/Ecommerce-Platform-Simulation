@@ -1,8 +1,9 @@
 import React from 'react';
-import { LEGENDARIES, RegionType, STARTER_POKEMON } from '../../constants';
+import { LEGENDARIES, STARTER_POKEMON } from '../../constants/pokemon';
 import { MenuItem, SideMenuWrapper, StyledMenuH4, StyledMenuLink } from './styled';
 import { usePokemonContext } from '../../hooks';
 import { showOnLoad } from '../../helpers/conditionals';
+import { RegionType } from '../../constants/regions';
 
 export interface RegionProps {
   region : RegionType;

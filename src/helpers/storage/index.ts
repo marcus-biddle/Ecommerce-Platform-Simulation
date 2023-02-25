@@ -1,4 +1,3 @@
+export const setLocalStorageCart = (data: any, key: string) => localStorage.setItem(key, JSON.stringify(data));
 
-// if cart has items, locally store the data
-export const setLocalStorageCart = (cart: any) => {};
-
+export const getLocalStorageCart = (key: string) => JSON.parse(localStorage.getItem(key) || '{}');

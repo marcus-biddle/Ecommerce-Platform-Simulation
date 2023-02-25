@@ -1,8 +1,8 @@
 import React from 'react'
-import { REGIONS } from '../../constants';
-import { showOnLoad } from '../../helpers/conditionals';
-import { usePokemonContext } from '../../hooks';
-import { ProductCard } from '../ProductCard';
+import { REGIONS } from '../../../constants/regions';
+import { showOnLoad } from '../../../helpers/conditionals';
+import { usePokemonContext } from '../../../hooks';
+import { ProductCard } from '../CLPCard';
 import { Grid } from './styled';
 
 export const CLPTemplate = ({ currentRegion }: any) => {
