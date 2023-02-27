@@ -36,7 +36,7 @@ export const CartSidebar = () => {
             <div style={{ textAlign: 'center', fontSize: '16px', fontWeight: 'lighter', marginTop: '16px'}}>Congrats, you got free shipping!</div>
         :
             ''}
-        <CartButton onClick={() => alert('Congrats! You\'ve finished the e-commerce presentation. Whether it\'s a store to buy pokemon, clothes, or something entirely else, the functionality works the same regardless. Thank you for checking this out!')}>Purchase</CartButton>
+        <CartButton onClick={() => alert('Congrats! You\'ve finished the e-commerce presentation. Thank you for checking this out!')}>Purchase</CartButton>
         </div>
     )
 }
