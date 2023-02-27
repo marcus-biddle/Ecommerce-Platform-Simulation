@@ -3,20 +3,29 @@ import styled from 'styled-components';
 
 
 export const CLPStyle = styled.div`
-    margin-left: 10rem;
-    margin-right: 10rem;
+    
+    @media only screen and (min-width: 768px) {
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
 `;
 
 export const Row = styled.div`
-    display: grid;
-    grid-template-rows: 200px;
-    grid-template-columns: 925px;
-    gap: 2rem;
+    
+
+    @media only screen and (min-width: 768px) {
+        display: grid;
+        grid-template-rows: 200px;
+        grid-template-columns: 925px;
+        gap: 2rem;
+    }
 `;
 
 export const Column = styled.div`
     display: grid;
     grid-template-columns: auto auto;
+    margin: auto;
+    justify-content: center;
     
 `;
 

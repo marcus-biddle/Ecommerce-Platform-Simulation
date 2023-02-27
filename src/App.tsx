@@ -7,16 +7,16 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { Cart, Home } from './pages/index.js';
-import { Navbar } from './components/Navbar';
 import Footer from './components/Footer/index';
 import { PDP } from './components/PDP';
 import { CLP } from './components/CLP';
+import { Header } from './components/Header';
 
 const Root = () => {
   
   return (
     <>
-    <Navbar />
+    <Header />
 
     <Outlet />
     

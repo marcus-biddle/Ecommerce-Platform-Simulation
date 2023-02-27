@@ -124,8 +124,6 @@ export const PokeInfo = ({ id, pokemonPDP }: any) => {
         )
     }
 
-    const tabsProps = { tabChoices, active, setActive}
-
     return (
         <>
             <Tabs tabs={tabChoices} active={active} setActive={setActive} />

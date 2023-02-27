@@ -2,17 +2,21 @@ import styled from 'styled-components';
 
 
 export const HomeStyle = styled.div`
-
 `;
 
 // ************ Hero ***************
 
 export const HeroWrapper = styled.div`
-    height: 86vh;
-    width: 100%;
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 3rem;
+    flex-direction: column;
+
+    @media only screen and (min-width: 768px) {
+        flex-direction: row;
+        height: 45vh;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 3rem;
+    }
 `;
 
 export const HomeButton = styled.div`
@@ -28,27 +32,34 @@ export const HomeButton = styled.div`
 `;
 
 export const HeroImgStyle = styled.div`
-    background-color: grey;
-    width: 27rem; 
+    height: 30vh;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     border: solid;
     button {
-        opacity: .75;
+        opacity: .85;
+    }
+
+    @media only screen and (min-width: 768px) {
+        height: 45vh;
+        width: 27rem; 
+        
     }
 `;
 
 export const HeroImg = styled.img`
     width: 100%;
     height: 100%; 
-    object-fit: fill;
+    object-fit: cover;
     position: relative;
-    z-index: 2;
+    z-index: -1;
 `;
 
 export const HeroMessage = styled.button`
     position: relative;
+    z-index: 1;
     background-color: white;
-    z-index: 3;
-    top: -10rem;
+    top: -9rem;
     width: 75%;
     background-color: black;
     color: white;
@@ -59,7 +70,11 @@ export const HeroMessage = styled.button`
     cursor: pointer;
     &:hover {
         opacity: 1;
-    }
+    };
+
+    @media only screen and (min-width: 768px) {
+        top: -13rem;
+    };
 `;
 
 // ************ Trending ***************
@@ -107,9 +122,12 @@ export const PokeImg = styled.div`
 
 // ************ Banner ***************
 export const BannerWrapper = styled.div`
-    margin-left: 10rem;
-    margin-right: 10rem;
     
+    
+    @media only screen and (min-width: 768px) {
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
 `;
 
 export const BannerButton = styled.button`

@@ -1,4 +1,6 @@
 import { desktopFooter } from '../../constants/info';
+import { showByWindowSize } from '../../helpers/media';
+import { useWindowDemension } from '../../hooks/mobile';
 import { ColumnFooter, FooterNavLink, FooterNavWrapper, FooterStyle, NavHeader, StyledUL } from './styled'
 
 
@@ -25,8 +27,8 @@ const DesktopLinks = ({ items }: any) => {
 };
 
 const Footer = () => {
-  return (
-    <FooterStyle>
+    const desktopFoot = (
+        <FooterStyle>
         <ColumnFooter>
             <FooterNavWrapper>
                 <DesktopLinks items={desktopFooter} />
@@ -37,9 +39,13 @@ const Footer = () => {
                 </StyledUL>
             </FooterNavWrapper>
         </ColumnFooter>
-        
-        
     </FooterStyle>
+    )
+    
+  return (
+    <>
+    {showByWindowSize(useWindowDemension())((desktopFoot))((''))}
+    </>
   )
 }
 

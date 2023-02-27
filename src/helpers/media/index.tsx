@@ -1,1 +1,1 @@
-export const showByWindowSize = (window: number) => (desktopContent: any) => (mobileContent: any) => window < 640 ? mobileContent : desktopContent;
+export const showByWindowSize = (window: number) => (desktopContent: any) => (mobileContent: any) => window < 768 ? mobileContent : desktopContent;

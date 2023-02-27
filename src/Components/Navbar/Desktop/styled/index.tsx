@@ -35,7 +35,7 @@ export const Popup = styled.div`
     background-color: rgba(205, 8, 8, 0.9) !important;
     color: black !important;
     position: absolute;
-    top: 1.10rem;
+    top: .5rem;
     border-radius: 25px;
     margin-left: 10px;
     width: .8rem;
@@ -44,5 +44,7 @@ export const Popup = styled.div`
     font-weight: 600;
     transform: scale(1.1);
 
-
+    @media only screen and (min-width: 768px) {
+        top: 1.10rem;
+    }
 `;

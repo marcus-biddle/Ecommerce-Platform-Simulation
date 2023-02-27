@@ -2,7 +2,9 @@ import React from 'react'
 import { useParams } from 'react-router';
 import { REGIONS } from '../../constants/regions';
 import { getCurrentRegion } from '../../helpers/clp';
+import { showByWindowSize } from '../../helpers/media';
 import { getPathname } from '../../helpers/navigation';
+import { useWindowDemension } from '../../hooks/mobile';
 import { Banner } from '../../pages/Home';
 import { BreadCrumbWrapper } from '../PDP/styled';
 import { SideMenu } from '../SideMenu';
@@ -21,7 +23,7 @@ export const CLP = () => {
           ..{getPathname()}
       </BreadCrumbWrapper>
       <Column>
-        <SideMenu region={currentRegion} />
+        {showByWindowSize(useWindowDemension())((<SideMenu region={currentRegion} />))((''))}
         <Row>
           <Banner />
           <CLPTemplate currentRegion={currentRegion}/>

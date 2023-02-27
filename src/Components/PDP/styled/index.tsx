@@ -1,16 +1,25 @@
 import styled from "styled-components";
 
 export const ProductImg = styled.img`
-    height: 25rem;
-    width: 30rem;
+    height: 15rem;
+    width: 27rem;
     object-fit: contain;
     border: solid black;
+
+    @media only screen and (min-width: 768px) {
+        height: 25rem;
+        width: 30rem;
+    }
 `;
 
 export const HeaderContainer = styled.div`
-    width: 100%;
     border-bottom: thin solid grey;
+
+    @media only screen and (min-width: 768px) {
+        width: 100%;
+    
     line-height: 3rem;
+    }
 `;
 
 export const ProductHeader = styled.div`
@@ -28,20 +37,31 @@ export const PriceStyling = styled.div`
 `;
 
 export const PDPStyling = styled.div`
-    padding-top: 3rem;
-    padding-left: 11rem;
-    padding-right: 11rem;
-    min-height: 90vh;
+
+    @media only screen and (min-width: 768px) {
+        padding-top: 3rem;
+        padding-left: 11rem;
+        padding-right: 11rem;
+        min-height: 90vh;
+    }
 `;
 
 export const PDPContainer = styled.div`
-    display: flex;
-    padding-top: 1rem;
+
+    @media only screen and (min-width: 768px) {
+            display: flex;
+            padding-top: 1rem;
+        }
 `;
 
 export const PokemonContainer = styled.div`
-    margin-left: 3.4rem;
-    max-width: 35.75rem;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @media only screen and (min-width: 768px) {
+            margin-left: 3.4rem;
+            max-width: 35.75rem;
+        }
 `;
 
 export const InfoContainer = styled.div`

@@ -41,15 +41,17 @@ export const Banner = () => {
 
 export const Home = () => {
     const [active, setActive] = useState(tabOptions[0]);
+    
   return (
     <HomeStyle>
-        <HeroWrapper>
-            <Hero />
-        </HeroWrapper>
         <BannerWrapper>
             <Banner />
         </BannerWrapper>
 
+        <HeroWrapper>
+            <Hero />
+        </HeroWrapper>
+        
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem'}}>
             {/* TODO: Need to make Tabs component reuseable */}
             <Tabs tabs={tabOptions} active={active} setActive={setActive} />

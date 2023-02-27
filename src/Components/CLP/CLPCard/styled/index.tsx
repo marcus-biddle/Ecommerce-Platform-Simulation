@@ -1,14 +1,19 @@
 import styled from "styled-components";
 
 export const CardStyle = styled.div`
-    transform: scale(1);
-    box-sizing: border-box;
-    transition: transform .2s ease-out;
-    &:hover {
-        cursor: pointer;
-        transform: scale(1.2);
-        transition: transform .3s ease-in;
-    };
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    @media only screen and (min-width: 768px) {
+            transform: scale(1);
+            box-sizing: border-box;
+            transition: transform .2s ease-out;
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.2);
+                transition: transform .3s ease-in;
+            }
+        }
 `;
 
 export const CardHeader = styled.div`

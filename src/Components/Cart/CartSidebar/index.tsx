@@ -4,14 +4,15 @@ import { numToUSD } from '../../../helpers/currency';
 import { useShoppingCartContext } from '../../../hooks';
 import { CartColumn } from '../../../pages/Cart/styled';
 import { CartButton } from '../../PDP/styled';
+import { CartItemColumn } from '../CartItem/styled';
 
 
 const SummaryItem = ({ title, total }: any) => {
     return (
-        <CartColumn>
+        <CartItemColumn>
             <p>{title}</p>
             <p>{total}</p>
-        </CartColumn>
+        </CartItemColumn>
     )
 }
 
@@ -25,7 +26,7 @@ export const CartSidebar = () => {
     return (
         <div>
         <h3>Cart Summary</h3>
-        <div style={{ fontWeight: 'lighter', paddingTop: '1rem'}}>
+        <div style={{ fontWeight: 'lighter', padding: '1rem'}}>
             <SummaryItem title='Subtotal' total={numToUSD(subtotal)} />
             <SummaryItem title='Tax' total={numToUSD(tax)} />
             <SummaryItem title='Shipping' total={checkFreeShipping(subtotal)? numToUSD(0) : numToUSD(shipping)} />
