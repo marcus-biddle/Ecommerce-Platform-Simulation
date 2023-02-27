@@ -8,12 +8,11 @@ import {
 } from "react-router-dom";
 import { Cart, Home } from './pages/index.js';
 import Footer from './components/Footer/index';
-import { PDP } from './components/pdp';
-import { CLP } from './components/CLP';
+import { PDP } from './components/Pdp';
+import { CLP } from './components/Clp';
 import { Header } from './components/Header';
 
 const Root = () => {
-  
   return (
     <>
     <Header />

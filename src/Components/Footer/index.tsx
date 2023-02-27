@@ -1,5 +1,5 @@
 import { desktopFooter } from '../../constants/info';
-import { showByWindowSize } from '../../helpers/media';
+import { showIfOrElseWindow } from '../../helpers/media';
 import { useWindowDemension } from '../../hooks/mobile';
 import { ColumnFooter, FooterNavLink, FooterNavWrapper, FooterStyle, NavHeader, StyledUL } from './styled'
 
@@ -44,7 +44,7 @@ const Footer = () => {
     
   return (
     <>
-    {showByWindowSize(useWindowDemension())((desktopFoot))((''))}
+    {showIfOrElseWindow(useWindowDemension())((desktopFoot))((''))}
     </>
   )
 }

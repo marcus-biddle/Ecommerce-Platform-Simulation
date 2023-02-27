@@ -56,3 +56,5 @@ export const desktopFooter = [
 ]
 
 export const tabChoices: string[] = ['stats', 'pokedex', 'wilderness'];
+
+export const tabOptions: string[] = ['starters', 'legendaries']
