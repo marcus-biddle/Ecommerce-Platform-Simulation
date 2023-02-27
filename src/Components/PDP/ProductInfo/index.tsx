@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
-import { Tabs } from '../Tabs';
-import { tabChoices } from '../../constants/info';
+import { Tabs } from '../../../component-library/Tabs';
+import { tabChoices } from '../../../constants/info';
 import { Column, StyledLi } from './styled';
 
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router';
 import { Banner } from '../../component-library/Banner';
+import { bannerHeader, bannerSubheader } from '../../constants/info';
 import { REGIONS } from '../../constants/regions';
 import { getCurrentRegion } from '../../helpers/clp';
 import { showIfOrElseWindow } from '../../helpers/media';
@@ -15,6 +16,7 @@ export const CLP = () => {
   // Need to add pagination
   const { region } = useParams();
   const currentRegion =  getCurrentRegion(REGIONS, region || '')
+  const bannerProps = { header: bannerHeader, subheader: bannerSubheader }
 
   return (
     <CLPStyle>
@@ -25,7 +27,7 @@ export const CLP = () => {
       <Column>
         {showIfOrElseWindow(useWindowDemension())((<SideMenu region={currentRegion} />))((''))}
         <Row>
-          <Banner />
+          <Banner {...bannerProps}/>
           <CLPTemplate currentRegion={currentRegion}/>
         </Row>
       </Column>

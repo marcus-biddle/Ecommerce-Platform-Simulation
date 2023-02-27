@@ -5,7 +5,7 @@ import region2 from '../../assets/region2.png';
 import region3 from '../../assets/region3.jpg';
 import { Banner } from '../../component-library/Banner';
 import { Tabs } from '../../component-library/Tabs';
-import { tabOptions } from '../../constants/info';
+import { bannerHeader, bannerSubheader, tabOptions } from '../../constants/info';
 import { BannerWrapper, HeroImg, HeroImgStyle, HeroMessage, HeroWrapper, HomeStyle } from './styled'
 
 const Hero = () => {
@@ -34,11 +34,12 @@ const Hero = () => {
 
 export const Home = () => {
     const [active, setActive] = useState(tabOptions[0]);
+    const bannerProps = { header: bannerHeader, subheader: bannerSubheader }
     
   return (
     <HomeStyle>
         <BannerWrapper>
-            <Banner />
+            <Banner {...bannerProps} />
         </BannerWrapper>
 
         <HeroWrapper>
