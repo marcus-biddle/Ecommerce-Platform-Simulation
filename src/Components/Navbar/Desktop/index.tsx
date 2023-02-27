@@ -50,7 +50,7 @@ export const DesktopNavbar = () => {
   return (
     <NavbarStyle>
         <NavbarHeaderWrapper>
-          <Link to='/'>PokeLore Store</Link>
+          <Link to='/'>Poke Store</Link>
         </NavbarHeaderWrapper>
 
         <NavbarCategoryWrapper>
