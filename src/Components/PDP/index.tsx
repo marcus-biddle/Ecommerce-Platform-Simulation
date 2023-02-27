@@ -7,7 +7,7 @@ import { showOnLoad } from '../../helpers/conditionals';
 import { getPathname } from '../../helpers/navigation';
 import { getPriceNum } from '../../helpers/currency';
 import { PokemonPrice } from '../Clp/CLPCard';
-import { PokeInfo } from './ProductInfo';
+import { PokeInfo } from '../ProductInfo';
 
 export const PDP = () => {
     const { id } = useParams();
