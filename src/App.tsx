@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { Cart, Home } from './pages/index.js';
 import Footer from './components/Footer/index';
-import { PDP } from './components/PDP';
+import { PDP } from './components/pdp';
 import { CLP } from './components/CLP';
 import { Header } from './components/Header';
 

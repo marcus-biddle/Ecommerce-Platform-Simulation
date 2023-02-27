@@ -6,7 +6,7 @@ import { showByWindowSize } from '../../helpers/media';
 import { getPathname } from '../../helpers/navigation';
 import { useWindowDemension } from '../../hooks/mobile';
 import { Banner } from '../../pages/Home';
-import { BreadCrumbWrapper } from '../PDP/styled';
+import { BreadCrumbWrapper } from '../pdp/styled';
 import { SideMenu } from '../SideMenu';
 import { CLPTemplate } from './CLPTemplate';
 import { CLPStyle, Column, H1Style, Row } from './styled';
