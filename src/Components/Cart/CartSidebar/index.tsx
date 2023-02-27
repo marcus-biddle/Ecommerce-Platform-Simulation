@@ -3,7 +3,7 @@ import { checkFreeShipping, getSubtotal, getTotal } from '../../../helpers/cart'
 import { numToUSD } from '../../../helpers/currency';
 import { useShoppingCartContext } from '../../../hooks';
 import { CartColumn } from '../../../pages/Cart/styled';
-import { CartButton } from '../../Pdp/styled';
+import { CartButton } from '../../Product/styled';
 import { CartItemColumn } from '../CartItem/styled';
 
 

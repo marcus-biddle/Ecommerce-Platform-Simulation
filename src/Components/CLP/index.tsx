@@ -7,7 +7,7 @@ import { getCurrentRegion } from '../../helpers/clp';
 import { showIfOrElseWindow } from '../../helpers/media';
 import { getPathname } from '../../helpers/navigation';
 import { useWindowDemension } from '../../hooks/mobile';
-import { BreadCrumbWrapper } from '../Pdp/styled';
+import { BreadCrumbWrapper } from '../Product/styled';
 import { SideMenu } from '../SideMenu';
 import { CLPTemplate } from './CLPTemplate';
 import { CLPStyle, Column, H1Style, Row } from './styled';
