@@ -1,11 +1,17 @@
 import { desktopFooter } from '../../constants/info';
-import { showByWindowSize } from '../../helpers/media';
+import { showIfOrElseWindow } from '../../helpers/media';
 import { useWindowDemension } from '../../hooks/mobile';
 import { ColumnFooter, FooterNavLink, FooterNavWrapper, FooterStyle, NavHeader, StyledUL } from './styled'
 
-
-// Fix type
-const DesktopLinks = ({ items }: any) => {
+interface FooterLinkProps {
+    items: { 
+        name: string; 
+        links: { 
+            label: string; 
+        }[]; 
+    }[];
+}
+const DesktopLinks = ({ items }: FooterLinkProps) => {
     return (
         <>
         {items?.map((item: any, index: any) => {
@@ -41,10 +47,14 @@ const Footer = () => {
         </ColumnFooter>
     </FooterStyle>
     )
+
+    const mobileFooter = (
+        <div style={{ marginBottom: '4rem'}}></div>
+    )
     
   return (
     <>
-    {showByWindowSize(useWindowDemension())((desktopFoot))((''))}
+    {showIfOrElseWindow(useWindowDemension())((desktopFoot))((mobileFooter))}
     </>
   )
 }

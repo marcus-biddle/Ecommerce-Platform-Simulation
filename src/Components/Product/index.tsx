@@ -6,10 +6,10 @@ import { BreadCrumbWrapper, CartButton, HeaderContainer, InfoContainer, PDPConta
 import { showOnLoad } from '../../helpers/conditionals';
 import { getPathname } from '../../helpers/navigation';
 import { getPriceNum } from '../../helpers/currency';
-import { PokemonPrice } from '../CLP/CLPCard';
-import { PokeInfo } from './PDPInfo';
+import { PokemonPrice } from '../Clp/CLPCard';
+import { PokeInfo } from './ProductInfo';
 
-export const PDP = () => {
+export const Product = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const { pokemon, isLoading } = usePokemonContext();
