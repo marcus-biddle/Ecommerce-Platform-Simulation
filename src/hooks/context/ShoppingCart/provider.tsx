@@ -21,6 +21,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     useEffect(() => {
         // localStorage.setItem("cartItems", JSON.stringify(cartItems));
         setLocalStorageCart(cartItems, 'cartItems');
+        console.log(cartItems);
         console.log(`Saved ${cartItems.length} items to localstorage.`)
     }, [cartItems]);
 
@@ -30,7 +31,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
 
     function increaseCartQuantity(id: number, price: number, name: string) {
         setCartItems(currItems => {
-            if (currItems.find(item => item.id === id) == null) {
+            if (currItems.find(item => item.id === id) === undefined) {
                 return [...currItems, { id, name, price, quantity: 1}]
             } else {
                 return currItems.map(item => {
