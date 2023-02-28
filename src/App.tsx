@@ -9,7 +9,7 @@ import {
 import { Cart, Home } from './pages/index.js';
 import Footer from './components/Footer/index';
 import { Product } from './components/Product';
-import { CLP } from './components/Clp';
+import { CLP } from './components/CLP';
 import { Header } from './components/Header';
 
 const Root = () => {

@@ -6,7 +6,7 @@ import { BreadCrumbWrapper, CartButton, HeaderContainer, InfoContainer, PDPConta
 import { showOnLoad } from '../../helpers/conditionals';
 import { getPathname } from '../../helpers/navigation';
 import { getPriceNum } from '../../helpers/currency';
-import { PokemonPrice } from '../Clp/CLPCard';
+import { PokemonPrice } from '../CLP/CLPCard';
 import { PokeInfo } from './ProductInfo';
 
 export const Product = () => {
