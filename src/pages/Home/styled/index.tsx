@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
-
 export const HomeStyle = styled.div`
 `;
 
-// ************ Hero ***************
 
 export const HeroWrapper = styled.div`
     display: flex;
@@ -77,50 +75,26 @@ export const HeroMessage = styled.button`
     };
 `;
 
-// ************ Trending ***************
-export const TrendingWrapper = styled.div`
-    margin-bottom: 12rem;
-`;
-
-export const ImgCover = styled.img`
-    position: absolute;
-    padding-left: 8.4rem;
-
-    height: 10rem;
-    margin-right: auto;
-    margin-left: auto;
-    border-radius: 25px;
-    transition: 5s ease-out;
-    &:hover {
-        opacity: 0;
-    }
-`;
-
-export const ImgContainer = styled.div`
-    padding: 10px
-`;
-
 export const StyledImg = styled.img`
-padding-left: 9px;
-    transform: scale(1.7);
-    transition: 1s ease-in;
-    opacity: 0;
+    transform: scale(.5);
 
-    &:hover {
-        opacity: 1;
-        background-color: white;
+    @media only screen and (min-width: 768px) {
+        transform: scale(1.5);
+        padding-right: 5rem;
+        padding-left: 5rem;
     }
 `;
 
-export const PokeImg = styled.div`
-    position: float;
-    float: left;
-    padding-left: 10rem;
-    padding-top: 1.5rem;
-    cursor: pointer;
+export const StarterWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (min-width: 768px) {
+        justify-content: center;
+        flex-direction: row;
+    }
 `;
 
-// ************ Banner ***************
 export const BannerWrapper = styled.div`
     
     
@@ -128,4 +102,20 @@ export const BannerWrapper = styled.div`
         margin-left: 10rem;
         margin-right: 10rem;
     }
+`;
+
+export const PokemonWrapper = styled.div`
+    margin-bottom: 5rem;
+    margin-top: 3.5rem;
+    
+    @media only screen and (min-width: 768px) {
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
+`;
+
+export const TabWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
 `;

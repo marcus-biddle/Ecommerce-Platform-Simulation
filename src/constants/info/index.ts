@@ -57,7 +57,7 @@ export const desktopFooter = [
 
 export const tabChoices: string[] = ['stats', 'pokedex', 'wilderness'];
 
-export const tabOptions: string[] = ['starters', 'legendaries'];
+export const tabOptions: string[] = ['Fire', 'Water', 'Grass'];
 
 export const bannerHeader: string = 'Free Standard Shipping Over $1000';
 export const bannerSubheader: string = 'Not a member? Join today for more rewards!';

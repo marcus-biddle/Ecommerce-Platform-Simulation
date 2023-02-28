@@ -6,7 +6,10 @@ import region3 from '../../assets/region3.jpg';
 import { Banner } from '../../component-library/Banner';
 import { Tabs } from '../../component-library/Tabs';
 import { bannerHeader, bannerSubheader, tabOptions } from '../../constants/info';
-import { BannerWrapper, HeroImg, HeroImgStyle, HeroMessage, HeroWrapper, HomeStyle } from './styled'
+import { STARTER_POKEMON } from '../../constants/pokemon';
+import { showOnLoad } from '../../helpers/conditionals';
+import { usePokemonContext } from '../../hooks';
+import { BannerWrapper, HeroImg, HeroImgStyle, HeroMessage, HeroWrapper, HomeStyle, PokemonWrapper, StarterWrapper, StyledImg, TabWrapper } from './styled'
 
 const Hero = () => {
     const navigate = useNavigate();
@@ -30,11 +33,34 @@ const Hero = () => {
     )
 }
 
+interface StartersProps {
+    type: string;
+    pokemon: any;
+};
 
+const Starters = ({type, pokemon}: StartersProps) => {
+    return (
+        <StarterWrapper>
+            {STARTER_POKEMON.map((region: any) => {
+                return (
+                    type === 'Fire' ?
+                    <StyledImg src={pokemon[region.fire].sprites.front_default} alt=''/>
+                    : type === 'Water' ?
+                    <StyledImg src={pokemon[region.water].sprites.front_default} alt=''/>
+                    :
+                    <StyledImg src={pokemon[region.grass].sprites.front_default} alt=''/>
+                )
+            })}
+        </StarterWrapper>
+    )
+}
 
 export const Home = () => {
+    const { pokemon, isLoading } = usePokemonContext();
     const [active, setActive] = useState(tabOptions[0]);
+    const tabProps = {tabs: tabOptions, active: active, setActive: setActive}
     const bannerProps = { header: bannerHeader, subheader: bannerSubheader }
+    const startProps = { type: active, pokemon: pokemon }
     
   return (
     <HomeStyle>
@@ -45,17 +71,14 @@ export const Home = () => {
         <HeroWrapper>
             <Hero />
         </HeroWrapper>
-        
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem'}}>
-            {/* TODO: Need to make Tabs component reuseable */}
-            <Tabs tabs={tabOptions} active={active} setActive={setActive} />
-        </div>
-        {active === tabOptions[0] ? 
-            <div>Add this later</div>
-            :
-            <div>Test</div>
-            }
-        
+
+        <PokemonWrapper>
+            <h2>Pokemon</h2>
+            <TabWrapper>
+                <Tabs {...tabProps} />
+            </TabWrapper>
+            {showOnLoad(isLoading)('Loading')(<Starters {...startProps} />)}
+        </PokemonWrapper>
     </HomeStyle>
   )
 }
