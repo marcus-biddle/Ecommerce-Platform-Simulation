@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 import { REGIONS } from '../../../constants/regions';
-import { StyledMenuH4 } from '../../SideMenu/styled';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineDoubleLeft } from 'react-icons/ai';
 import { StyledLi } from './styled';
 import { NavCart } from '../Desktop';
+import { StyledMenuH4 } from '../../../component-library/SideMenu/styled';
 
 export const MobileNavbar = () => {
     const [isOpen, setIsOpen] = useState(false);

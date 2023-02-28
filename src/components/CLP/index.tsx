@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router';
 import { Banner } from '../../component-library/Banner';
+import { SideMenu } from '../../component-library/SideMenu';
 import { bannerHeader, bannerSubheader } from '../../constants/info';
 import { REGIONS } from '../../constants/regions';
 import { getCurrentRegion } from '../../helpers/clp';
@@ -8,7 +9,6 @@ import { showIfOrElseWindow } from '../../helpers/media';
 import { getPathname } from '../../helpers/navigation';
 import { useWindowDemension } from '../../hooks/mobile';
 import { BreadCrumbWrapper } from '../Product/styled';
-import { SideMenu } from '../SideMenu';
 import { CLPTemplate } from './CLPTemplate';
 import { CLPStyle, Column, H1Style, Row } from './styled';
 
