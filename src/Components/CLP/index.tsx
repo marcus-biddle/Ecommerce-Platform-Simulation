@@ -1,12 +1,13 @@
 import React from 'react'
 import { useParams } from 'react-router';
+import { Banner } from '../../component-library/Banner';
+import { bannerHeader, bannerSubheader } from '../../constants/info';
 import { REGIONS } from '../../constants/regions';
 import { getCurrentRegion } from '../../helpers/clp';
-import { showByWindowSize } from '../../helpers/media';
+import { showIfOrElseWindow } from '../../helpers/media';
 import { getPathname } from '../../helpers/navigation';
 import { useWindowDemension } from '../../hooks/mobile';
-import { Banner } from '../../pages/Home';
-import { BreadCrumbWrapper } from '../PDP/styled';
+import { BreadCrumbWrapper } from '../Product/styled';
 import { SideMenu } from '../SideMenu';
 import { CLPTemplate } from './CLPTemplate';
 import { CLPStyle, Column, H1Style, Row } from './styled';
@@ -15,6 +16,7 @@ export const CLP = () => {
   // Need to add pagination
   const { region } = useParams();
   const currentRegion =  getCurrentRegion(REGIONS, region || '')
+  const bannerProps = { header: bannerHeader, subheader: bannerSubheader }
 
   return (
     <CLPStyle>
@@ -23,9 +25,9 @@ export const CLP = () => {
           ..{getPathname()}
       </BreadCrumbWrapper>
       <Column>
-        {showByWindowSize(useWindowDemension())((<SideMenu region={currentRegion} />))((''))}
+        {showIfOrElseWindow(useWindowDemension())((<SideMenu region={currentRegion} />))((''))}
         <Row>
-          <Banner />
+          <Banner {...bannerProps}/>
           <CLPTemplate currentRegion={currentRegion}/>
         </Row>
       </Column>

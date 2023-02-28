@@ -8,12 +8,11 @@ import {
 } from "react-router-dom";
 import { Cart, Home } from './pages/index.js';
 import Footer from './components/Footer/index';
-import { PDP } from './components/PDP';
+import { Product } from './components/Product';
 import { CLP } from './components/CLP';
 import { Header } from './components/Header';
 
 const Root = () => {
-  
   return (
     <>
     <Header />
@@ -33,7 +32,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       {/* replace element with clp and pass region to it */}
       <Route path={'/:region/pokemon'} element={<CLP />} />
-      <Route path={`/:region/pokemon/:id`} element={<PDP />} />
+      <Route path={`/:region/pokemon/:id`} element={<Product />} />
       <Route path='/cart' element={<Cart />} />
     </Route>
   )

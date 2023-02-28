@@ -52,7 +52,7 @@ export const MobileNavbar = () => {
             <div style={{width: '32px', height: '32px', display: 'flex', justifyContent: 'center', paddingTop: '5px'}}>
                 <GiHamburgerMenu style={{ transform: 'scale(1.5)', cursor: 'pointer'}} onClick={() => setIsOpen(!isOpen)}/>
             </div>
-            <div style={{  cursor: 'pointer'}} onClick={() => navigate('/')}>PokeLore Store</div>
+            <div style={{  cursor: 'pointer'}} onClick={() => navigate('/')}>Poke Store</div>
             <div style={{ marginRight: '18px'}}>
                 <NavCart/>
             </div>
