@@ -31,7 +31,6 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Root />}>
       <Route index element={<Home />} />
-      {/* replace element with clp and pass region to it */}
       <Route path={'/:region/pokemon'} element={<CLP />} />
       <Route path={`/:region/pokemon/:id`} element={<Product />} />
       <Route path='/cart' element={<Cart />} />
