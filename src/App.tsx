@@ -11,6 +11,7 @@ import Footer from './components/Footer/index';
 import { Product } from './components/Product';
 import { CLP } from './components/CLP';
 import { Header } from './components/Header';
+import { createBrowserHistory } from '@remix-run/router';
 
 const Root = () => {
   return (
@@ -38,11 +39,18 @@ const router = createBrowserRouter(
   )
 );
 
+let history = createBrowserHistory();
+history.listen(({ location, action }) => {
+  // this is called whenever new locations come in
+  // the action is POP, PUSH, or REPLACE
+  history.push('/')
+});
+
 function App() {
 
   return (
     <>
-    <RouterProvider router={router} />
+    <RouterProvider fallbackElement={'/'} router={router} />
     </>
   );
 }
