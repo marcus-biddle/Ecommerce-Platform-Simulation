@@ -17,8 +17,7 @@ export const MobileNavbar = () => {
     }
 
   return (
-    <div>
-        
+    <>
         {isOpen 
         ? 
             <div style={{ position: 'fixed', zIndex: '2', backgroundColor: 'rgba(0, 0, 0, 0.92)', color: 'white', width: '100%', height: '100%'}}>
@@ -42,25 +41,19 @@ export const MobileNavbar = () => {
                     <StyledLi onClick={() => {navigate('/cart'); setIsOpen(false)}}>Cart</StyledLi>
                     <StyledLi >Settings</StyledLi>
                 </div>
-                
-            
             </div>
         :
             ''
         }
-        <div style={{ display: 'flex', padding: '12px', justifyContent: 'space-between'}}>
-            <div style={{width: '32px', height: '32px', display: 'flex', justifyContent: 'center', paddingTop: '5px'}}>
-                <GiHamburgerMenu style={{ transform: 'scale(1.5)', cursor: 'pointer'}} onClick={() => setIsOpen(!isOpen)}/>
+        <div style={{ display: 'flex', padding: '12px', justifyContent: 'space-between', textAlign: 'center', paddingTop: '20px'}}>
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+                <GiHamburgerMenu style={{ height: '40px', width: '40px', cursor: 'pointer'}} onClick={() => setIsOpen(!isOpen)}/>
             </div>
-            <div style={{  cursor: 'pointer'}} onClick={() => navigate('/')}>Poke Store</div>
+            <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '30px', fontWeight: 'bold'}} onClick={() => navigate('/')}>Poke Store</div>
             <div style={{ marginRight: '18px'}}>
-                <NavCart/>
+                <NavCart />
             </div>
-            
-            
         </div>
-        
-        
-    </div>
+    </>
   )
 }

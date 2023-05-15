@@ -25,35 +25,49 @@ export const HomeStyle = styled.div`
 export const HeroWrapper = styled.div`
     width: 100%;
     height: 650px;
-    background: linear-gradient(103deg, rgba(2,0,36,1) 30%, rgb(92,66,143) 5%, rgb(92,66,143) 100%);
+    background: linear-gradient(55deg, rgba(2,0,36,1) 30%, rgb(92,66,143) 5%, rgb(92,66,143) 100%);
+
+    @media only screen and (min-width: 768px) {
+        background: linear-gradient(103deg, rgba(2,0,36,1) 30%, rgb(92,66,143) 5%, rgb(92,66,143) 100%);
+    }
 `;
 
 export const NewHeroImg = styled.img`
-    width: 800px;
-    height: 650px;
+    width: 100%;
     float: right;
+
+    @media only screen and (min-width: 768px) {
+        width: 800px;
+        height: 650px;
+    }
 `;
 
 export const HeroText = styled.p`
     color: orange;
-    font-size: 100px;
+    font-size: 80px;
     height: 50%;
     text-align: center;
-    margin-left: 7rem;
-    margin-top: 2rem;
-    padding-top: 12rem;
+    margin-left: 3rem;
+
+    @media only screen and (min-width: 768px) {
+        margin-left: 7rem;
+        margin-top: 2rem;
+        padding-top: 12rem;
+        font-size: 100px;
+    }
 `;
 
 export const HeroButton = styled.button`
-    background: black;
+    width: 100%;
+    background-color: black;
     color: white;
-    border-radius: 7.3px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    margin-left: 16.5rem;
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 5rem;
     cursor: pointer;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
 `;
 
 export const HomeButton = styled.div`
@@ -300,4 +314,45 @@ export const DiscountPrice = styled.span`
     font-size: 26px;
     text-decoration-line: line-through;
     opacity: .5;
+`;
+
+export const CouponWrapper = styled.div`
+    position: relative;
+    background-color: black;
+    height: 380px;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    margin-bottom:4rem;
+    overflow: hidden;
+    display flex;
+    align-items: center;
+    border-radius: 16px;
+
+    @media only screen and (min-width: 768px) {
+        
+    }
+`;
+
+export const CouponTextWrapper = styled.div`
+    position: absolute;
+    top: .1rem;
+    color: black;
+    padding-left: 16px;
+
+    @media only screen and (min-width: 768px) {
+        right: 14rem;
+        bottom: 3rem;
+        color: white;
+    }
+`;
+
+export const SubscribeTextHeader = styled.p`
+font-weight: bolder;
+font-size: 28px;
+margin-left: 1rem;
+margin-right: 1rem;
+
+@media only screen and (min-width: 768px) {
+    font-size: 32px;
+}
 `;

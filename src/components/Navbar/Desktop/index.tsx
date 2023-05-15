@@ -6,7 +6,6 @@ import { useShoppingCartContext } from '../../../hooks';
 import { cartHasItems } from '../../../helpers/cart';
 import { REGIONS } from '../../../constants/regions';
 import { showOnLoad } from '../../../helpers/conditionals';
-import poke_logo from '../../../assets/poke_logo.jpg';
 
 const NavbarLinks = () => {
   return (
@@ -41,7 +40,7 @@ export const NavCart = () => {
   return (
     <>
       <Link to='/cart'>
-        <RiShoppingCartLine style={{transform: 'scale(1.4)'}} />
+        <RiShoppingCartLine style={{ height: '40px', width: '40px', cursor: 'pointer'}} />
         <CartNotification />
       </Link>
     </>
