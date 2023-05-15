@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { desktopFooter } from '../../constants/info';
 import { showIfOrElseWindow } from '../../helpers/media';
 import { useWindowDemension } from '../../hooks/mobile';
@@ -34,18 +35,42 @@ const DesktopLinks = ({ items }: FooterLinkProps) => {
 
 const Footer = () => {
     const desktopFoot = (
-        <FooterStyle>
-        <ColumnFooter>
-            <FooterNavWrapper>
-                <DesktopLinks items={desktopFooter} />
-                <StyledUL>
-                    <NavHeader>Become a member</NavHeader>
-                    <FooterNavLink>Join now and get 10% off your next purchase!</FooterNavLink>
-                    <p>READ MORE -{'>'}</p>
-                </StyledUL>
-            </FooterNavWrapper>
-        </ColumnFooter>
-    </FooterStyle>
+            <div style={{ display: 'flex', justifyContent: 'space-evenly', backgroundColor: 'rgb(0,0,0,.15)'}}>
+            <p style={{ padding: '12px'}}>
+            <Link to='/' style={{ fontFamily: 'Abel, sans-serif', fontSize: '18px', fontWeight: 'bolder'}}>Poke Center</Link>
+            <br/>
+            <p style={{ fontFamily: 'Abel, sans-serif', fontSize: '12px', opacity: '.5', fontWeight: 'bolder'}}>Specializes in providing high-quality, powerful pokemon<br /> for life long companionship.</p>
+            </p>
+                {desktopFooter.map((item) => {
+                    return (
+                        <div>
+                            <p style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '24px'}}>{item.name}</p>
+                            {item.links.map((link) => {
+                                return (
+                                    <p style={{ fontFamily: 'Abel, sans-serif', fontSize: '14px', opacity: '.5', cursor: 'pointer', fontWeight: 'bolder'}}>{link.label}</p>
+                                )
+                            })}
+                        </div>
+                    )
+                })}
+            <div>
+                <p style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '24px'}}>Payment Methods</p>
+                <p style={{ fontFamily: 'Abel, sans-serif', fontSize: '14px', opacity: '.5', cursor: 'pointer', fontWeight: 'bolder'}}>TBD</p>
+            </div>
+        </div>
+        
+    //     <FooterStyle>
+    //     <ColumnFooter>
+    //         <FooterNavWrapper>
+    //             <DesktopLinks items={desktopFooter} />
+    //             <StyledUL>
+    //                 <NavHeader>Become a member</NavHeader>
+    //                 <FooterNavLink>Join now and get 10% off your next purchase!</FooterNavLink>
+    //                 <p>READ MORE -{'>'}</p>
+    //             </StyledUL>
+    //         </FooterNavWrapper>
+    //     </ColumnFooter>
+    // </FooterStyle>
     )
 
     const mobileFooter = (

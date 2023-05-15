@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { RiShoppingCartLine } from 'react-icons/ri';
-import { NavbarCategoryWrapper, NavbarHeaderWrapper, NavbarStyle, Popup, StyledNavUL, UserWrapper } from './styled';
+import { CouponStyle, NavbarCategoryWrapper, NavbarHeaderWrapper, NavbarStyle, Popup, StyledNavUL, UserWrapper } from './styled';
 import { useShoppingCartContext } from '../../../hooks';
 import { cartHasItems } from '../../../helpers/cart';
 import { REGIONS } from '../../../constants/regions';
+import { showOnLoad } from '../../../helpers/conditionals';
+import poke_logo from '../../../assets/poke_logo.jpg';
 
 const NavbarLinks = () => {
   return (
@@ -46,11 +48,31 @@ export const NavCart = () => {
   )
 }
 
-export const DesktopNavbar = () => {
+export const CouponMessage = () => {
+  const [show, setShow] = useState(true);
   return (
-    <NavbarStyle>
+    <>
+    {showOnLoad(show)(
+      <CouponStyle>
+        {/* need to underline sign up and create link */}
+      <div>Sign up and <strong>GET 20% OFF</strong> for your first order. Sign up now</div> 
+      <div style={{ position: 'absolute', float: 'right', top: '3.3px', right: '12rem', cursor: 'pointer'}} onClick={() => setShow(false)}>X</div>
+      </CouponStyle>
+    )('')}
+    </>
+    
+  )
+}
+
+export const DesktopNavbar = () => {
+  
+  return (
+    <div>
+      <CouponMessage />
+      <NavbarStyle>
         <NavbarHeaderWrapper>
-          <Link to='/'>Poke Store</Link>
+          {/* <img style={{ height: '60px'}} src={poke_logo} /> */}
+          <Link to='/' style={{ fontFamily: 'Abel, sans-serif', fontSize: '14px', fontWeight: 'bold'}}>Poke Center</Link>
         </NavbarHeaderWrapper>
 
         <NavbarCategoryWrapper>
@@ -61,5 +83,7 @@ export const DesktopNavbar = () => {
             <NavCart />
         </UserWrapper>
     </NavbarStyle>
+    </div>
+    
   )
 }

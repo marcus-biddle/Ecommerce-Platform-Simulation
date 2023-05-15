@@ -12,6 +12,7 @@ import { Product } from './components/Product';
 import { CLP } from './components/CLP';
 import { Header } from './components/Header';
 import { createBrowserHistory } from '@remix-run/router';
+import { GlobalStyle } from './pages/Home/styled';
 
 const Root = () => {
   return (
@@ -49,6 +50,7 @@ function App() {
 
   return (
     <>
+    <GlobalStyle />
     <RouterProvider fallbackElement={'/'} router={router} />
     </>
   );

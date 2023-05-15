@@ -1,20 +1,59 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle`
+    body {
+        font-family: 'Abel', sans-serif;
+        font-family: 'Bebas Neue', sans-serif;
+    }
+`
 
 export const HomeStyle = styled.div`
+    
 `;
 
+// display: flex;
+//     flex-direction: column;
+
+//     @media only screen and (min-width: 768px) {
+//         flex-direction: row;
+//         height: 45vh;
+//         width: 100%;
+//         justify-content: space-between;
+//         margin-bottom: 3rem;
+//     }
 
 export const HeroWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    height: 650px;
+    background: linear-gradient(103deg, rgba(2,0,36,1) 30%, rgb(92,66,143) 5%, rgb(92,66,143) 100%);
+`;
 
-    @media only screen and (min-width: 768px) {
-        flex-direction: row;
-        height: 45vh;
-        width: 100%;
-        justify-content: space-between;
-        margin-bottom: 3rem;
-    }
+export const NewHeroImg = styled.img`
+    width: 800px;
+    height: 650px;
+    float: right;
+`;
+
+export const HeroText = styled.p`
+    color: orange;
+    font-size: 100px;
+    height: 50%;
+    text-align: center;
+    margin-left: 7rem;
+    margin-top: 2rem;
+    padding-top: 12rem;
+`;
+
+export const HeroButton = styled.button`
+    background: black;
+    color: white;
+    border-radius: 7.3px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-left: 16.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+    cursor: pointer;
 `;
 
 export const HomeButton = styled.div`
