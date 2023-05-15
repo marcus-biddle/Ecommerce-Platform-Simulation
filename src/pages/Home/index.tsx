@@ -8,7 +8,8 @@ import { STARTER_POKEMON } from '../../constants/pokemon';
 import { showOnLoad } from '../../helpers/conditionals';
 import { usePokemonContext } from '../../hooks';
 import { BsCartPlusFill } from 'react-icons/bs';
-import { BannerWrapper, HeroButton, HeroImg, HeroImgStyle, HeroMessage, HeroText, HeroWrapper, HomeStyle, NewHeroImg, PokemonWrapper, StarterWrapper, StyledImg, TabWrapper } from './styled'
+import { BannerWrapper, BrandWrapper, DiscountPrice, FeatureSection, FeatureTitle, GuaranteeItem, GuaranteeItemHeader, GuaranteeItemText, GuaranteeWrapper, HeroButton, HeroImg, HeroImgStyle, HeroMessage, HeroText, HeroWrapper, HomeStyle, NewHeroImg, PokeImg, PokeName, PokePrice, PokeWrapper, PokemonWrapper, PriceWrapper, SaleStyle, StarterWrapper, StyledImg, TabWrapper } from './styled'
+import './styled/style.css'
 
 const Hero = () => {
     const navigate = useNavigate();
@@ -18,18 +19,6 @@ const Hero = () => {
         <NewHeroImg src={master} alt='Master Ball'/>
         <HeroText>Gotta Catch 'Em All</HeroText>
         <HeroButton>Shop to become a Pokemon Master -{'>'}</HeroButton>
-            {/* <HeroImgStyle>
-                <HeroImg src={region2} alt='' />
-                <HeroMessage onClick={() => navigate('/johto/pokemon')}>Shop Johto Region</HeroMessage>
-            </HeroImgStyle>
-            <HeroImgStyle>
-                <HeroImg src={region1} alt='' />
-                <HeroMessage onClick={() => navigate('/kanto/pokemon')}>Shop Kanto Region</HeroMessage>
-            </HeroImgStyle>
-            <HeroImgStyle>
-                <HeroImg src={region3} alt='' />
-                <HeroMessage onClick={() => navigate('/sinnoh/pokemon')}>Shop Sinnoh Region</HeroMessage>
-            </HeroImgStyle> */}
         </div>
             
     )
@@ -66,74 +55,78 @@ export const Home = () => {
     
   return (
     <HomeStyle>
-        {/* <BannerWrapper>
-            <Banner {...bannerProps} />
-        </BannerWrapper> */}
 
         <HeroWrapper>
             <Hero />
         </HeroWrapper>
 
-        <div style={{ marginLeft: '10rem', marginRight: '10rem', marginTop: '4rem', display: 'flex', justifyContent: 'space-between'}}>
-          <p style={{ fontSize: '32px'}}>We provide the best <br/>quality pokemon for your adeventure.</p>
-          <div style={{ borderLeft: 'solid', textAlign: 'center', padding: '46px' }}>
-          <p style={{ opacity: '.8', color: 'grey'}}>We ensure customers are fully prepared for their experience in the wild.</p>
-          </div>
-        </div>
+        <BrandWrapper>
+            <p style={{ fontSize: '32px'}}>We provide the best <br/>quality pokemon for your adeventure.</p>
+            <div style={{ borderLeft: 'solid', textAlign: 'center', padding: '46px' }}>
+                <p style={{ opacity: '.8', color: 'grey'}}>We ensure customers are fully prepared for their experience in the wild.</p>
+            </div>
+        </BrandWrapper>
 
-        <div style={{ display: 'flex', justifyContent: 'space-evenly', marginTop: '4rem'}}>
+        <GuaranteeWrapper>
             {guarantees.map((item) => {
                 const Icon = item.icon;
                 return (
-                    <div style={{ width: '15rem'}}>
-                        <div style={{ backgroundColor: 'black', height: '30px', width: '30px', textAlign: 'center', padding: '10px', borderRadius: '10px'}}>
-                            <Icon style={{ height: '30px', width: '30px', color: 'white'}}/>
+                    <GuaranteeItem>
+                        <div className='icon-wrapper'>
+                            <Icon className='icon-css'/>
                         </div>
-                        <div style={{ paddingTop: '16px'}}>{item.title}</div>
-                        <p style={{ fontSize: '12px', fontFamily: 'Abel, sans-serif'}}>{item.statement}</p>
-                    </div>
+                        <GuaranteeItemHeader style={{ paddingTop: '16px'}}>{item.title}</GuaranteeItemHeader>
+                        <GuaranteeItemText>{item.statement}</GuaranteeItemText>
+                    </GuaranteeItem>
                 )
             })}
-        </div>
+        </GuaranteeWrapper>
 
-        <div style={{ marginTop: '4rem', marginBottom: '4rem' }}>
-            <div style={{ marginLeft: '4rem', marginRight: '4rem', fontSize: '32px', marginBottom: '2rem'}}>Featured Pokemon</div>
-            <div style={{ display: 'flex', justifyContent: 'space-around'}}>
+        <FeatureSection>
+            <FeatureTitle>Featured Pokemon</FeatureTitle>
+            <PokeWrapper>
                 {featured.map((pokemon) => {
                     return (
                         <div>
-                            <div>{pokemon.sale 
+                            {pokemon.sale 
                             ? 
-                            <div style={{ position: 'absolute', fontSize: '20px', color: 'white', letterSpacing: '2px',backgroundColor: 'red', marginLeft: '16px', marginTop: '16px', paddingLeft: '4px', paddingRight: '4px', borderRadius: '6px'}}>
+                            <SaleStyle>
                                 SALE
-                            </div>
+                            </SaleStyle>
                             :
                             ''
-                            }</div>
-                            <img src={pokemon.img} alt={pokemon.name} style={{ height: '25rem', width: '23rem', borderRadius: '20px'}}/>
-                            <div style={{ fontSize: '24px', paddingTop: '10px', letterSpacing: '1.2px', opacity: '.6'}}>{pokemon.name}</div>
-                            <div style={{ display: 'flex', justifyContent: 'space-between'}}>
+                            }
+                            <PokeImg src={pokemon.img} alt={pokemon.name}/>
+                            <div style={{ display: 'flex',  justifyContent: 'space-between', marginRight: '2.75rem'}}>
                                 <div>
-                                {pokemon.sale 
-                                ?
-                                <>
-                                <span style={{ fontSize: '36px'}}>{`$${pokemon.price - pokemon.price * .15}`}</span>
-                                <span style={{ paddingLeft: '5px', fontSize: '26px', textDecorationLine: 'line-through', opacity: '.5'}}>${pokemon.price}</span>
-                                </>
-                                :
-                                <span style={{ fontSize: '36px'}}>${pokemon.price}</span>
-                                }
+                                <PokeName>{pokemon.name}</PokeName>
+                                <PriceWrapper>
+                                    <div>
+                                        {pokemon.sale 
+                                        ?
+                                        <>
+                                        <PokePrice>{`$${pokemon.price - pokemon.price * .15}`}</PokePrice>
+                                        <DiscountPrice>${pokemon.price}</DiscountPrice>
+                                        </>
+                                        :
+                                        <PokePrice>${pokemon.price}</PokePrice>
+                                        }
+                                    </div>
+                                    {/* Add Links */}
+                                    
+                                </PriceWrapper>
                                 </div>
-                                {/* Add Links */}
-                                <div style={{ backgroundColor: 'rgba(2,0,36,1)', height: '40px', width: '46px', textAlign: 'center', borderRadius: '10px', cursor: 'pointer'}}>
-                                    <BsCartPlusFill style={{ height: '24px', width: '24px', paddingTop: '8px', paddingBottom: '5px', color: 'wheat'}}/>
+                                <div className='cta-wrapper'>
+                                    <BsCartPlusFill className='icon-CTA'/>
                                 </div>
                             </div>
+                            
+                            
                         </div>
                     )
                 })}
-            </div>
-        </div>
+            </PokeWrapper>
+        </FeatureSection>
 
         <div style={{ position: 'relative', backgroundColor: 'black', height: '380px', marginLeft: '4rem', marginRight: '4rem', overflow: 'hidden', display: 'flex', alignItems: 'center', borderRadius: '16px', marginBottom: '4rem'}}>
             <img src={center} alt='Pokemon Center Coupon' style={{ position: 'absolute', height: '600px', width: '600px', objectFit: 'cover'}}/>
@@ -159,14 +152,6 @@ export const Home = () => {
             </div>
             
         </div>
-
-        {/* <PokemonWrapper>
-            <h2>Pokemon</h2>
-            <TabWrapper>
-                <Tabs {...tabProps} />
-            </TabWrapper>
-            {showOnLoad(isLoading)('Loading')(<Starters {...startProps} />)}
-        </PokemonWrapper> */}
     </HomeStyle>
   )
 }

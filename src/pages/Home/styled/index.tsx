@@ -158,3 +158,146 @@ export const TabWrapper = styled.div`
     justify-content: center;
     margin-top: 3rem;
 `;
+
+export const BrandWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    margin-left: 4rem;
+    margin-right: 5rem;
+
+    @media only screen and (min-width: 768px) {
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
+`;
+
+export const GuaranteeWrapper = styled.div`
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-top: 4rem;
+
+    @media only screen and (min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+    }
+`;
+
+export const GuaranteeItem = styled.div`
+    width: 15rem;
+    margin-bottom: 3rem;
+
+    @media only screen and (min-width: 768px) {
+        margin-bottom: 0;
+    }
+`;
+
+export const GuaranteeItemHeader = styled.div`
+    padding-top: 16px;
+    font-size: 30px;
+
+    @media only screen and (min-width: 768px) {
+        font-size: 16px;
+    }
+`;
+
+export const GuaranteeItemText = styled.p`
+    font-family: Abel, sans-serif;
+    font-size: 18px;
+
+    @media only screen and (min-width: 768px) {
+        font-size: 12px;
+    }
+`;
+
+export const FeatureSection = styled.div`
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+`;
+
+export const FeatureTitle = styled.div`
+    font-size: 40px;
+    margin-left: 2rem;
+
+    @media only screen and (min-width: 768px) {
+        margin-left: 4rem;
+        margin-right: 4rem;
+        margin-bottom: 2rem;
+        font-size: 32px;
+    }
+`;
+
+export const PokeWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (min-width: 768px) {
+        justify-content: space-between;
+    }
+`;
+
+export const PokeImg = styled.img`
+    height: 22rem;
+    width: 20rem;
+    border-radius: 20px;
+    margin-left: 2rem;
+    margin-top: 2rem;
+
+    @media only screen and (min-width: 768px) {
+        justify-content: space-between;
+        height: 25rem;
+        width: 23rem;
+    }
+`;
+
+export const SaleStyle = styled.div`
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    letter-spacing: 2px;
+    background-color: red;
+    margin-left: 45px;
+    margin-top: 45px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 6px;
+
+    @media only screen and (min-width: 768px) {
+        margin-left: 16px;
+        margin-top: 16px;
+    }
+`;
+
+export const PokeName = styled.div`
+    padding-top: 10px;
+    letter-spacing: 1.2px;
+    opacity: .6;
+    font-size: 28px;
+    margin-left: 2rem;
+
+    @media only screen and (min-width: 768px) {
+        font-size: 24px
+    }
+`;
+
+export const PriceWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin-left: 2rem;
+    margin-right: 2rem;
+
+    @media only screen and (min-width: 768px) {
+        
+    }
+`;
+
+export const PokePrice = styled.span`
+    font-size: 36px;
+`;
+
+export const DiscountPrice = styled.span`
+    padding-left: 5px;
+    font-size: 26px;
+    text-decoration-line: line-through;
+    opacity: .5;
+`;

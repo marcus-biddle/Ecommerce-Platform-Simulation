@@ -1,0 +1,53 @@
+.icon-css {
+    height: 50px;
+    width: 50px;
+    color: white;
+
+    @media only screen and (min-width: 768px) {
+        height: 30px;
+        width: 30px;
+    }
+}
+
+.icon-wrapper {
+    background-color: black;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+
+    @media only screen and (min-width: 768px) {
+        height: 30px;
+        width: 30px;
+    }
+}
+
+.icon-CTA {
+    height: 40px;
+    width: 40px;
+    padding-top: 8px;
+    padding-bottom: 5px;
+    color: wheat;
+
+    @media only screen and (min-width: 768px) {
+        height: 24px;
+        width: 24px;
+    }
+}
+
+.cta-wrapper {
+    background-color: rgba(2,0,36,1);
+    height: 55px;
+    width: 55px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 21px;
+    
+
+    @media only screen and (min-width: 768px) {
+        height: 40px;
+        width: 46px;
+    }
+}
