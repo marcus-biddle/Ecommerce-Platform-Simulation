@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+
 import master from '../../assets/master_ball.webp';
 import center from '../../assets/poke_center.webp';
-import { Tabs } from '../../component-library/Tabs';
-import { bannerHeader, bannerSubheader, featured, guarantees, tabOptions } from '../../constants/info';
+import { featured, guarantees } from '../../constants/info';
 
 import { BsCartPlusFill } from 'react-icons/bs';
-import { BannerWrapper, BrandWrapper, CouponTextWrapper, CouponWrapper, DiscountPrice, FeatureSection, FeatureTitle, GuaranteeItem, GuaranteeItemHeader, GuaranteeItemText, GuaranteeWrapper, HeroButton, HeroImg, HeroImgStyle, HeroMessage, HeroText, HeroWrapper, HomeStyle, NewHeroImg, PokeImg, PokeName, PokePrice, PokeWrapper, PokemonWrapper, PriceWrapper, SaleStyle, StarterWrapper, StyledImg, SubscribeTextHeader, TabWrapper } from './styled'
+import { BrandWrapper, CouponTextWrapper, CouponWrapper, DiscountPrice, FeatureSection, FeatureTitle, GuaranteeItem, GuaranteeItemHeader, GuaranteeItemText, GuaranteeWrapper, HeroButton, HeroText, HeroWrapper, HomeStyle, NewHeroImg, PokeImg, PokeName, PokePrice, PokeWrapper, PriceWrapper, SaleStyle, SubscribeTextHeader } from './styled'
 import './styled/style.css'
 import { useWindowDemension } from '../../hooks/mobile';
 import { showIfOrElseWindow } from '../../helpers/media';
 
 const Hero = () => {
-    // const navigate = useNavigate();
-
     return (
         <>
         <NewHeroImg src={master} alt='Master Ball'/>
