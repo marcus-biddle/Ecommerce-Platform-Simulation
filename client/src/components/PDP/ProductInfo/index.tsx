@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Tabs } from '../../../component-library/Tabs';
 import { tabChoices } from '../../../constants/info';
 import { Column, StyledLi } from './styled';
@@ -26,6 +26,7 @@ export const PokeInfo = ({ id, pokemonPDP }: any) => {
     }
         useEffect(() => {
             fetchInfo();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [])
 
     
@@ -41,6 +42,7 @@ export const PokeInfo = ({ id, pokemonPDP }: any) => {
                             </li>
                         );
                     };
+                    return (<></>);
                 })}
             </ul>
         )

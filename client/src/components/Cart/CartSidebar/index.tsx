@@ -2,7 +2,6 @@ import React from 'react'
 import { checkFreeShipping, getSubtotal, getTotal } from '../../../helpers/cart';
 import { numToUSD } from '../../../helpers/currency';
 import { useShoppingCartContext } from '../../../hooks';
-import { CartColumn } from '../../../pages/Cart/styled';
 import { CartButton } from '../../PDP/styled';
 import { CartItemColumn } from '../CartItem/styled';
 

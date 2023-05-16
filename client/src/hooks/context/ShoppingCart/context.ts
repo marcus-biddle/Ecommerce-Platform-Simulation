@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import { CartItem } from "./provider";
 
-type ShoppingCartContext = {
+type CartContext = {
     getItemQuantity: (id: number) => number;
     increaseCartQuantity: (id: number, price: number, name: string) => void;
     decreaseCartQuantity: (id: number) => void;
@@ -9,7 +9,7 @@ type ShoppingCartContext = {
     cartItems: CartItem[]
 }
 
-const ShoppingCartContext = createContext({} as ShoppingCartContext)
+const ShoppingCartContext = createContext({} as CartContext)
 
 const { Consumer: ShoppingCartConsumer } = ShoppingCartContext;
 

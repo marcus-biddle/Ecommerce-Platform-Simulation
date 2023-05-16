@@ -34,6 +34,7 @@ export const PokemonProvider = ({ children }: any) => {
             setLoading(false);
 
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [])
 
         useEffect(() => {
