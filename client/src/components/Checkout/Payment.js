@@ -8,7 +8,7 @@ export const Payment = () => {
     const [clientSecret, setClientSecret] = useState("");
 
     useEffect(() => {
-        fetch("http://localhost:5252/config").then(async(r) => {
+        fetch("https://store-iota-seven.vercel.app/config").then(async(r) => {
             const { publishableKey } = await r.json();
 
             setStripePromise(loadStripe(publishableKey));
@@ -17,7 +17,7 @@ export const Payment = () => {
 
     // In body you can grab total amount and send it to the server.
     useEffect(() => {
-        fetch("http://localhost:5252/create-payment-intent", {
+        fetch("https://store-iota-seven.vercel.app/config/create-payment-intent", {
             method: "POST",
             body: JSON.stringify({}),
         }).then(async(r) => {
