@@ -13,12 +13,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use(express.static('public'));
-
-// app.get("/", (req, res) => {
-//     const path = resolve(process.env.STATIC_DIR + "/index.html");
-//     res.sendFile(path);
-// })
 
 app.get('/config', (req, res) => {
     const publishableKey = process.env.STRIPE_PUBLISHABLE_KEY;
@@ -46,7 +40,7 @@ app.post("/create-payment-intent", async (req, res) => {
 });
 
 app.listen(5252, () => {
-    console.log('Node server listening at port 3001')
-})
+    console.log('Node server listening at port 5252')
+});
 
-module.exports = app
+module.exports = app;
