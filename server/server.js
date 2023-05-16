@@ -13,7 +13,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use(express.static(process.env.STATIC_DIR));
+app.use(express.static('public'));
 
 // app.get("/", (req, res) => {
 //     const path = resolve(process.env.STATIC_DIR + "/index.html");
@@ -48,3 +48,5 @@ app.post("/create-payment-intent", async (req, res) => {
 app.listen(5252, () => {
     console.log('Node server listening at port 3001')
 })
+
+module.exports = app
