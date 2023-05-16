@@ -17,7 +17,7 @@ export const Payment = () => {
 
     // In body you can grab total amount and send it to the server.
     useEffect(() => {
-        fetch("https://store-iota-seven.vercel.app/config/create-payment-intent", {
+        fetch("https://store-iota-seven.vercel.app/create-payment-intent", {
             method: "POST",
             body: JSON.stringify({}),
         }).then(async(r) => {
