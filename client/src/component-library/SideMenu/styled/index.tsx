@@ -4,6 +4,8 @@ import styled from 'styled-components';
 export const SideMenuWrapper = styled.div`
     text-align: left;
     width: 14rem;
+    height: 100%;
+    margin-right: 3rem;
 `;
 
 export const MenuItem = styled.div``;

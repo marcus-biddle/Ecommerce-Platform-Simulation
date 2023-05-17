@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { usePokemonContext, useShoppingCartContext } from '../../hooks';
 import pic from '../../assets/pokeballs.gif';
-import { BreadCrumbWrapper, CartButton, HeaderContainer, InfoContainer, PDPContainer, PDPStyling, PokemonContainer, PriceStyling, ProductHeader, ProductImg } from './styled';
+import { BreadCrumb, CartButton, HeaderContainer, InfoContainer, PDPContainer, PDPStyling, PokemonContainer, PriceStyling, ProductHeader, ProductImg } from './styled';
 import { showOnLoad } from '../../helpers/conditionals';
 import { getPathname } from '../../helpers/navigation';
 import { getPriceNum } from '../../helpers/currency';
@@ -31,9 +31,9 @@ export const Product = () => {
 
   return (
     <PDPStyling>
-        <BreadCrumbWrapper>
+        <BreadCrumb>
           ..{getPathname()}
-        </BreadCrumbWrapper>
+        </BreadCrumb>
 
         <PDPContainer>
           <ProductImg src={pic} alt='' />

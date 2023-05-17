@@ -52,7 +52,7 @@ export const HeroText = styled.p`
     @media only screen and (min-width: 768px) {
         margin-left: 7rem;
         margin-top: 2rem;
-        padding-top: 12rem;
+        padding-top: 8rem;
         font-size: 100px;
     }
 `;
@@ -68,6 +68,12 @@ export const HeroButton = styled.button`
     cursor: pointer;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 30px;
+
+    @media only screen and (min-width: 768px) {
+        margin-top: 0;
+        position: absolute;
+        top: 40rem;    
+    }
 `;
 
 export const HomeButton = styled.div`
@@ -247,6 +253,9 @@ export const PokeWrapper = styled.div`
 
     @media only screen and (min-width: 768px) {
         justify-content: space-between;
+        flex-direction: row;
+        margin-left: 4rem;
+        margin-right: 4rem;
     }
 `;
 

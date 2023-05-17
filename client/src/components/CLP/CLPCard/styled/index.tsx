@@ -1,29 +1,15 @@
 import styled from "styled-components";
 
 export const CardStyle = styled.div`
-    padding-top: 2rem;
-    padding-bottom: 2rem;
 
-    @media only screen and (min-width: 768px) {
-            transform: scale(1);
-            box-sizing: border-box;
-            transition: transform .2s ease-out;
-            &:hover {
-                cursor: pointer;
-                transform: scale(1.2);
-                transition: transform .3s ease-in;
-            }
-        }
+    
 `;
 
 export const CardHeader = styled.div`
-    font-size: 1.189rem;
-    justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-column-gap: 3.85rem;
+    padding-top: 10px;
+    letter-spacing: 1.2px;
+    opacity: .75;
+    font-size: 20px;
 `;
 
 export const CardName = styled.div`
@@ -58,16 +44,57 @@ export const StyledSpan = styled.span`
 `;
 
 export const ImageWrapper = styled.div`
-    width: 100%;
     text-align: center;
+    background-color: wheat;
+    width: 275px;
+    height: 200px;
+    border-radius: 16px;
+
+    &:hover {
+        opacity: .75;
+        cursor: pointer;
+    }
 `;
 
 export const StyledImg = styled.img`
-    transform: scale(1.3);
+    background-color: wheat;
+    height: 130px;
+    width: 130px;
+    padding-top: 2rem;
 `;
 
 export const CardInfoWrapper = styled.div`
-    border-style: double;
-    margin-top: 10px;
-    
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;
+
+export const DiscountedPrice = styled.span`
+    padding-left: 5px;
+    font-size: 20px;
+    text-decoration-line: line-through;
+    opacity: .5;
+`;
+
+export const CardPrice = styled.span`
+    font-size: 20px;
+`;
+
+export const SaleSticker = styled.div`
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    letter-spacing: 2px;
+    background-color: red;
+    margin-left: 45px;
+    margin-top: 45px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 6px;
+
+    @media only screen and (min-width: 768px) {
+        margin-left: 16px;
+        margin-top: 16px;
+    }
 `;

@@ -35,9 +35,7 @@ export const BannerStyle = styled.div`
 `;
 
 export const H1Style = styled.h1`
-    font-family: "Lucida Console", "Courier New", monospace;
-    font-weight: 900;
+    font-family: 'Abel', sans-serif;
     font-size: 2.02rem;
     letter-spacing: .05px;
-    padding-left: 14.5px;
 `;

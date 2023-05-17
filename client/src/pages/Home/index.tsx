@@ -122,7 +122,7 @@ const FeaturedPokemon = () => {
     )
 }
 
-const Coupon = () => {
+export const Coupon = () => {
     return (
         <>
             <img src={center} alt='Pokemon Center Coupon' style={{ position: 'absolute', height: '600px', width: '600px', objectFit: 'cover', opacity: '.8'}}/>
