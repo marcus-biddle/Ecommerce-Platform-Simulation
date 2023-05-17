@@ -74,9 +74,6 @@ export const SideMenu = ({ region }: RegionProps) => {
   const fallback = (<p >Loading...</p>)
   const [filters, setFilters] = useState<any[]>(filterTypes);
 
-  // const handleToggle = ({ target }: any) =>
-  //   setFilters((s:any) => ({ ...s, [target.name]: !s[target.name] }));
-
   // REDO WHOLE THING https://blog.logrocket.com/building-custom-checkbox-react/
 
   return (
