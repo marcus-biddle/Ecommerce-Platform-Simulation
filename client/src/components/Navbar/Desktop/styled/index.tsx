@@ -4,41 +4,40 @@ import styled from 'styled-components';
 export const NavbarStyle = styled.div`
     display: flex;
     justify-content: space-between;
+    text-align: center;
     margin-right: 10rem;
     margin-left: 10rem;
-    padding-bottom: 1.34rem;
+    padding-bottom: 10px;
     a:hover {
         color: rgba(205, 77, 8, 0.885);
     }
 `;
 
 export const StyledNavUL = styled.div`
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: .75rem;
+    height: 100%;
 `;
 
 export const NavbarCategoryWrapper = styled.div`
-    display: inline-flex
-
-`;
-
-export const UserWrapper = styled.div`
-
+    display: flex;
 `;
 
 export const NavbarHeaderWrapper = styled.div`
     width: 80px;
     text-align: center;
     line-height: 16px;
+    padding-top: 5px
 `;
 
 export const Popup = styled.div`
     background-color: rgba(205, 8, 8, 0.9) !important;
     color: black !important;
     position: absolute;
-    top: .5rem;
     border-radius: 25px;
-    margin-left: 10px;
+    top: 22px;
+    right: 27px;
     width: .8rem;
     text-align: center;
     font-size: 10px;
@@ -46,7 +45,8 @@ export const Popup = styled.div`
     transform: scale(1.1);
 
     @media only screen and (min-width: 768px) {
-        top: 1.10rem;
+        right: 9.8rem;
+        top: 1.75rem;
     }
 `;
 

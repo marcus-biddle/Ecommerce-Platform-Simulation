@@ -1,23 +1,24 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { RiShoppingCartLine } from 'react-icons/ri';
-import { CouponStyle, NavbarCategoryWrapper, NavbarHeaderWrapper, NavbarStyle, Popup, StyledNavUL, UserWrapper } from './styled';
+import { CouponStyle, NavbarCategoryWrapper, NavbarHeaderWrapper, NavbarStyle, Popup, StyledNavUL } from './styled';
 import { useShoppingCartContext } from '../../../hooks';
 import { cartHasItems } from '../../../helpers/cart';
-import { REGIONS } from '../../../constants/regions';
+import { REGIONS, RegionType } from '../../../constants/regions';
 import { showOnLoad } from '../../../helpers/conditionals';
+import styled from 'styled-components';
 
-const NavbarLinks = () => {
+const Categories = () => {
   return (
-    <>
-      {REGIONS.map((region: any, index: any) => {
+    <NavbarCategoryWrapper>
+      {REGIONS.map((region: RegionType, index: any) => {
         return (
-          <StyledNavUL key={index}>
+          <StyledNavUL key={region.id}>
             <Link to={`${region.path}`}>{region.label}</Link>
           </StyledNavUL>
         )
       })}
-    </>
+    </NavbarCategoryWrapper>
   )
 }
 
@@ -37,13 +38,20 @@ const CartNotification = () => {
 }
 
 export const NavCart = () => {
+  const Cart = styled(RiShoppingCartLine)`
+    height: 25px;
+    width: 30px;
+    cursor: pointer;
+    padding-top: 8px;
+  `;
+
   return (
-    <>
+    <div>
       <Link to='/cart'>
-        <RiShoppingCartLine style={{ height: '40px', width: '40px', cursor: 'pointer'}} />
+        <Cart />
         <CartNotification />
       </Link>
-    </>
+    </div>
   )
 }
 
@@ -63,26 +71,24 @@ export const NavbarCouponMessage = () => {
   )
 }
 
+const Logo = () => {
+  return (
+    <NavbarHeaderWrapper>
+          <Link to='/' style={{ fontFamily: 'Abel, sans-serif', fontSize: '14px', fontWeight: 'bold'}}>Poke Center</Link>
+    </NavbarHeaderWrapper>
+  )
+}
+
 export const DesktopNavbar = () => {
   
   return (
-    <div>
+    <>
       <NavbarCouponMessage />
       <NavbarStyle>
-        <NavbarHeaderWrapper>
-          {/* <img style={{ height: '60px'}} src={poke_logo} /> */}
-          <Link to='/' style={{ fontFamily: 'Abel, sans-serif', fontSize: '14px', fontWeight: 'bold'}}>Poke Center</Link>
-        </NavbarHeaderWrapper>
-
-        <NavbarCategoryWrapper>
-          <NavbarLinks />
-        </NavbarCategoryWrapper>
-
-        <UserWrapper>
-            <NavCart />
-        </UserWrapper>
-    </NavbarStyle>
-    </div>
-    
+        <Logo />
+        <Categories />
+        <NavCart />
+      </NavbarStyle>
+    </> 
   )
 }
