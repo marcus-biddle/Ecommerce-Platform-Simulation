@@ -1,9 +1,9 @@
 
-.cta-wrapper:hover {
+.grid-cta-wrapper:hover {
     opacity: .85;
 }
 
-.icon-CTA {
+.icon-CTA-grid {
     height: 40px;
     width: 40px;
     padding-top: 8px;
@@ -16,14 +16,13 @@
     }
 }
 
-.cta-wrapper {
+.grid-cta-wrapper {
     background-color: rgba(2,0,36,1);
     height: 55px;
     width: 55px;
     text-align: center;
     border-radius: 10px;
     cursor: pointer;
-    margin-top: 21px;
     
 
     @media only screen and (min-width: 768px) {

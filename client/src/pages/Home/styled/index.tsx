@@ -8,19 +8,13 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 export const HomeStyle = styled.div`
-    
+    position: relative;
+    bottom: 60px;
+
+    @media only screen and (min-width: 768px) {
+        bottom: 30px;
+    }
 `;
-
-// display: flex;
-//     flex-direction: column;
-
-//     @media only screen and (min-width: 768px) {
-//         flex-direction: row;
-//         height: 45vh;
-//         width: 100%;
-//         justify-content: space-between;
-//         margin-bottom: 3rem;
-//     }
 
 export const HeroWrapper = styled.div`
     width: 100%;
@@ -47,7 +41,6 @@ export const HeroText = styled.p`
     font-size: 80px;
     height: 50%;
     text-align: center;
-    margin-left: 3rem;
 
     @media only screen and (min-width: 768px) {
         margin-left: 7rem;
@@ -72,7 +65,7 @@ export const HeroButton = styled.button`
     @media only screen and (min-width: 768px) {
         margin-top: 0;
         position: absolute;
-        top: 40rem;    
+        top: 30rem;    
     }
 `;
 
@@ -286,8 +279,7 @@ export const SaleStyle = styled.div`
     border-radius: 6px;
 
     @media only screen and (min-width: 768px) {
-        margin-left: 16px;
-        margin-top: 16px;
+        margin-left: 3rem;
     }
 `;
 
@@ -370,4 +362,18 @@ export const SubscriptionWrapper = styled.div`
     text-align: center;
     font-family: Abel, sans-serif;
     margin-bottom: 4rem;
+`;
+
+export const IconWrapper = styled.div`
+    background-color: rgba(2,0,36,1);
+    height: 55px;
+    width: 55px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 21px;
+
+    @media only screen and (min-width: 768px) {
+        height: 40px;
+        width: 46px;
+    }
 `;

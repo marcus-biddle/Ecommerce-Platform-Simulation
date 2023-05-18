@@ -7,7 +7,6 @@ import { useWindowDemension } from '../../hooks/mobile';
 import { showIfOrElseWindow } from '../../helpers/media';
 import { featured, guarantees } from '../../constants/info';
 
-import './styled/style.css';
 import { 
     BrandWrapper, 
     CouponTextWrapper, 
@@ -23,6 +22,7 @@ import {
     HeroText, 
     HeroWrapper, 
     HomeStyle, 
+    IconWrapper, 
     NewHeroImg, 
     PokeImg, 
     PokeName, 
@@ -32,6 +32,8 @@ import {
     SaleStyle, 
     SubscribeTextHeader, 
     SubscriptionWrapper } from './styled';
+import styled from 'styled-components';
+
 
 const Hero = () => {
     return (
@@ -61,11 +63,23 @@ const GuaranteeMessage = () =>  {
         <>
             {guarantees.map((item) => {
                 const Icon = item.icon;
+                const GuarenteeIcon = styled(Icon)`
+                height: 40px;
+                width: 40px;
+                padding-top: 8px;
+                padding-bottom: 5px;
+                color: wheat;
+
+                @media only screen and (min-width: 768px) {
+                    height: 24px;
+                    width: 24px;
+                }
+                `;
                 return (
                     <GuaranteeItem>
-                        <div className='icon-wrapper'>
-                            <Icon className='icon-css'/>
-                        </div>
+                        <IconWrapper>
+                            <GuarenteeIcon />
+                        </IconWrapper>
                         <GuaranteeItemHeader style={{ paddingTop: '16px'}}>{item.title}</GuaranteeItemHeader>
                         <GuaranteeItemText>{item.statement}</GuaranteeItemText>
                     </GuaranteeItem>
@@ -76,6 +90,18 @@ const GuaranteeMessage = () =>  {
 }
 
 const FeaturedPokemon = () => {
+    const CTAButton = styled(BsCartPlusFill)`
+    height: 40px;
+    width: 40px;
+    padding-top: 8px;
+    padding-bottom: 5px;
+    color: wheat;
+
+    @media only screen and (min-width: 768px) {
+        height: 24px;
+        width: 24px;
+    }
+    `;
     return (
         <>
             <FeatureTitle>Featured Pokemon</FeatureTitle>
@@ -110,9 +136,9 @@ const FeaturedPokemon = () => {
                                     {/* Add Links */}
                                 </PriceWrapper>
                                 </div>
-                                <div className='cta-wrapper'>
-                                    <BsCartPlusFill className='icon-CTA'/>
-                                </div>
+                                <IconWrapper>
+                                    <CTAButton />
+                                </IconWrapper>
                             </div>
                         </div>
                     )
@@ -140,7 +166,7 @@ export const Coupon = () => {
                 ((<>
                     <p style={{ color: 'gold', fontSize: '24px'}}>Limited Offer</p>
                     <span style={{ fontSize: '45px'}}>Get 35% off today</span>
-                    <div style={{ padding: '15px', backgroundColor: 'white', color: 'black', width: '10rem', textAlign: 'center', fontSize: '18px', borderRadius: '14px', marginTop: '8rem', marginLeft: '1.5rem'}}>
+                    <div style={{ padding: '15px', backgroundColor: 'white', color: 'black', width: '10rem', textAlign: 'center', fontSize: '18px', borderRadius: '14px', marginTop: '7rem', marginLeft: '1.5rem'}}>
                         Grab it now -{'>'}
                     </div>
                 </>))}
