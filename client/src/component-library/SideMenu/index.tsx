@@ -4,6 +4,7 @@ import { MenuItem, SideMenuWrapper, StyledMenuH4, StyledMenuLink } from './style
 import { usePokemonContext } from '../../hooks';
 import { showOnLoad } from '../../helpers/conditionals';
 import { RegionType } from '../../constants/regions';
+import styled, { keyframes } from 'styled-components';
 
 export interface RegionProps {
   region : RegionType;
@@ -12,9 +13,9 @@ export interface RegionProps {
 const Starters = ({ pokemon, region }: any) => {
   return (
     <>
-      <StyledMenuLink to={`/${region.path}/pokemon/${pokemon[STARTER_POKEMON[region.index].fire].id - 1}`}>{pokemon[STARTER_POKEMON[region.index].fire].name}</StyledMenuLink>
-      <StyledMenuLink to={`/${region.path}/pokemon/${pokemon[STARTER_POKEMON[region.index].water].id - 1}`}>{pokemon[STARTER_POKEMON[region.index].water].name}</StyledMenuLink>
-      <StyledMenuLink to={`/${region.path}/pokemon/${pokemon[STARTER_POKEMON[region.index].grass].id - 1}`}>{pokemon[STARTER_POKEMON[region.index].grass].name}</StyledMenuLink>
+      <StyledMenuLink to={`${region.path}/${pokemon[STARTER_POKEMON[region.index].fire].id - 1}`}>{pokemon[STARTER_POKEMON[region.index].fire].name}</StyledMenuLink>
+      <StyledMenuLink to={`${region.path}/${pokemon[STARTER_POKEMON[region.index].water].id - 1}`}>{pokemon[STARTER_POKEMON[region.index].water].name}</StyledMenuLink>
+      <StyledMenuLink to={`${region.path}/${pokemon[STARTER_POKEMON[region.index].grass].id - 1}`}>{pokemon[STARTER_POKEMON[region.index].grass].name}</StyledMenuLink>
     </>
   )
 }
@@ -29,92 +30,75 @@ const Legendaries = ({ pokemon, region }: any) => {
   )
 }
 
-const filterTypes = [
+const FILTER_OPTIONS = [
   {
+    id: 1,
     type: 'grass_bug',
-    checked: false
   },
   {
+    id: 2,
     type: 'poison_psychic_ghost',
-    checked: false
   },
   {
+    id: 3,
     type: 'fire',
-    checked: false
   },
   {
+    id: 4,
     type: 'water',
-    checked: false
   },
   {
+    id: 5,
     type: 'flying_ground_fighting',
-    checked: false
   },
   {
+    id: 6,
     type: 'ice',
-    checked: false
   },
   {
+    id: 7,
     type: 'fairy',
-    checked: false
   },
   {
+    id: 8,
     type: 'electric',
-    checked: false
   },
   {
+    id: 9,
     type: 'dragon_dark',
-    checked: false
   },
+  {
+    id: 10,
+    type: 'none'
+  }
 ]
 
-export const SideMenu = ({ region }: RegionProps) => {
+export const SideMenu = ({ handleFilterClick, activeFilter }: any) => {
   const { pokemon, isLoading } = usePokemonContext();
-  const props = { pokemon, region }
   const fallback = (<p >Loading...</p>)
-  const [filters, setFilters] = useState<any[]>(filterTypes);
 
-  // REDO WHOLE THING https://blog.logrocket.com/building-custom-checkbox-react/
+  const FilterButton = styled.div.attrs(props => ({
+    active: props.id === 'active' ? true : false
+  }))`
+    width: 100%;
+    font-size: 18px;
+    color: ${ props => props.active ? 'black' : 'black'};
+    background-color: ${ props => props.active ? 'rgb(105, 103, 103, .25)': ''};
+    border-radius: 6px;
+    padding: 10px;
+  `;
 
   return (
     <SideMenuWrapper>
       <StyledMenuH4>Filter By Type</StyledMenuH4>
-      {/* <div>
-      {/* {Object.keys(filters).map(key => (
-        <input
-          type="checkbox"
-          onChange={handleToggle}
-          key={key}
-          name={key}
-          checked={filters[key]}
-        />
-      ))} */}
-      {/* {filters.map((filter) => {
+      <div style={{ display: 'flex', flexDirection: 'column', listStyleType: 'none', gap: '10px'}}>
+      {FILTER_OPTIONS.map((filter) => {
         return (
-          <>
-          <div>{filter.type} {`${filter.checked}`}</div>
-          <input 
-          type="checkbox"
-          onChange={handleChange}
-          key={filter.type}
-          name={filter.type}
-          checked={filters[filter.checked]}
-          />
-          </>
+          <div key={filter.type} onClick={() => handleFilterClick(filter.type)}>
+            <FilterButton id={filter.type === activeFilter ? 'active' : 'passive'}>{filter.type}</FilterButton>
+          </div>
         )
-      })} */}
-      {/* <MenuItem>
-        <StyledMenuH4>{STARTER_POKEMON[region.index].label}</StyledMenuH4>
-        {showOnLoad(isLoading)(fallback)(
-          <Starters {...props} />
-        )}
-      </MenuItem> */}
-      
-      {/* <MenuItem>
-        <StyledMenuH4>{LEGENDARIES[region.index].label}</StyledMenuH4>
-        {showOnLoad(isLoading)(fallback)(
-          <Legendaries {...props} />
-        )}
-      </MenuItem> */}
+      })}
+      </div>
     </SideMenuWrapper>
   )};

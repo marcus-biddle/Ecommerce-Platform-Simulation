@@ -13,7 +13,7 @@ const NavbarLinks = () => {
       {REGIONS.map((region: any, index: any) => {
         return (
           <StyledNavUL key={index}>
-            <Link to={`/${region.path}/pokemon`}>{region.label}</Link>
+            <Link to={`${region.path}`}>{region.label}</Link>
           </StyledNavUL>
         )
       })}

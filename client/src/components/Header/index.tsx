@@ -5,7 +5,7 @@ import { MobileNavbar } from '../Navbar/Mobile'
 
 export const Header = () => {
   return (
-    <div style={{ marginTop: '1rem'}}>
+    <div>
         {showIfOrElseWindow(useWindowDemension())((<DesktopNavbar />))((<MobileNavbar />))}
     </div>
   )

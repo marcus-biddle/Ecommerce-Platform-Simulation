@@ -12,7 +12,7 @@ export const MenuItem = styled.div``;
 
 export const StyledMenuH4 = styled.h4`
     font-family: "Lucida Console", "Courier New", monospace;
-    font-size: 1.233rem;
+    font-size: 1.1rem;
     line-height: 1.35rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;

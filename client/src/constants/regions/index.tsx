@@ -1,5 +1,5 @@
 export type PokedexRegion = { first: number, last: number }
-export type RegionType = { label: string, path: string, filter: (pokemon: any) => boolean, index: number}
+export type RegionType = { label: string, path: string, filter: (pokemon: any) => boolean, id: string}
 
 export enum RegionOptions {
     KANTO = 'KANTO',
@@ -8,7 +8,6 @@ export enum RegionOptions {
 }
 
 export enum PokedexOptions {
-    // Need to look up pokemon placement on api
     KANTO_FIRST = 0,
     KANTO_LAST = 151,
     JOHTO_FIRST = 152,
@@ -33,7 +32,7 @@ export enum RouteOptions {
 }
 
 export const REGIONS: RegionType[] = [
-    { label: 'Kanto Region', path: RouteOptions.KANTO_ROUTE, filter: POKEMONFILTER[RegionOptions.KANTO], index: 0 },
-    { label: 'Johto Region', path: RouteOptions.JOHTO_ROUTE, filter: POKEMONFILTER[RegionOptions.JOHTO], index: 1 },
-    { label: 'Sinnoh Region', path: RouteOptions.SINNOH_ROUTE, filter: POKEMONFILTER[RegionOptions.SINNOH], index: 2 },
+    { label: 'Kanto Region', path: `/${RouteOptions.KANTO_ROUTE}/pokemon`, filter: POKEMONFILTER[RegionOptions.KANTO], id: RouteOptions.KANTO_ROUTE },
+    { label: 'Johto Region', path: `/${RouteOptions.JOHTO_ROUTE}/pokemon`, filter: POKEMONFILTER[RegionOptions.JOHTO], id: RouteOptions.JOHTO_ROUTE },
+    { label: 'Sinnoh Region', path: `/${RouteOptions.SINNOH_ROUTE}/pokemon`, filter: POKEMONFILTER[RegionOptions.SINNOH], id: RouteOptions.SINNOH_ROUTE },
 ]

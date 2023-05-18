@@ -8,7 +8,6 @@ export const Grid = styled.div`
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 3rem;
         box-sizing: border-box;
-        
     }
     
 `;

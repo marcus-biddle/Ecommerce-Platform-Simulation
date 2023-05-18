@@ -1,8 +1,19 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fadeIn = keyframes`
+  from {
+    transform: scale(.25);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+`;
 
 export const CardStyle = styled.div`
-
-    
+    animation: ${fadeIn} .25s linear;
 `;
 
 export const CardHeader = styled.div`

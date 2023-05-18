@@ -6,7 +6,6 @@ import { BreadCrumb, CartButton, HeaderContainer, InfoContainer, PDPContainer, P
 import { showOnLoad } from '../../helpers/conditionals';
 import { getPathname } from '../../helpers/navigation';
 import { getPriceNum } from '../../helpers/currency';
-import { PokemonPrice } from '../CLP/CLPCard';
 import { PokeInfo } from './ProductInfo';
 
 export const Product = () => {
@@ -45,7 +44,8 @@ export const Product = () => {
               )}
               <PriceStyling>
                 {showOnLoad(isLoading)(fallback)(
-                  <PokemonPrice pokemon={pokemonPDP}/>
+                  // <PokemonPrice pokemon={pokemonPDP}/>
+                  <>FIXED $$</>
                 )}
               </PriceStyling>
             </HeaderContainer>

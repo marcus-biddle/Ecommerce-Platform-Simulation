@@ -1,4 +1,4 @@
-export const numToUSD = (amount: number | string) => 
+export const numToUSD = (amount: number) => 
     amount < 0 ?
     `-$${Math.abs(Number(amount)).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}`
     :
