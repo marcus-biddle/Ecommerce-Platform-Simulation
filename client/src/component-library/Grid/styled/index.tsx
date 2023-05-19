@@ -3,6 +3,9 @@ import { Breakpoint } from "../../../helpers/media";
 
 export const Grid = styled.div`
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
     
     @media only ${Breakpoint.small} {
         display: grid;

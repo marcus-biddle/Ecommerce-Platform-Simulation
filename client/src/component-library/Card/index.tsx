@@ -25,28 +25,27 @@ export const ProductCard = ({ pokemon, region }: any) => {
         </Link>
         <CardInfoWrapper>
             <div>
-            <div style={{ display: 'flex', alignItems: 'center'}}>
-                <CardHeader>{pokemon.name}</CardHeader>
-                <div style={{ paddingLeft: '10px', paddingTop: '5px'}}>
-                    {pokemon.types.map((types: any) => {
-                        return (
-                            <StyledSpan key={types.type.name} itemType={types.type.name}>{types.type.name}</StyledSpan>
-                        )
-                    })}
+                <div style={{ display: 'flex', alignItems: 'center'}}>
+                    <CardHeader>{pokemon.name}</CardHeader>
+                    <div style={{ paddingLeft: '10px', paddingTop: '5px'}}>
+                        {pokemon.types.map((types: any) => {
+                            return (
+                                <StyledSpan key={types.type.name} itemType={types.type.name}>{types.type.name}</StyledSpan>
+                            )
+                        })}
+                    </div>
                 </div>
-            </div>
 
-            {showSale(pokemon.height, pokemon.id)
-                (
-                    <>
-                        <CardPrice>{`${numToUSD(getDiscount(price, .15))}`}</CardPrice>
-                        <DiscountedPrice>{`${numToUSD(price)}`}</DiscountedPrice>
-                    </>
-                )(
-                    <CardPrice>{`${numToUSD(price)}`}</CardPrice>
-                )
-            }
-            
+                {showSale(pokemon.height, pokemon.id)
+                    (
+                        <>
+                            <CardPrice>{`${numToUSD(getDiscount(price, .15))}`}</CardPrice>
+                            <DiscountedPrice>{`${numToUSD(price)}`}</DiscountedPrice>
+                        </>
+                    )(
+                        <CardPrice>{`${numToUSD(price)}`}</CardPrice>
+                    )
+                }
             </div>
             <Link to={'/cart'} onClick={() => increaseCartQuantity(pokemon.id, price, pokemon.name, 1)}>
                 <div className='grid-cta-wrapper'>

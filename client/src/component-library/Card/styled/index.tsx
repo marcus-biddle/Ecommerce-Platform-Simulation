@@ -21,7 +21,11 @@ export const CardHeader = styled.div`
     padding-top: 10px;
     letter-spacing: 1.2px;
     opacity: .75;
-    font-size: 20px;
+    font-size: 26px;
+
+    @media only ${Breakpoint.small} {
+        font-size: 20px;
+    }
 `;
 
 export const CardName = styled.div`
@@ -80,6 +84,15 @@ export const CardInfoWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: .5rem;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    @media only ${Breakpoint.small} {
+        margin-left: 16px;
+        margin-top: 16px;
+        margin-top: 0;
+    }
 `;
 
 export const DiscountedPrice = styled.span`
@@ -90,7 +103,11 @@ export const DiscountedPrice = styled.span`
 `;
 
 export const CardPrice = styled.span`
-    font-size: 20px;
+    font-size: 28px;
+
+    @media only ${Breakpoint.small} {
+        font-size: 20px;
+    }
 `;
 
 export const SaleSticker = styled.div`

@@ -37,6 +37,50 @@ export const BannerStyle = styled.div`
 
 export const H1Style = styled.h1`
     font-family: 'Abel', sans-serif;
-    font-size: 2.02rem;
+    font-size: 2.5rem;
     letter-spacing: .05px;
+    text-align: center;
+
+    @media only ${Breakpoint.small} {
+        background-color: black;
+        font-size: 2.02rem;
+    }
+`;
+
+export const MainSection = styled.div`
+    display: flex;
+    margin-right: 4rem;
+    margin-left: 4rem;
+
+    @media only ${Breakpoint.small} {
+        margin-right: 10rem;
+        margin-left: 10rem;
+    }
+`;
+
+export const Header = styled.div`
+    width: 18rem;
+    display: flex;
+    flex-direction: column;
+    
+
+    @media only ${Breakpoint.small} {
+        margin-right: 2rem;
+        gap: 26px;
+    }
+`;
+
+export const SubSection = styled.div`
+    display: flex;
+    margin-right: 4rem;
+    margin-left: 4rem;
+    height: 125px;
+    flex-direction: column;
+
+    @media only ${Breakpoint.small} {
+        margin-bottom: 4rem;
+        margin-right: 10rem;
+        margin-left: 10rem;
+        flex-direction: row;
+    }
 `;
