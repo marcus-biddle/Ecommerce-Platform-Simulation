@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { Breakpoint } from "../../../helpers/media";
 
 const fadeIn = keyframes`
   from {
@@ -104,7 +105,7 @@ export const SaleSticker = styled.div`
     padding-right: 4px;
     border-radius: 6px;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         margin-left: 16px;
         margin-top: 16px;
     }

@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import { Breakpoint } from '../../../helpers/media';
 
 export const GlobalStyle = createGlobalStyle`
     body {
@@ -11,7 +12,7 @@ export const HomeStyle = styled.div`
     position: relative;
     bottom: 60px;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         bottom: 30px;
     }
 `;
@@ -21,7 +22,7 @@ export const HeroWrapper = styled.div`
     height: 650px;
     background: linear-gradient(55deg, rgba(2,0,36,1) 30%, rgb(92,66,143) 5%, rgb(92,66,143) 100%);
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         background: linear-gradient(103deg, rgba(2,0,36,1) 30%, rgb(92,66,143) 5%, rgb(92,66,143) 100%);
     }
 `;
@@ -30,7 +31,7 @@ export const NewHeroImg = styled.img`
     width: 100%;
     float: right;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         width: 800px;
         height: 650px;
     }
@@ -42,7 +43,7 @@ export const HeroText = styled.p`
     height: 50%;
     text-align: center;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         margin-left: 7rem;
         margin-top: 2rem;
         padding-top: 8rem;
@@ -62,7 +63,7 @@ export const HeroButton = styled.button`
     font-family: 'Bebas Neue', sans-serif;
     font-size: 30px;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         margin-top: 0;
         position: absolute;
         top: 30rem;    
@@ -90,7 +91,7 @@ export const HeroImgStyle = styled.div`
         opacity: .85;
     }
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         height: 45vh;
         width: 27rem; 
         
@@ -122,7 +123,7 @@ export const HeroMessage = styled.button`
         opacity: 1;
     };
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         top: -13rem;
     };
 `;
@@ -130,7 +131,7 @@ export const HeroMessage = styled.button`
 export const StyledImg = styled.img`
     transform: scale(.5);
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         transform: scale(1.5);
         padding-right: 5rem;
         padding-left: 5rem;
@@ -141,7 +142,7 @@ export const StarterWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         justify-content: center;
         flex-direction: row;
     }
@@ -150,7 +151,7 @@ export const StarterWrapper = styled.div`
 export const BannerWrapper = styled.div`
     
     
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         margin-left: 10rem;
         margin-right: 10rem;
     }
@@ -160,7 +161,7 @@ export const PokemonWrapper = styled.div`
     margin-bottom: 5rem;
     margin-top: 3.5rem;
     
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         margin-left: 10rem;
         margin-right: 10rem;
     }
@@ -179,7 +180,7 @@ export const BrandWrapper = styled.div`
     margin-left: 4rem;
     margin-right: 5rem;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         margin-left: 10rem;
         margin-right: 10rem;
     }
@@ -190,7 +191,7 @@ export const GuaranteeWrapper = styled.div`
     margin-right: 5rem;
     margin-top: 4rem;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         display: flex;
         justify-content: space-between;
     }
@@ -200,7 +201,7 @@ export const GuaranteeItem = styled.div`
     width: 15rem;
     margin-bottom: 3rem;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         margin-bottom: 0;
     }
 `;
@@ -209,7 +210,7 @@ export const GuaranteeItemHeader = styled.div`
     padding-top: 16px;
     font-size: 30px;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         font-size: 16px;
     }
 `;
@@ -218,7 +219,7 @@ export const GuaranteeItemText = styled.p`
     font-family: Abel, sans-serif;
     font-size: 18px;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         font-size: 12px;
     }
 `;
@@ -232,7 +233,7 @@ export const FeatureTitle = styled.div`
     font-size: 40px;
     margin-left: 2rem;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         margin-left: 4rem;
         margin-right: 4rem;
         margin-bottom: 2rem;
@@ -244,7 +245,7 @@ export const PokeWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         justify-content: space-between;
         flex-direction: row;
         margin-left: 4rem;
@@ -259,7 +260,7 @@ export const PokeImg = styled.img`
     margin-left: 2rem;
     margin-top: 2rem;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         justify-content: space-between;
         height: 25rem;
         width: 23rem;
@@ -278,7 +279,7 @@ export const SaleStyle = styled.div`
     padding-right: 4px;
     border-radius: 6px;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         margin-left: 3rem;
     }
 `;
@@ -290,7 +291,7 @@ export const PokeName = styled.div`
     font-size: 28px;
     margin-left: 2rem;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         font-size: 24px
     }
 `;
@@ -301,7 +302,7 @@ export const PriceWrapper = styled.div`
     margin-left: 2rem;
     margin-right: 2rem;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         
     }
 `;
@@ -329,7 +330,7 @@ export const CouponWrapper = styled.div`
     align-items: center;
     border-radius: 16px;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         
     }
 `;
@@ -340,7 +341,7 @@ export const CouponTextWrapper = styled.div`
     color: black;
     padding-left: 16px;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         right: 14rem;
         bottom: 3rem;
         color: white;
@@ -353,7 +354,7 @@ font-size: 28px;
 margin-left: 1rem;
 margin-right: 1rem;
 
-@media only screen and (min-width: 768px) {
+@media only ${Breakpoint.small} {
     font-size: 32px;
 }
 `;
@@ -372,7 +373,7 @@ export const IconWrapper = styled.div`
     border-radius: 10px;
     margin-top: 21px;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         height: 40px;
         width: 46px;
     }

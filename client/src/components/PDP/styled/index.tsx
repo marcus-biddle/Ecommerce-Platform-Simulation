@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import background from '../../../assets/bg.jpeg'
+import { Breakpoint } from "../../../helpers/media";
 
 export const ProductImg = styled.img`
     background-color: wheat;
@@ -7,7 +8,7 @@ export const ProductImg = styled.img`
     opacity: .75;
     cursor: pointer;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         
     }
 
@@ -19,7 +20,7 @@ export const ProductImg = styled.img`
 export const HeaderContainer = styled.div`
     border-bottom: thin solid grey;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         width: 100%;
     
     line-height: 3rem;
@@ -42,7 +43,7 @@ export const PriceStyling = styled.div`
 
 export const PDPStyling = styled.div`
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         padding-top: 3rem;
         padding-left: 11rem;
         padding-right: 11rem;
@@ -52,7 +53,7 @@ export const PDPStyling = styled.div`
 
 export const PDPContainer = styled.div`
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
             display: flex;
             padding-top: 1rem;
         }
@@ -62,7 +63,7 @@ export const PokemonContainer = styled.div`
     padding-left: 15px;
     padding-right: 15px;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
             margin-left: 3.4rem;
             max-width: 35.75rem;
         }
@@ -99,7 +100,7 @@ export const MainImgSection = styled.div`
         border-radius: 25px;
         overflow: hidden;
 
-        @media only screen and (min-width: 768px) {
+        @media only ${Breakpoint.small} {
             width: 400px;
             margin-left: 10rem;
         }
@@ -120,7 +121,7 @@ export const SaleSticker = styled.div`
         padding-right: 5px;
         border-radius: 8px;
 
-        @media only screen and (min-width: 768px) {
+        @media only ${Breakpoint.small} {
             left: 12rem;
         }
 `;
@@ -133,7 +134,7 @@ export const ImageGallery = styled.div`
         display: flex;
         justify-content: space-evenly;
 
-        @media only screen and (min-width: 768px) {
+        @media only ${Breakpoint.small} {
             flex-direction: column;
             margin-right: 0;
             margin-left: 0;
@@ -142,13 +143,13 @@ export const ImageGallery = styled.div`
 `;
 
 export const ProductImagesWrapper = styled.div`
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         display: flex
     }
 `;
 
 export const ProductWrapper = styled.div`
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         display: flex;
         margin-bottom: 10rem;
     }
@@ -162,7 +163,7 @@ export const PriceSectionWrapper = styled.div`
     margin-top: 1rem;
     font-size: 24px;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         flex-direction: row;
         margin-top: 2rem;
         margin-right: 10rem;
@@ -170,7 +171,7 @@ export const PriceSectionWrapper = styled.div`
 `;
 
 export const ProductInfo = styled.div`
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -182,7 +183,7 @@ export const CTAButtonWrapper = styled.div`
     height: 60px;
     margin-top: 1rem;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         margin-right: 10rem;
     }
 `;
@@ -197,7 +198,7 @@ export const CTAStyle = styled.div`
     border-radius: 8px;
     padding-bottom: 5px;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         margin-right: 0;
     }
 
@@ -220,7 +221,7 @@ export const VolumeWrapper = styled.div`
     margin-right: 5rem;
     margin-top: .5rem;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         margin-left: 0;
         margin-right: 10rem;
         margin-bottom: 2rem;

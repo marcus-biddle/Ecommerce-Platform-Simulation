@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { Breakpoint } from '../../../helpers/media';
 
 export const CLPStyle = styled.div`
     
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         margin-left: 10rem;
         margin-right: 10rem;
     }
@@ -11,7 +12,7 @@ export const CLPStyle = styled.div`
 export const Row = styled.div`
     
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         display: grid;
         grid-template-rows: 200px;
         grid-template-columns: 925px;

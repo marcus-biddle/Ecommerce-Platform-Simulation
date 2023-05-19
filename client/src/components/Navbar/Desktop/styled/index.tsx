@@ -1,5 +1,6 @@
 
 import styled from 'styled-components';
+import { Breakpoint } from '../../../../helpers/media';
 
 export const NavbarStyle = styled.div`
     display: flex;
@@ -44,7 +45,7 @@ export const Popup = styled.div`
     font-weight: 600;
     transform: scale(1.1);
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         right: 9.8rem;
         top: 1.75rem;
     }

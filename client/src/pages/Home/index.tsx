@@ -3,7 +3,7 @@ import master from '../../assets/master_ball.webp';
 import center from '../../assets/poke_center.webp';
 import { BsCartPlusFill } from 'react-icons/bs';
 import { useWindowDemension } from '../../hooks/mobile';
-import { showIfOrElseWindow } from '../../helpers/media';
+import { Breakpoint, showIfOrElseWindow } from '../../helpers/media';
 import { 
     BrandWrapper, 
     CouponTextWrapper, 
@@ -68,7 +68,7 @@ const GuaranteeMessage = () =>  {
                 padding-bottom: 5px;
                 color: wheat;
 
-                @media only screen and (min-width: 768px) {
+                @media only ${Breakpoint.small} {
                     height: 24px;
                     width: 24px;
                 }
@@ -95,7 +95,7 @@ const FeaturedPokemon = () => {
     padding-bottom: 5px;
     color: wheat;
 
-    @media only screen and (min-width: 768px) {
+    @media only ${Breakpoint.small} {
         height: 24px;
         width: 24px;
     }
