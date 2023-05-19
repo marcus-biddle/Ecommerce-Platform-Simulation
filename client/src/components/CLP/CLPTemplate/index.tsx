@@ -5,7 +5,7 @@ import { usePokemonContext } from '../../../hooks';
 import { ProductCard } from '../CLPCard';
 import { Grid } from './styled';
 import { getPathname } from '../../../helpers/navigation';
-import { getFilteredPokemon, getSelectedPokemon } from '../../../helpers/clp';
+import { getFilteredPokemon, getSelectedPokemon } from '../../../helpers/pokemon';
 
 export const CLPTemplate = ({ currentRegion, activeFilter }: any) => {
     const { pokemon, isLoading } = usePokemonContext();

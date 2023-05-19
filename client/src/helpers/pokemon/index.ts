@@ -52,3 +52,7 @@ export const getFilteredPokemon = (pokemon: any, activeFilter: string) => {
 
     return pokemon;
 };
+
+export const getPokemonImages = (pokemon: any) => {
+    return {front: pokemon.sprites.front_default, back: pokemon.sprites.back_default, main: pokemon.sprites.other.home.front_default};
+};

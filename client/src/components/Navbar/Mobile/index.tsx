@@ -12,7 +12,7 @@ export const MobileNavbar = () => {
     const navigate = useNavigate();
 
     const handleClick = (region: number) => {
-        navigate(`/${REGIONS[region].path}/pokemon`);
+        navigate(`${REGIONS[region].path}`);
         setIsOpen(false);
     }
 

@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { getPriceNum, numToUSD } from '../../../helpers/currency';
+import { getDiscount, getPriceNum, numToUSD } from '../../../helpers/currency';
 import { BsCartPlusFill } from 'react-icons/bs';
 import './styled/style.css';
 import { CardHeader, CardInfoWrapper, CardName, CardPrice, CardStyle, DiscountedPrice, ImageWrapper, SaleSticker, StyledImg, StyledSpan } from './styled';
 import { DiscountPrice, PokeName, PokePrice } from '../../../pages/Home/styled';
 import { useShoppingCartContext } from '../../../hooks';
+import { showSale } from '../../../helpers/conditionals';
 
 // export const PokemonPrice = ({ pokemon }: any) => {
 //     const price = getPriceNum(pokemon);
@@ -20,18 +21,14 @@ import { useShoppingCartContext } from '../../../hooks';
 export const ProductCard = ({ pokemon, region }: any) => {
     const { increaseCartQuantity } = useShoppingCartContext();
     const price = getPriceNum(pokemon);
-    const discountPrice = price - price * .15;
 
   return (
     <CardStyle>
         <Link to={`${pokemon.id - 1}`}>
-            {pokemon.height < 11 && pokemon.id % 2 === 0 
-            ? 
-            <SaleSticker>
-                SALE
-            </SaleSticker>
-            :
-            ''
+            {showSale(pokemon.height, pokemon.id)
+                (
+                    <SaleSticker>SALE</SaleSticker>
+                )()
             }
             <ImageWrapper>
                 <StyledImg src={pokemon.sprites.front_default} alt={pokemon.name}/>
@@ -50,15 +47,17 @@ export const ProductCard = ({ pokemon, region }: any) => {
                 </div>
             </div>
 
-            {pokemon.height < 11 && pokemon.id % 2 === 0
-            ?
-            <>
-            <CardPrice>{`${numToUSD(discountPrice)}`}</CardPrice>
-            <DiscountedPrice>{`${numToUSD(price)}`}</DiscountedPrice>
-            </>
-            :
-            <CardPrice>{`${numToUSD(price)}`}</CardPrice>
+            {showSale(pokemon.height, pokemon.id)
+                (
+                    <>
+                        <CardPrice>{`${numToUSD(getDiscount(price, .15))}`}</CardPrice>
+                        <DiscountedPrice>{`${numToUSD(price)}`}</DiscountedPrice>
+                    </>
+                )(
+                    <CardPrice>{`${numToUSD(price)}`}</CardPrice>
+                )
             }
+            
             </div>
             <Link to={'/cart'} onClick={() => increaseCartQuantity(pokemon.id, price, pokemon.name)}>
                 <div className='grid-cta-wrapper'>

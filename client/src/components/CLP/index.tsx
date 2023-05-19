@@ -4,7 +4,7 @@ import { Banner } from '../../component-library/Banner';
 import { SideMenu } from '../../component-library/SideMenu';
 import { bannerHeader, bannerSubheader } from '../../constants/info';
 import { REGIONS } from '../../constants/regions';
-import { getCurrentRegion } from '../../helpers/clp';
+import { getCurrentRegion } from '../../helpers/pokemon';
 import { showIfOrElseWindow } from '../../helpers/media';
 import { getPathname } from '../../helpers/navigation';
 import { useWindowDemension } from '../../hooks/mobile';

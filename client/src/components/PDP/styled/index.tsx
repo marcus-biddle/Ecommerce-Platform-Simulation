@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
 export const ProductImg = styled.img`
-    height: 15rem;
-    width: 27rem;
-    object-fit: contain;
-    border: solid black;
+    background-color: wheat;
+    border-radius: 12px;
+    opacity: .75;
 
     @media only screen and (min-width: 768px) {
-        height: 25rem;
-        width: 30rem;
+        
     }
 `;
 
