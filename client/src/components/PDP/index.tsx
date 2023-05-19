@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { usePokemonContext, useShoppingCartContext } from '../../hooks';
-import pic from '../../assets/pokeballs.gif';
-import { BreadCrumb, CartButton, HeaderContainer, InfoContainer, PDPContainer, PDPStyling, PokemonContainer, PriceStyling, ProductHeader, ProductImg } from './styled';
-import { showOnLoad, showSale } from '../../helpers/conditionals';
-import { getPathname } from '../../helpers/navigation';
+import { ProductImg } from './styled';
+import { showSale } from '../../helpers/conditionals';
 import { getDiscount, getPriceNum } from '../../helpers/currency';
-import { PokeInfo } from './ProductInfo';
 import { getPokemonImages } from '../../helpers/pokemon';
 import background from '../../assets/bg.jpeg'
 import { numToUSD } from '../../helpers/currency';
 import { AiFillStar } from 'react-icons/ai';
+import { PokeInfo } from './ProductInfo';
 
 const ProductImages = ({ pokemon }: any) => {
   const pokeImages = getPokemonImages(pokemon);
@@ -40,6 +38,50 @@ const ProductImages = ({ pokemon }: any) => {
   )
 }
 
+const StarRating = ({ pokemon }: any) => {
+  const AMOUNT_OF_STARS = Math.round((pokemon.weight * pokemon.height) / (pokemon.base_experience * 5) < 1 ? 1 : (pokemon.weight * pokemon.height) / (pokemon.base_experience * 5) > 5 ? 5 : (pokemon.weight * pokemon.height) / (pokemon.base_experience * 5));
+  const stars = Array.from({ length: AMOUNT_OF_STARS});
+  const blackStars = Array.from({ length: 5 - AMOUNT_OF_STARS});
+
+  return (
+    <div>
+      {stars.map(() => {
+        return (
+          <AiFillStar style={{ color: 'gold'}}/>
+        )
+      })}
+      {blackStars.map(() => {
+        return (
+          <AiFillStar />
+        )
+      })}
+    </div>
+  )
+}
+
+const PriceSection = ({ pokemon }: any) => {
+  return (
+    <div style={{ display: 'flex', justifyContent: 'space-between', marginLeft: '2rem', marginRight: '2rem', marginTop: '1rem', fontSize: '24px'}}>
+      <div style={{ fontSize: '32px', letterSpacing: '1.2px'}}>
+        {pokemon.name}
+        <StarRating pokemon={pokemon}/>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+        {showSale(pokemon.height, pokemon.id)
+                (
+                    <>
+                      <div style={{ textDecorationLine: 'line-through', opacity: '.5', fontSize: '20px', textAlign: 'right'}}>{`${numToUSD(getPriceNum(pokemon))}`}</div>
+                      <div style={{ fontSize: '32px'}}>{`${numToUSD(getDiscount(getPriceNum(pokemon), .15))}`}</div>
+                    </>
+                )(
+                    <div style={{ fontSize: '32px'}}>{`${numToUSD(getPriceNum(pokemon))}`}</div>
+                )
+            }
+      </div>
+    </div>
+  )
+}
+
 export const Product = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -48,74 +90,44 @@ export const Product = () => {
     const pokeId = Number(id);
     const pokemonPDP = pokemon[pokeId || 0]
     const fallback = (<p>Loading...</p>);
+    const [amount, setAmount] = useState(0);
 
-  const handleClick = () => {
-    
-    
+  const handleCTA = () => {
     increaseCartQuantity(pokemonPDP.id, getPriceNum(pokemonPDP), pokemonPDP.name);
     navigate('/cart');
   };
 
-  const AMOUNT_OF_STARS = Math.floor(Math.random() * 4);
-  const stars = Array.from({ length: AMOUNT_OF_STARS});
-  const blackStars = Array.from({ length: 4 - AMOUNT_OF_STARS});
+  const handleVolume = (direction: string) => {
+    if (direction === 'decrease') {
+      if (amount === 0) {
+        //
+      } else {
+        setAmount(amount - 1)
+      }
+    } else if (direction === 'increase') {
+      setAmount(amount + 1)
+    };
+  };
 
   if (isLoading) {
     return (
-      <>
-      {fallback}
-      </>
+      <>{fallback}</>
     )
   }
+
+  console.log(pokemonPDP);
 
   return (
     <>
     <ProductImages pokemon={pokemonPDP}/>
-    
-    <div style={{ display: 'flex', justifyContent: 'space-between', marginLeft: '2rem', marginRight: '2rem', marginTop: '1rem', fontSize: '24px'}}>
-      <div style={{ fontSize: '32px'}}>
-        {pokemonPDP.name}
-        <div>
-          <AiFillStar style={{ color: 'gold'}}/>
-          {stars.map(() => {
-            return (
-              <AiFillStar style={{ color: 'gold'}}/>
-            )
-          })}
-          {blackStars.map(() => {
-            return (
-              <AiFillStar />
-            )
-          })}
-          {/* {pokemonPDP.abilities.length >= 2 
-            ?
-            count += 1
-            : pokemonPDP.stats[1].base_stat >= 64
-            ?
-            count += 1
-            : pokemonPDP.stats[2].base_stat >= 64
-            ?
-            count += 1
-            :
-            pokemonPDP.stats[3].base_stat >= 100 ?
-            count += 1
-            : ''
-          } */}
-          
-        </div>
+    <PriceSection pokemon={pokemonPDP}/>
+    <div style={{ display: 'flex', justifyContent: 'space-evenly', marginLeft: '5rem', marginRight: '5rem', marginTop: '.5rem'}}>
+      <div style={{ height: '40px', width: '40px', borderRadius: '12px', backgroundColor: 'rgb(105, 103, 103, .25)', display: 'flex', justifyContent: 'center'}} onClick={() => handleVolume('decrease')}>
+        <div style={{ paddingTop: '4px', fontSize: '28px'}}>-</div>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-        {/* {numToUSD(price)} */}
-        {showSale(pokemonPDP.height, pokemonPDP.id)
-                (
-                    <>
-                      <div style={{ textDecorationLine: 'line-through', opacity: '.5', fontSize: '20px', textAlign: 'right'}}>{`${numToUSD(getPriceNum(pokemonPDP))}`}</div>
-                      <div style={{ fontSize: '32px'}}>{`${numToUSD(getDiscount(getPriceNum(pokemonPDP), .15))}`}</div>
-                    </>
-                )(
-                    <div style={{ fontSize: '32px'}}>{`${numToUSD(getPriceNum(pokemonPDP))}`}</div>
-                )
-            }
+      <div style={{ fontSize: '30px', height: '40px', width: '40px', textAlign: 'center'}}>{amount}</div>
+      <div style={{ height: '40px', width: '40px', borderRadius: '12px', backgroundColor: 'rgb(105, 103, 103, .25)', display: 'flex', justifyContent: 'center'}} onClick={() => handleVolume('increase')}>
+        <div style={{ paddingTop: '4px', fontSize: '28px'}}>+</div>
       </div>
     </div>
     </>

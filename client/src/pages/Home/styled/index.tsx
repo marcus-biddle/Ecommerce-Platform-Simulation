@@ -2,8 +2,8 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
     body {
-        font-family: 'Abel', sans-serif;
-        font-family: 'Bebas Neue', sans-serif;
+        font-family: Abel, sans-serif;
+        font-family: Bebas Neue, sans-serif;
     }
 `
 

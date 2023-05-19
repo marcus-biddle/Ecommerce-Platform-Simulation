@@ -120,7 +120,7 @@ export const PokeInfo = ({ id, pokemonPDP }: any) => {
         )
     }
     
-    if (isLoadingInfo === true) {
+    if (isLoadingInfo) {
         return (
             <>Loading...</>
         )
@@ -128,15 +128,8 @@ export const PokeInfo = ({ id, pokemonPDP }: any) => {
 
     return (
         <>
-            <Tabs tabs={tabChoices} active={active} setActive={setActive} />
-            {active === tabChoices[1] 
-            ?
+
             <Pokedex />
-            : active === tabChoices[2]
-            ?
-            <Wilderness />
-            :
-            <Stats /> }
         </>
     )
 }
