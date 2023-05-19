@@ -1,22 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { getDiscount, getPriceNum, numToUSD } from '../../../helpers/currency';
+import { getDiscount, getPriceNum, numToUSD } from '../../helpers/currency';
 import { BsCartPlusFill } from 'react-icons/bs';
 import './styled/style.css';
-import { CardHeader, CardInfoWrapper, CardName, CardPrice, CardStyle, DiscountedPrice, ImageWrapper, SaleSticker, StyledImg, StyledSpan } from './styled';
-import { DiscountPrice, PokeName, PokePrice } from '../../../pages/Home/styled';
-import { useShoppingCartContext } from '../../../hooks';
-import { showSale } from '../../../helpers/conditionals';
-
-// export const PokemonPrice = ({ pokemon }: any) => {
-//     const price = getPriceNum(pokemon);
-
-//     return (
-//         <div>
-//             { numToUSD(price) }
-//         </div>
-//     )
-// }
+import { CardHeader, CardInfoWrapper, CardPrice, CardStyle, DiscountedPrice, ImageWrapper, SaleSticker, StyledImg, StyledSpan } from './styled';
+import { useShoppingCartContext } from '../../hooks';
+import { showSale } from '../../helpers/conditionals'
 
 export const ProductCard = ({ pokemon, region }: any) => {
     const { increaseCartQuantity } = useShoppingCartContext();

@@ -5,8 +5,8 @@ import { MobileNavbar } from '../Navbar/Mobile'
 
 export const Header = () => {
   return (
-    <div>
+    <>
         {showIfOrElseWindow(useWindowDemension())((<DesktopNavbar />))((<MobileNavbar />))}
-    </div>
+    </>
   )
 }

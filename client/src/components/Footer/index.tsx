@@ -1,36 +1,7 @@
 import { Link } from 'react-router-dom';
-import { desktopFooter } from '../../constants/info';
+import { FOOTER_LINKS, FooterLink, FooterProps } from '../../constants/content';
 import { showIfOrElseWindow } from '../../helpers/media';
 import { useWindowDemension } from '../../hooks/mobile';
-
-// interface FooterLinkProps {
-//     items: { 
-//         name: string; 
-//         links: { 
-//             label: string; 
-//         }[]; 
-//     }[];
-// }
-// const DesktopLinks = ({ items }: FooterLinkProps) => {
-//     return (
-//         <>
-//         {items?.map((item: any, index: any) => {
-//             return (
-//                 <StyledUL key={`footer-link-${item.name}`}>
-//                     <NavHeader>{item.name}</NavHeader>
-//                     {item.links.map((link: any, index: any) => {
-//                         const linkProps = {
-//                             key: `footer-link-${index}`,
-//                             onClick: () => {alert(`${link.label} button pressed.`)},
-//                         };
-//                         return <FooterNavLink {...linkProps}>{link.label}</FooterNavLink>
-//                     })}
-//                 </StyledUL>
-//             )
-//         })}
-//         </>
-//     );
-// };
 
 const Footer = () => {
     const desktopFoot = (
@@ -40,11 +11,11 @@ const Footer = () => {
             <br/>
             <p style={{ fontFamily: 'Abel, sans-serif', fontSize: '12px', opacity: '.5', fontWeight: 'bolder'}}>Specializes in providing high-quality, powerful pokemon<br /> for life long companionship.</p>
             </p>
-                {desktopFooter.map((item) => {
+                {FOOTER_LINKS.map((section: FooterProps) => {
                     return (
                         <div>
-                            <p style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '24px'}}>{item.name}</p>
-                            {item.links.map((link) => {
+                            <p style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '24px'}}>{section.name}</p>
+                            {section.links.map((link: FooterLink) => {
                                 return (
                                     <p style={{ fontFamily: 'Abel, sans-serif', fontSize: '14px', opacity: '.5', cursor: 'pointer', fontWeight: 'bolder'}}>{link.label}</p>
                                 )
@@ -57,23 +28,10 @@ const Footer = () => {
                 <p style={{ fontFamily: 'Abel, sans-serif', fontSize: '14px', opacity: '.5', cursor: 'pointer', fontWeight: 'bolder'}}>TBD</p>
             </div>
         </div>
-        
-    //     <FooterStyle>
-    //     <ColumnFooter>
-    //         <FooterNavWrapper>
-    //             <DesktopLinks items={desktopFooter} />
-    //             <StyledUL>
-    //                 <NavHeader>Become a member</NavHeader>
-    //                 <FooterNavLink>Join now and get 10% off your next purchase!</FooterNavLink>
-    //                 <p>READ MORE -{'>'}</p>
-    //             </StyledUL>
-    //         </FooterNavWrapper>
-    //     </ColumnFooter>
-    // </FooterStyle>
     )
 
     const mobileFooter = (
-        <div style={{ marginBottom: '4rem'}}></div>
+        <div style={{ marginBottom: '2rem'}}></div>
     )
     
   return (

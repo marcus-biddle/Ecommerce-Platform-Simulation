@@ -1,23 +1,19 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router';
-import { Banner } from '../../component-library/Banner';
 import { SideMenu } from '../../component-library/SideMenu';
-import { bannerHeader, bannerSubheader } from '../../constants/info';
-import { REGIONS } from '../../constants/regions';
 import { getCurrentRegion } from '../../helpers/pokemon';
 import { showIfOrElseWindow } from '../../helpers/media';
 import { getPathname } from '../../helpers/navigation';
 import { useWindowDemension } from '../../hooks/mobile';
 import { BreadCrumb } from '../PDP/styled';
-import { CLPTemplate } from './CLPTemplate';
+import { CardGrid } from '../../component-library/Grid';
 import poke_throw from '../../assets/poke_throw.webp';
-import { CLPStyle, Column, H1Style, Row } from './styled';
+import { H1Style } from './styled';
 
 export const CLP = () => {
   // TODO: add pagination
   const { region } = useParams();
   const currentRegion =  getCurrentRegion(region || '');
-  const bannerProps = { header: bannerHeader, subheader: bannerSubheader }
   const [activeFilter, setActiveFilter] = useState('none');
 
   const handleFilterClick = (filter: string) => {
@@ -49,22 +45,8 @@ export const CLP = () => {
       </div>
       <div style={{ display: 'flex', marginRight: '10rem', marginLeft: '10rem'}}>
         {showIfOrElseWindow(useWindowDemension())((<SideMenu handleFilterClick={handleFilterClick} activeFilter={activeFilter} />))((''))}
-        <CLPTemplate currentRegion={''} activeFilter={activeFilter}/>
+        <CardGrid currentRegion={''} activeFilter={activeFilter}/>
       </div>
     </div>
-    
-    // <CLPStyle>
-    //   <H1Style>{currentRegion.label}</H1Style>
-    //   <BreadCrumbWrapper>
-    //       ..{getPathname()}
-    //   </BreadCrumbWrapper>
-    //   <Column>
-    //     {showIfOrElseWindow(useWindowDemension())((<SideMenu region={currentRegion} />))((''))}
-    //     <Row>
-    //       <Banner {...bannerProps}/>
-    //       <CLPTemplate currentRegion={currentRegion}/>
-    //     </Row>
-    //   </Column>
-    // </CLPStyle>
   )
 };

@@ -1,4 +1,3 @@
-export type PokedexRegion = { first: number, last: number }
 export type RegionType = { label: string, path: string, filter: (pokemon: any) => boolean, id: string}
 
 export enum RegionOptions {

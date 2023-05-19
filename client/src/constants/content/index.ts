@@ -5,7 +5,16 @@ import bulba from '../../assets/bulbasaur.webp';
 import char from '../../assets/charmander.png';
 import toto from '../../assets/totodile.webp';
 
-export const desktopFooter = [
+export type FooterLink = {
+    label: string;
+}
+
+export interface FooterProps {
+    name: string;
+    links: FooterLink[]
+}
+
+export const FOOTER_LINKS: FooterProps[] = [
     {
         name: 'Shop',
         links: [
@@ -62,20 +71,13 @@ export const desktopFooter = [
     }
 ]
 
-export const tabChoices: string[] = ['stats', 'pokedex', 'wilderness'];
-
-export const tabOptions: string[] = ['Fire', 'Water', 'Grass'];
-
-export const bannerHeader: string = 'Free Standard Shipping Over $1000';
-export const bannerSubheader: string = 'Not a member? Join today for more rewards!';
-
-interface x {
+export interface GauranteeProps {
     icon: IconType;
     title: string;
     statement: string;
 }
 
-export const guarantees: x[] = [
+export const GAURANTEES: GauranteeProps[] = [
     {
         icon: RiMoneyDollarCircleLine,
         title: 'Happy Pokemon',
@@ -98,7 +100,14 @@ export const guarantees: x[] = [
     },
 ];
 
-export const featured = [
+export interface FeatureProps {
+    img: string;
+    sale: boolean;
+    name: string;
+    price: number;
+}
+
+export const FEATURED_POKEMON: FeatureProps[] = [
     {
         img: toto,
         sale: true,
@@ -118,3 +127,51 @@ export const featured = [
         price: 133.00
     },
 ]
+
+interface FilterProps {
+    id: number;
+    type: string;
+}
+
+export const FILTER_OPTIONS: FilterProps[] = [
+    {
+      id: 1,
+      type: 'grass_bug',
+    },
+    {
+      id: 2,
+      type: 'poison_psychic_ghost',
+    },
+    {
+      id: 3,
+      type: 'fire',
+    },
+    {
+      id: 4,
+      type: 'water',
+    },
+    {
+      id: 5,
+      type: 'flying_ground_fighting',
+    },
+    {
+      id: 6,
+      type: 'ice',
+    },
+    {
+      id: 7,
+      type: 'fairy',
+    },
+    {
+      id: 8,
+      type: 'electric',
+    },
+    {
+      id: 9,
+      type: 'dragon_dark',
+    },
+    {
+      id: 10,
+      type: 'none'
+    }
+  ]

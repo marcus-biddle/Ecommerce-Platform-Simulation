@@ -1,14 +1,13 @@
-import React, { useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import { usePokemonContext, useShoppingCartContext } from '../../hooks';
-import { CTAButtonWrapper, CTAStyle, CTAText, CartButton, ImageGallery, MainImg, MainImgSection, PriceSectionWrapper, ProductImagesWrapper, ProductImg, ProductInfo, ProductWrapper, SaleSticker, VolumeButton, VolumeButtonText, VolumeStyle, VolumeWrapper } from './styled';
+import { CTAButtonWrapper, CTAStyle, CTAText, ImageGallery, MainImg, MainImgSection, PriceSectionWrapper, ProductImagesWrapper, ProductImg, ProductInfo, ProductWrapper, SaleSticker, VolumeButton, VolumeButtonText, VolumeStyle, VolumeWrapper } from './styled';
 import { showSale } from '../../helpers/conditionals';
 import { getDiscount, getPriceNum } from '../../helpers/currency';
 import { getPokemonImages } from '../../helpers/pokemon';
 
 import { numToUSD } from '../../helpers/currency';
 import { AiFillStar } from 'react-icons/ai';
-import { PokeInfo } from './ProductInfo';
 
 const ProductImages = ({ pokemon }: any) => {
   const pokeImages = getPokemonImages(pokemon);
@@ -87,8 +86,7 @@ export const Product = () => {
     const { pokemon, isLoading } = usePokemonContext();
     const { increaseCartQuantity } = useShoppingCartContext();
     const pokeId = Number(id);
-    const pokemonPDP = pokemon[pokeId || 0]
-    const fallback = (<p>Loading...</p>);
+    const pokemonPDP = pokemon[pokeId || 0];
     const [amount, setAmount] = useState(1);
 
   const handleCTA = () => {
@@ -109,7 +107,7 @@ export const Product = () => {
 
   if (isLoading) {
     return (
-      <>{fallback}</>
+      <p>Loading...</p>
     )
   }
 
@@ -140,38 +138,5 @@ export const Product = () => {
         </div>
       </ProductInfo>
     </ProductWrapper>
-    // <PDPStyling>
-    //     <BreadCrumb>
-    //       ..{getPathname()}
-    //     </BreadCrumb>
-
-    //     <PDPContainer>
-    //       {/* <ProductImg src={pic} alt='' /> */}
-
-    //       <PokemonContainer>
-    //         <HeaderContainer>
-    //           {showOnLoad(isLoading)(fallback)(
-    //             <ProductHeader>{pokemonPDP.name}</ProductHeader>
-    //           )}
-    //           <PriceStyling>
-    //             {showOnLoad(isLoading)(fallback)(
-    //               // <PokemonPrice pokemon={pokemonPDP}/>
-    //               <>FIXED $$</>
-    //             )}
-    //           </PriceStyling>
-    //         </HeaderContainer>
-
-    //         <InfoContainer>
-    //           {showOnLoad(isLoading)(fallback)(
-    //             <PokeInfo {...props} />
-    //           )}
-    //         </InfoContainer>
-            
-    //         {showOnLoad(isLoading)(fallback)(
-    //           <CartButton onClick={handleClick}>BUY {pokemonPDP.name}</CartButton>
-    //         )}
-    //       </PokemonContainer>
-    //     </PDPContainer>
-    // </PDPStyling>
   )
 }

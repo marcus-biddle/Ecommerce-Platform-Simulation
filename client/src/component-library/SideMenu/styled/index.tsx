@@ -47,3 +47,14 @@ export const MenuUL = styled.div`
     font-weight: lighter;
     padding: 1rem;
 `;
+
+export const FilterButton = styled.div.attrs(props => ({
+    active: props.id === 'active' ? true : false
+  }))`
+    width: 100%;
+    font-size: 18px;
+    color: ${ props => props.active ? 'black' : 'black'};
+    background-color: ${ props => props.active ? 'rgb(105, 103, 103, .25)': ''};
+    border-radius: 6px;
+    padding: 10px;
+  `;

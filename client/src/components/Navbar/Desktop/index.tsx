@@ -55,7 +55,7 @@ export const NavCart = () => {
   )
 }
 
-export const NavbarCouponMessage = () => {
+const NavbarCouponMessage = () => {
   const [show, setShow] = useState(true);
   return (
     <>

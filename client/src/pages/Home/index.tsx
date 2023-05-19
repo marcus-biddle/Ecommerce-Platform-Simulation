@@ -2,11 +2,8 @@
 import master from '../../assets/master_ball.webp';
 import center from '../../assets/poke_center.webp';
 import { BsCartPlusFill } from 'react-icons/bs';
-
 import { useWindowDemension } from '../../hooks/mobile';
 import { showIfOrElseWindow } from '../../helpers/media';
-import { featured, guarantees } from '../../constants/info';
-
 import { 
     BrandWrapper, 
     CouponTextWrapper, 
@@ -33,6 +30,7 @@ import {
     SubscribeTextHeader, 
     SubscriptionWrapper } from './styled';
 import styled from 'styled-components';
+import { FEATURED_POKEMON, FeatureProps, GAURANTEES, GauranteeProps } from '../../constants/content';
 
 
 const Hero = () => {
@@ -61,7 +59,7 @@ const BrandMessage = () => {
 const GuaranteeMessage = () =>  {
     return (
         <>
-            {guarantees.map((item) => {
+            {GAURANTEES.map((item: GauranteeProps) => {
                 const Icon = item.icon;
                 const GuarenteeIcon = styled(Icon)`
                 height: 40px;
@@ -106,10 +104,10 @@ const FeaturedPokemon = () => {
         <>
             <FeatureTitle>Featured Pokemon</FeatureTitle>
             <PokeWrapper>
-                {featured.map((pokemon) => {
+                {FEATURED_POKEMON.map((feature: FeatureProps) => {
                     return (
                         <div>
-                            {pokemon.sale 
+                            {feature.sale 
                             ? 
                             <SaleStyle>
                                 SALE
@@ -117,20 +115,20 @@ const FeaturedPokemon = () => {
                             :
                             ''
                             }
-                            <PokeImg src={pokemon.img} alt={pokemon.name}/>
+                            <PokeImg src={feature.img} alt={feature.name}/>
                             <div style={{ display: 'flex',  justifyContent: 'space-between', marginRight: '2.75rem'}}>
                                 <div>
-                                <PokeName>{pokemon.name}</PokeName>
+                                <PokeName>{feature.name}</PokeName>
                                 <PriceWrapper>
                                     <div>
-                                        {pokemon.sale 
+                                        {feature.sale 
                                         ?
                                         <>
-                                        <PokePrice>{`$${pokemon.price - pokemon.price * .15}`}</PokePrice>
-                                        <DiscountPrice>${pokemon.price}</DiscountPrice>
+                                        <PokePrice>{`$${feature.price - feature.price * .15}`}</PokePrice>
+                                        <DiscountPrice>${feature.price}</DiscountPrice>
                                         </>
                                         :
-                                        <PokePrice>${pokemon.price}</PokePrice>
+                                        <PokePrice>${feature.price}</PokePrice>
                                         }
                                     </div>
                                     {/* Add Links */}

@@ -1,13 +1,13 @@
 import React from 'react'
-import { REGIONS } from '../../../constants/regions';
-import { showOnLoad } from '../../../helpers/conditionals';
-import { usePokemonContext } from '../../../hooks';
-import { ProductCard } from '../CLPCard';
+import { REGIONS } from '../../constants/regions';
+import { showOnLoad } from '../../helpers/conditionals';
+import { usePokemonContext } from '../../hooks';
+import { ProductCard } from '../Card';
 import { Grid } from './styled';
-import { getPathname } from '../../../helpers/navigation';
-import { getFilteredPokemon, getSelectedPokemon } from '../../../helpers/pokemon';
+import { getPathname } from '../../helpers/navigation';
+import { getFilteredPokemon, getSelectedPokemon } from '../../helpers/pokemon';
 
-export const CLPTemplate = ({ currentRegion, activeFilter }: any) => {
+export const CardGrid = ({ currentRegion, activeFilter }: any) => {
     const { pokemon, isLoading } = usePokemonContext();
     const fallback = (<p>Loading...</p>)
 
