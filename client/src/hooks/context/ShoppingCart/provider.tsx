@@ -19,7 +19,6 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     const [cartItems, setCartItems] = useState<CartItem[]>(items || []);
 
     useEffect(() => {
-        // localStorage.setItem("cartItems", JSON.stringify(cartItems));
         setLocalStorageCart(cartItems, 'cartItems');
         console.log(cartItems);
         console.log(`Saved ${cartItems.length} items to localstorage.`)
@@ -29,10 +28,10 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         return cartItems.find(item => item.id === id)?.quantity || 0;
     };
 
-    function increaseCartQuantity(id: number, price: number, name: string) {
+    function increaseCartQuantity(id: number, price: number, name: string, amount: number) {
         setCartItems(currItems => {
             if (currItems.find(item => item.id === id) === undefined) {
-                return [...currItems, { id, name, price, quantity: 1}]
+                return [...currItems, { id, name, price, quantity: amount}]
             } else {
                 return currItems.map(item => {
                     if (item.id === id) {

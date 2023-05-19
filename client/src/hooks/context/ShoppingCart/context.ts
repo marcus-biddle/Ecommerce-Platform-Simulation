@@ -3,7 +3,7 @@ import { CartItem } from "./provider";
 
 type CartContext = {
     getItemQuantity: (id: number) => number;
-    increaseCartQuantity: (id: number, price: number, name: string) => void;
+    increaseCartQuantity: (id: number, price: number, name: string, amount: number) => void;
     decreaseCartQuantity: (id: number) => void;
     removeFromCart: (id: number) => void;
     cartItems: CartItem[]

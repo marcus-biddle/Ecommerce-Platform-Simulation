@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { usePokemonContext, useShoppingCartContext } from '../../hooks';
-import { ProductImg } from './styled';
+import { CTAButtonWrapper, CTAStyle, CTAText, CartButton, ImageGallery, MainImg, MainImgSection, PriceSectionWrapper, ProductImagesWrapper, ProductImg, ProductInfo, ProductWrapper, SaleSticker, VolumeButton, VolumeButtonText, VolumeStyle, VolumeWrapper } from './styled';
 import { showSale } from '../../helpers/conditionals';
 import { getDiscount, getPriceNum } from '../../helpers/currency';
 import { getPokemonImages } from '../../helpers/pokemon';
-import background from '../../assets/bg.jpeg'
+
 import { numToUSD } from '../../helpers/currency';
 import { AiFillStar } from 'react-icons/ai';
 import { PokeInfo } from './ProductInfo';
@@ -19,21 +19,21 @@ const ProductImages = ({ pokemon }: any) => {
   }
 
   return (
-    <>
-    <div style={{ backgroundImage: `url(${background})`, height: '400px', marginLeft: '2rem', marginRight: '2rem', marginTop: '2rem', borderRadius: '25px', overflow: 'hidden'}}>
+    <ProductImagesWrapper>
+    <MainImgSection>
     {showSale(pokemon.height, pokemon.id)
       (
-        <div style={{ position: 'absolute', left: '3.5rem', top: '7.5rem', fontSize: '24px', backgroundColor: 'red', paddingLeft: '5px', paddingRight: '5px', borderRadius: '8px'}}>SALE</div>
+        <SaleSticker>SALE</SaleSticker>
       )()
     }
-    <img src={mainImage} alt='' style={{ height: '400px', width: '100%'}} />
-    </div>
-    <div style={{ textAlign: 'center', marginTop: '5px', marginLeft: '2rem', marginRight: '2rem', display: 'flex', justifyContent: 'space-evenly'}}>
-      <ProductImg src={pokeImages.front} alt='' style={{ height: '100px'}} onClick={() => handleClick(pokeImages.front)} />
-      <ProductImg src={pokeImages.back} alt='' style={{ height: '100px'}} onClick={() => handleClick(pokeImages.back)}/>
-      <ProductImg src={pokeImages.main} alt='' style={{ height: '100px'}} onClick={() => handleClick(pokeImages.main)}/>
-    </div>
-    </>
+    <MainImg src={mainImage} alt='' />
+    </MainImgSection>
+    <ImageGallery>
+      <ProductImg src={pokeImages.front} alt='' style={{ height: '100px', width: '100px'}} onClick={() => handleClick(pokeImages.front)} />
+      <ProductImg src={pokeImages.back} alt='' style={{ height: '100px', width: '100px'}} onClick={() => handleClick(pokeImages.back)}/>
+      <ProductImg src={pokeImages.main} alt='' style={{ height: '100px', width: '100px'}} onClick={() => handleClick(pokeImages.main)}/>
+    </ImageGallery>
+    </ProductImagesWrapper>
     
   )
 }
@@ -59,9 +59,9 @@ const StarRating = ({ pokemon }: any) => {
   )
 }
 
-const PriceSection = ({ pokemon }: any) => {
+const PriceSection = ({ pokemon, amount }: any) => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', marginLeft: '2rem', marginRight: '2rem', marginTop: '1rem', fontSize: '24px'}}>
+    <PriceSectionWrapper>
       <div style={{ fontSize: '32px', letterSpacing: '1.2px'}}>
         {pokemon.name}
         <StarRating pokemon={pokemon}/>
@@ -70,36 +70,34 @@ const PriceSection = ({ pokemon }: any) => {
         {showSale(pokemon.height, pokemon.id)
                 (
                     <>
-                      <div style={{ textDecorationLine: 'line-through', opacity: '.5', fontSize: '20px', textAlign: 'right'}}>{`${numToUSD(getPriceNum(pokemon))}`}</div>
-                      <div style={{ fontSize: '32px'}}>{`${numToUSD(getDiscount(getPriceNum(pokemon), .15))}`}</div>
+                      <div style={{ textDecorationLine: 'line-through', opacity: '.5', fontSize: '20px', textAlign: 'right'}}>{`${numToUSD(amount > 1 ? getPriceNum(pokemon) * amount : getPriceNum(pokemon))}`}</div>
+                      <div style={{ fontSize: '32px'}}>{`${numToUSD(amount > 1 ? getDiscount(getPriceNum(pokemon), .15) * amount :  getDiscount(getPriceNum(pokemon), .15))}`}</div>
                     </>
                 )(
-                    <div style={{ fontSize: '32px'}}>{`${numToUSD(getPriceNum(pokemon))}`}</div>
+                    <div style={{ fontSize: '32px'}}>{`${numToUSD(amount > 1 ? getPriceNum(pokemon) * amount : getPriceNum(pokemon))}`}</div>
                 )
             }
       </div>
-    </div>
+    </PriceSectionWrapper>
   )
 }
 
 export const Product = () => {
     const { id } = useParams();
-    const navigate = useNavigate();
     const { pokemon, isLoading } = usePokemonContext();
     const { increaseCartQuantity } = useShoppingCartContext();
     const pokeId = Number(id);
     const pokemonPDP = pokemon[pokeId || 0]
     const fallback = (<p>Loading...</p>);
-    const [amount, setAmount] = useState(0);
+    const [amount, setAmount] = useState(1);
 
   const handleCTA = () => {
-    increaseCartQuantity(pokemonPDP.id, getPriceNum(pokemonPDP), pokemonPDP.name);
-    navigate('/cart');
+    increaseCartQuantity(pokemonPDP.id, getPriceNum(pokemonPDP), pokemonPDP.name, amount);
   };
 
   const handleVolume = (direction: string) => {
     if (direction === 'decrease') {
-      if (amount === 0) {
+      if (amount === 1) {
         //
       } else {
         setAmount(amount - 1)
@@ -118,19 +116,30 @@ export const Product = () => {
   console.log(pokemonPDP);
 
   return (
-    <>
-    <ProductImages pokemon={pokemonPDP}/>
-    <PriceSection pokemon={pokemonPDP}/>
-    <div style={{ display: 'flex', justifyContent: 'space-evenly', marginLeft: '5rem', marginRight: '5rem', marginTop: '.5rem'}}>
-      <div style={{ height: '40px', width: '40px', borderRadius: '12px', backgroundColor: 'rgb(105, 103, 103, .25)', display: 'flex', justifyContent: 'center'}} onClick={() => handleVolume('decrease')}>
-        <div style={{ paddingTop: '4px', fontSize: '28px'}}>-</div>
-      </div>
-      <div style={{ fontSize: '30px', height: '40px', width: '40px', textAlign: 'center'}}>{amount}</div>
-      <div style={{ height: '40px', width: '40px', borderRadius: '12px', backgroundColor: 'rgb(105, 103, 103, .25)', display: 'flex', justifyContent: 'center'}} onClick={() => handleVolume('increase')}>
-        <div style={{ paddingTop: '4px', fontSize: '28px'}}>+</div>
-      </div>
-    </div>
-    </>
+    <ProductWrapper>
+      <ProductImages pokemon={pokemonPDP}/>
+      <ProductInfo>
+        <PriceSection pokemon={pokemonPDP} amount={amount}/>
+        <div>
+          <VolumeWrapper>
+            <VolumeButton onClick={() => handleVolume('decrease')}>
+              <VolumeButtonText>-</VolumeButtonText>
+            </VolumeButton>
+            <VolumeStyle>{amount}</VolumeStyle>
+            <VolumeButton onClick={() => handleVolume('increase')}>
+              <VolumeButtonText>+</VolumeButtonText>
+            </VolumeButton>
+          </VolumeWrapper>
+          <CTAButtonWrapper>
+            <CTAStyle>
+              <Link to='/cart' onClick={() => handleCTA()}>
+              <CTAText>Add To Cart</CTAText>
+              </Link>
+            </CTAStyle>
+          </CTAButtonWrapper>
+        </div>
+      </ProductInfo>
+    </ProductWrapper>
     // <PDPStyling>
     //     <BreadCrumb>
     //       ..{getPathname()}

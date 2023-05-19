@@ -11,7 +11,7 @@ export const CartItem = ({ item }: any) => {
     }
 
     const handleAdd = () => {
-      increaseCartQuantity(item.id, item.price, item.name)
+      increaseCartQuantity(item.id, item.price, item.name, item.amount)
     }
 
   return (
