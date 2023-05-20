@@ -31,6 +31,7 @@ import {
     SubscriptionWrapper } from './styled';
 import styled from 'styled-components';
 import { FEATURED_POKEMON, FeatureProps, GAURANTEES, GauranteeProps } from '../../constants/content';
+import { Link } from 'react-router-dom';
 
 
 const Hero = () => {
@@ -115,7 +116,10 @@ const FeaturedPokemon = () => {
                             :
                             ''
                             }
+                            <Link to={feature.path}>
                             <PokeImg src={feature.img} alt={feature.name}/>
+                            </Link>
+                            
                             <div style={{ display: 'flex',  justifyContent: 'space-between', marginRight: '2.75rem'}}>
                                 <div>
                                 <PokeName>{feature.name}</PokeName>
@@ -164,7 +168,7 @@ export const Coupon = () => {
                 ((<>
                     <p style={{ color: 'gold', fontSize: '24px'}}>Limited Offer</p>
                     <span style={{ fontSize: '45px'}}>Get 35% off today</span>
-                    <div style={{ padding: '15px', backgroundColor: 'white', color: 'black', width: '10rem', textAlign: 'center', fontSize: '18px', borderRadius: '14px', marginTop: '7rem', marginLeft: '1.5rem'}}>
+                    <div style={{ padding: '15px', backgroundColor: 'white', color: 'black', width: '10rem', textAlign: 'center', fontSize: '18px', borderRadius: '14px', marginTop: '7rem', marginLeft: '.9rem'}}>
                         Grab it now -{'>'}
                     </div>
                 </>))}
@@ -178,7 +182,7 @@ const Subscribe = () => {
         <>
             <SubscribeTextHeader>Subscribe to our newsletter to get updates <br/> to our latest collections</SubscribeTextHeader>
             <p style={{ opacity: '.5', fontWeight: 'bold'}}>Get 20% off on your first order just by subscribing to our newsletter</p>
-            <div style={{ display: 'flex', justifyContent: 'center'}}>
+            <div style={{ display: 'flex', justifyContent: 'center', padding: '10px'}}>
                 <input type='text' placeholder='Enter your email' style={{ width: '24rem', paddingLeft: '16px', fontSize: '18px'}}/>
                 <div style={{ color: 'white', backgroundColor: 'rgba(2,0,36,1)', padding: '18px', marginLeft: '8px', borderRadius: '8px'}}>Subscribe</div>
             </div>

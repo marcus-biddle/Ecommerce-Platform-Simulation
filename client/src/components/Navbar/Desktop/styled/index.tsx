@@ -1,6 +1,14 @@
 
 import styled from 'styled-components';
 import { Breakpoint } from '../../../../helpers/media';
+import { RiShoppingCartLine } from 'react-icons/ri';
+
+export const Cart = styled(RiShoppingCartLine)`
+    height: 25px;
+    width: 30px;
+    cursor: pointer;
+    padding-top: 8px;
+  `;
 
 export const NavbarStyle = styled.div`
     display: flex;

@@ -6,6 +6,7 @@ export const Grid = styled.div`
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    z-index: 10;
     
     @media only ${Breakpoint.small} {
         display: grid;

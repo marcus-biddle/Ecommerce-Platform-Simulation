@@ -3,11 +3,12 @@ import { Link, useParams } from 'react-router-dom'
 import { usePokemonContext, useShoppingCartContext } from '../../hooks';
 import { CTAButtonWrapper, CTAStyle, CTAText, ImageGallery, MainImg, MainImgSection, PriceSectionWrapper, ProductImagesWrapper, ProductImg, ProductInfo, ProductWrapper, SaleSticker, VolumeButton, VolumeButtonText, VolumeStyle, VolumeWrapper } from './styled';
 import { showSale } from '../../helpers/conditionals';
-import { getDiscount, getPriceNum } from '../../helpers/currency';
+import { getDiscount, getLevelPrice, getPriceNum } from '../../helpers/currency';
 import { getPokemonImages } from '../../helpers/pokemon';
 
 import { numToUSD } from '../../helpers/currency';
 import { AiFillStar } from 'react-icons/ai';
+import { LEVEL_OPTIONS, Levels } from '../../constants/content';
 
 const ProductImages = ({ pokemon }: any) => {
   const pokeImages = getPokemonImages(pokemon);
@@ -58,7 +59,9 @@ const StarRating = ({ pokemon }: any) => {
   )
 }
 
-const PriceSection = ({ pokemon, amount }: any) => {
+const PriceSection = ({ pokemon, amount, level }: any) => {
+  const price = numToUSD((amount > 1 ? getPriceNum(pokemon) * amount : getPriceNum(pokemon)) + getLevelPrice(level));
+  const discountPrice = numToUSD((amount > 1 ? getDiscount(getPriceNum(pokemon), .15) * amount :  getDiscount(getPriceNum(pokemon), .15)) + getLevelPrice(level))
   return (
     <PriceSectionWrapper>
       <div style={{ fontSize: '32px', letterSpacing: '1.2px'}}>
@@ -69,15 +72,39 @@ const PriceSection = ({ pokemon, amount }: any) => {
         {showSale(pokemon.height, pokemon.id)
                 (
                     <>
-                      <div style={{ textDecorationLine: 'line-through', opacity: '.5', fontSize: '20px', textAlign: 'right'}}>{`${numToUSD(amount > 1 ? getPriceNum(pokemon) * amount : getPriceNum(pokemon))}`}</div>
-                      <div style={{ fontSize: '32px'}}>{`${numToUSD(amount > 1 ? getDiscount(getPriceNum(pokemon), .15) * amount :  getDiscount(getPriceNum(pokemon), .15))}`}</div>
+                      <div style={{ textDecorationLine: 'line-through', opacity: '.5', fontSize: '20px', textAlign: 'right'}}>{price}</div>
+                      <div style={{ fontSize: '32px'}}>{discountPrice}</div>
                     </>
                 )(
-                    <div style={{ fontSize: '32px'}}>{`${numToUSD(amount > 1 ? getPriceNum(pokemon) * amount : getPriceNum(pokemon))}`}</div>
+                    <div style={{ fontSize: '32px'}}>{`${price}`}</div>
                 )
             }
       </div>
     </PriceSectionWrapper>
+  )
+}
+
+const LevelSelection = ({level, setLevel}: any) => {
+  return (
+        <div style={{ marginTop: '1.5rem'}}>
+          <div style={{ display: 'flex', marginLeft: '2rem', fontSize: '16px', fontFamily: 'Abel, sans-serif', fontWeight: 'bolder', marginBottom: '1rem'}}>
+            <span>Level:</span>
+            <span style={{ paddingLeft: '5px', color: 'grey', textDecorationLine: 'underline'}}>{level}</span>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-evenly', marginBottom: '2rem'}}>
+            {LEVEL_OPTIONS.map((option) => {
+              const isActive = level === option.level;
+              return (
+                <div onClick={() => setLevel(option.level)}
+                style={{ backgroundColor: 'rgba(2,0,36,.8)', color: 'white',height: '40px', width: '40px', borderRadius: '50%', border: `${isActive ? '3px solid orange' : '3px solid transparent'}`}}>
+                  <div style={{ textAlign: 'center', paddingTop: '10px'}}>
+                    {option.level}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
   )
 }
 
@@ -88,9 +115,15 @@ export const Product = () => {
     const pokeId = Number(id);
     const pokemonPDP = pokemon[pokeId || 0];
     const [amount, setAmount] = useState(1);
+    const [level, setLevel] = useState<1 | 25 | 50 | 99>(1);
 
   const handleCTA = () => {
-    increaseCartQuantity(pokemonPDP.id, getPriceNum(pokemonPDP), pokemonPDP.name, amount);
+    increaseCartQuantity(
+      pokemonPDP.id, 
+      getPriceNum(pokemonPDP), 
+      pokemonPDP.name, 
+      amount, 
+      level);
   };
 
   const handleVolume = (direction: string) => {
@@ -117,7 +150,8 @@ export const Product = () => {
     <ProductWrapper>
       <ProductImages pokemon={pokemonPDP}/>
       <ProductInfo>
-        <PriceSection pokemon={pokemonPDP} amount={amount}/>
+        <PriceSection pokemon={pokemonPDP} amount={amount} level={level}/>
+        <LevelSelection level={level} setLevel={setLevel} />
         <div>
           <VolumeWrapper>
             <VolumeButton onClick={() => handleVolume('decrease')}>

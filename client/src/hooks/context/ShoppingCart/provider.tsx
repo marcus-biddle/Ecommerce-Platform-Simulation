@@ -10,7 +10,8 @@ export type CartItem = {
     id: number;
     name: string;
     quantity: number;
-    price: number;
+    price: number; //price is the original price, no added expenses
+    level: number;
 }
 
 const items = getLocalStorageCart('cartItems');
@@ -28,14 +29,14 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         return cartItems.find(item => item.id === id)?.quantity || 0;
     };
 
-    function increaseCartQuantity(id: number, price: number, name: string, amount: number) {
+    function increaseCartQuantity(id: number, price: number, name: string, amount: number, level: number) {
         setCartItems(currItems => {
-            if (currItems.find(item => item.id === id) === undefined) {
-                return [...currItems, { id, name, price, quantity: amount}]
+            if (currItems.find(item => item.id === id && item.level === level) === undefined) {
+                return [...currItems, { id, name, price, quantity: amount, level: level}]
             } else {
                 return currItems.map(item => {
-                    if (item.id === id) {
-                        return { ...item, quantity: item.quantity + 1 };
+                    if (item.id === id && item.level === level) {
+                        return { id, name, price: price, quantity: amount, level};
                     } else {
                         return item;
                     }

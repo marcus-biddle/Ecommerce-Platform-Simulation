@@ -105,6 +105,7 @@ export interface FeatureProps {
     sale: boolean;
     name: string;
     price: number;
+    path: string
 }
 
 export const FEATURED_POKEMON: FeatureProps[] = [
@@ -112,19 +113,22 @@ export const FEATURED_POKEMON: FeatureProps[] = [
         img: toto,
         sale: true,
         name: 'Totodile',
-        price: 63.60
+        price: 63.60,
+        path: '/joto/pokemon/157'
     },
     {
         img: char,
         sale: false,
         name: 'Charmander',
-        price: 83.25
+        price: 83.25,
+        path: '/kanto/pokemon/3'
     },
     {
         img: bulba,
         sale: true,
         name: 'Bulbasaur',
-        price: 133.00
+        price: 133.00,
+        path: '/kanto/pokemon/0'
     },
 ]
 
@@ -175,3 +179,17 @@ export const FILTER_OPTIONS: FilterProps[] = [
       type: 'none'
     }
   ]
+
+export enum Levels {
+    SMALL = 1,
+    MEDIUM = 25,
+    LARGE = 50,
+    XLARGE = 99
+}
+
+export const LEVEL_OPTIONS = [
+    { level: Levels.SMALL },
+    { level: Levels.MEDIUM },
+    { level: Levels.LARGE },
+    { level: Levels.XLARGE }
+]

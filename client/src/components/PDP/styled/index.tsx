@@ -182,6 +182,7 @@ export const ProductInfo = styled.div`
 export const CTAButtonWrapper = styled.div`
     height: 60px;
     margin-top: 1rem;
+    cursor: pointer;
 
     @media only ${Breakpoint.small} {
         margin-right: 10rem;

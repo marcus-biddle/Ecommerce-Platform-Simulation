@@ -8,7 +8,7 @@ import { useWindowDemension } from '../../hooks/mobile';
 import { BreadCrumb } from '../PDP/styled';
 import { CardGrid } from '../../component-library/Grid';
 import poke_throw from '../../assets/poke_throw.webp';
-import { H1Style, Header, MainSection, SubSection } from './styled';
+import { DropdownStyle, H1Style, Header, MainSection, SelectButton, SubSection } from './styled';
 import { Dropdown } from '../../component-library/Dropdown';
 
 const GridCoupon = () => {
@@ -29,12 +29,12 @@ export const CLP = () => {
   // TODO: add pagination
   const { region } = useParams();
   const currentRegion =  getCurrentRegion(region || '');
-  const [activeFilter, setActiveFilter] = useState('None');
+  const [activeFilter, setActiveFilter] = useState('Select Filter');
   const [open, setOpen] = useState(false);
 
   const handleFilterClick = (filter: string) => {
-    if (activeFilter === filter) {
-      setActiveFilter('None')
+    if (activeFilter === filter || filter === 'none') {
+      setActiveFilter('Select Filter')
       console.log('No filter');
     } else {
       setActiveFilter(filter);
@@ -65,9 +65,12 @@ export const CLP = () => {
           ))
         ((<Dropdown 
             open={open} 
-            handleFilterClick={handleFilterClick} 
-            activeFilter={activeFilter} 
-            trigger={<div onClick={() => setOpen(!open)}>{ activeFilter !== 'None' ? activeFilter : 'Filter By Type'}</div>} 
+            handleFilterClick={handleFilterClick}
+            trigger={
+            <DropdownStyle onClick={() => setOpen(!open)}>
+              { activeFilter !== 'Select Filter' ? activeFilter : 'Select Filter'}
+              <SelectButton aria-pressed={open}/>
+            </DropdownStyle>} 
           />
         ))}
         <CardGrid 

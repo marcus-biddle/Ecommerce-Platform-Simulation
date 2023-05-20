@@ -1,21 +1,28 @@
 import { FILTER_OPTIONS } from '../../constants/content';
+import { DropdownItem, DropdownList } from './styled';
 
-export const Dropdown = ({ handleFilterClick, open, activeFilter, trigger }: any) => {
+export const Dropdown = ({ handleFilterClick, open, trigger }: any) => {
     return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative', zIndex: '90', width: '100%'}}>
         {/* Trigger button */} 
         {/* https://www.robinwieruch.de/react-dropdown/ */}
-        {trigger}
+        <div style={{ display: 'flex', justifyContent: 'space-between', height: '50px', marginLeft: '1.2rem'}}>
+            <div style={{ fontSize: '17px', margin: 'auto'}}>Filter By Type</div>
+            <div style={{ margin: 'auto'}}>
+            {trigger}
+            </div>
+        </div>
+        
         { open ? 
-        <ul style={{ position: 'absolute', listStyleType: 'none', margin: '5px', padding: '0', border: '1px solid grey', width: '150px'}}>
+        <DropdownList>
             {FILTER_OPTIONS.map((filter) => {
                 return (
-                    <li style={{ margin: '0', backgroundColor: 'white'}} key={filter.type} onClick={() => handleFilterClick(filter.type)}>
-                        <div style={{ width: '100%', height: '100%', textAlign: 'left', padding: '5px', margin: '0', cursor: 'pointer'}}>{filter.type}</div>
-                    </li>
+                    <DropdownItem key={filter.type} onClick={() => handleFilterClick(filter.type)}>
+                        <div style={{ width: '94%', height: '100%', textAlign: 'left', padding: '5px', margin: '0', cursor: 'pointer'}}>{filter.type}</div>
+                    </DropdownItem>
                 )
             })}
-        </ul>
+        </DropdownList>
         :
         null
         }

@@ -47,7 +47,7 @@ export const ProductCard = ({ pokemon, region }: any) => {
                     )
                 }
             </div>
-            <Link to={'/cart'} onClick={() => increaseCartQuantity(pokemon.id, price, pokemon.name, 1)}>
+            <Link to={'/cart'} onClick={() => increaseCartQuantity(pokemon.id, price, pokemon.name, 1, 1)}>
                 <div className='grid-cta-wrapper'>
                     <BsCartPlusFill className='icon-CTA-grid'/>
                 </div>
