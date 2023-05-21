@@ -79,11 +79,16 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         })
     }
 
+    function clearCart() {
+        setCartItems([]);
+    }
+
     const values = {
         getItemQuantity,
         increaseCartQuantity,
         decreaseCartQuantity,
         removeFromCart,
+        clearCart,
         cartItems
     }
 

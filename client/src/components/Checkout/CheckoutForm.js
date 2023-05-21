@@ -1,10 +1,12 @@
 import { PaymentElement } from "@stripe/react-stripe-js";
 import { useState } from "react";
 import { useStripe, useElements } from "@stripe/react-stripe-js";
+import { useShoppingCartContext } from "../../hooks";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
+  const { clearCart } = useShoppingCartContext();
 
   const [message, setMessage] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -40,13 +42,19 @@ export default function CheckoutForm() {
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
       <PaymentElement id="payment-element" />
-      <button disabled={isProcessing || !stripe || !elements} id="submit">
-        <span id="button-text">
-          {isProcessing ? "Processing ... " : "Pay now"}
-        </span>
-      </button>
+      <div style={{ display: 'flex', justifyContent: 'center', height: '30px', marginTop: '2rem', marginBottom: '2rem'}}>
+        <button 
+        onClick={() => clearCart()}
+        disabled={isProcessing || !stripe || !elements} 
+        id="submit" style={{ width: '12rem', borderRadius: '4px', backgroundColor: 'rgb(105, 103, 103, .1)', color: 'black', border: '1px solid', fontFamily: 'Abel, sans-serif'}}>
+          <span id="button-text">
+            {isProcessing ? "Processing ... " : "Pay now"}
+          </span>
+        </button>
+      </div>
+      
       {/* Show any error or success messages */}
-      {message && <div id="payment-message">{message}</div>}
+      {/* {message && <div id="payment-message">{message}</div>} */}
     </form>
   );
 }

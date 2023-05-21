@@ -131,7 +131,7 @@ export const Cart = () => {
             <span >{numToUSD(subtotal + tax + 25)}</span>
           </div>
           <div style={{ height: '50px'}}>
-            <Link to='/payment'>
+            <Link to={cartItems.length ? '/payment' : ''}>
               <div style={{ backgroundColor: 'black', position: 'relative', color: 'white', height: '100%', borderRadius: '8px', textAlign: 'center'}}>
                 <PaymentButtonText>
                   Continue to payment
