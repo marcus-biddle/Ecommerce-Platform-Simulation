@@ -13,11 +13,11 @@ const Footer = () => {
             </p>
                 {FOOTER_LINKS.map((section: FooterProps) => {
                     return (
-                        <div>
+                        <div key={section.name}>
                             <p style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '24px'}}>{section.name}</p>
                             {section.links.map((link: FooterLink) => {
                                 return (
-                                    <p style={{ fontFamily: 'Abel, sans-serif', fontSize: '14px', opacity: '.5', cursor: 'pointer', fontWeight: 'bolder'}}>{link.label}</p>
+                                    <p key={link.label} style={{ fontFamily: 'Abel, sans-serif', fontSize: '14px', opacity: '.5', cursor: 'pointer', fontWeight: 'bolder'}}>{link.label}</p>
                                 )
                             })}
                         </div>

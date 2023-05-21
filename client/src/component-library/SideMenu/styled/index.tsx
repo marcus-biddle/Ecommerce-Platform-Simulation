@@ -11,12 +11,12 @@ export const SideMenuWrapper = styled.div`
 export const MenuItem = styled.div``;
 
 export const StyledMenuH4 = styled.h4`
-    font-family: "Lucida Console", "Courier New", monospace;
+    font-family: Abel, monospace;
     font-size: 1.1rem;
     line-height: 1.35rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: bold;
 `;
 
 export const StyledMenuLink = styled(Link)`
@@ -57,4 +57,6 @@ export const FilterButton = styled.div.attrs(props => ({
     background-color: ${ props => props.active ? 'rgb(105, 103, 103, .25)': ''};
     border-radius: 6px;
     padding: 10px;
+    font-family: Abel;
+    cursor: pointer;
   `;

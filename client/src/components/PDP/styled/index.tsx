@@ -197,7 +197,7 @@ export const CTAStyle = styled.div`
     display: flex;
     justify-content: center;
     border-radius: 8px;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
 
     @media only ${Breakpoint.small} {
         margin-right: 0;
@@ -210,7 +210,7 @@ export const CTAStyle = styled.div`
 
 export const CTAText = styled.p`
     font-size: 24px;
-    font-family: Abel, sans-serif;
+    font-family: Abel;
     font-weight: bolder;
     color: white;
 `;
@@ -223,8 +223,8 @@ export const VolumeWrapper = styled.div`
     margin-top: .5rem;
 
     @media only ${Breakpoint.small} {
-        margin-left: 0;
-        margin-right: 10rem;
+        margin-left: 6rem;
+        margin-right: 14rem;
         margin-bottom: 2rem;
     }
 `;
@@ -253,4 +253,14 @@ export const VolumeStyle = styled.div`
 export const VolumeButtonText = styled.div`
     padding-top: 4px;
     font-size: 28px;
+`;
+
+export const OptionsWrapper = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+
+    @media only ${Breakpoint.small} {
+        padding-right: 8rem;
+    }
 `;

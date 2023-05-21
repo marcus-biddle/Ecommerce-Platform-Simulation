@@ -1,11 +1,11 @@
 
 import master from '../../assets/master_ball.webp';
 import center from '../../assets/poke_center.webp';
-import { BsCartPlusFill } from 'react-icons/bs';
 import { useWindowDemension } from '../../hooks/mobile';
 import { Breakpoint, showIfOrElseWindow } from '../../helpers/media';
 import { 
     BrandWrapper, 
+    CTAButton, 
     CouponTextWrapper, 
     CouponWrapper, 
     DiscountPrice, 
@@ -20,6 +20,7 @@ import {
     HeroWrapper, 
     HomeStyle, 
     IconWrapper, 
+    InfoSection, 
     NewHeroImg, 
     PokeImg, 
     PokeName, 
@@ -32,6 +33,8 @@ import {
 import styled from 'styled-components';
 import { FEATURED_POKEMON, FeatureProps, GAURANTEES, GauranteeProps } from '../../constants/content';
 import { Link } from 'react-router-dom';
+import { REGIONS } from '../../constants/regions';
+import { useShoppingCartContext } from '../../hooks';
 
 
 const Hero = () => {
@@ -40,7 +43,10 @@ const Hero = () => {
         <NewHeroImg src={master} alt='Master Ball'/>
         <HeroText>Gotta Catch 'Em All</HeroText>
         {/* TODO: Link button to CLP */}
-        <HeroButton>Shop to become a Pokemon Master -{'>'}</HeroButton>
+        <Link to={REGIONS[0].path}>
+            <HeroButton>Become a Pokemon Master</HeroButton>
+        </Link>
+        
         </>
             
     )
@@ -89,18 +95,8 @@ const GuaranteeMessage = () =>  {
 }
 
 const FeaturedPokemon = () => {
-    const CTAButton = styled(BsCartPlusFill)`
-    height: 40px;
-    width: 40px;
-    padding-top: 8px;
-    padding-bottom: 5px;
-    color: wheat;
-
-    @media only ${Breakpoint.small} {
-        height: 24px;
-        width: 24px;
-    }
-    `;
+    const { increaseCartQuantity } = useShoppingCartContext();
+    
     return (
         <>
             <FeatureTitle>Featured Pokemon</FeatureTitle>
@@ -120,7 +116,7 @@ const FeaturedPokemon = () => {
                             <PokeImg src={feature.img} alt={feature.name}/>
                             </Link>
                             
-                            <div style={{ display: 'flex',  justifyContent: 'space-between', marginRight: '2.75rem'}}>
+                            <InfoSection>
                                 <div>
                                 <PokeName>{feature.name}</PokeName>
                                 <PriceWrapper>
@@ -135,13 +131,15 @@ const FeaturedPokemon = () => {
                                         <PokePrice>${feature.price}</PokePrice>
                                         }
                                     </div>
-                                    {/* Add Links */}
                                 </PriceWrapper>
                                 </div>
-                                <IconWrapper>
-                                    <CTAButton />
-                                </IconWrapper>
-                            </div>
+                                <Link to='/cart'>
+                                    <IconWrapper onClick={() => increaseCartQuantity(feature.id, feature.price, feature.price, feature.name, 1, 1, true)}>
+                                        <CTAButton />
+                                    </IconWrapper>
+                                </Link>
+                                
+                            </InfoSection>
                         </div>
                     )
                 })}
@@ -160,16 +158,16 @@ export const Coupon = () => {
                 (<>
                     <p style={{ color: 'grey', fontSize: '24px'}}>Limited Offer</p>
                     <span style={{ fontSize: '45px'}}>Get 35% off only this Friday <br/>and get a special gift</span>
-                    <div style={{ padding: '15px', backgroundColor: 'white', color: 'black', width: '10rem', textAlign: 'center', fontSize: '18px', borderRadius: '14px', marginTop: '4rem'}}>
-                        Grab it now -{'>'}
+                    <div style={{ padding: '15px', backgroundColor: 'white', color: 'black', width: '10rem', textAlign: 'center', fontSize: '18px', borderRadius: '14px', marginTop: '4rem', fontFamily: 'Abel'}}>
+                        Grab it now
                     </div>
                 </>
                 ))
                 ((<>
                     <p style={{ color: 'gold', fontSize: '24px'}}>Limited Offer</p>
                     <span style={{ fontSize: '45px'}}>Get 35% off today</span>
-                    <div style={{ padding: '15px', backgroundColor: 'white', color: 'black', width: '10rem', textAlign: 'center', fontSize: '18px', borderRadius: '14px', marginTop: '7rem', marginLeft: '.9rem'}}>
-                        Grab it now -{'>'}
+                    <div style={{ padding: '15px', backgroundColor: 'white', color: 'black', width: '10rem', textAlign: 'center', fontSize: '18px', borderRadius: '14px', marginTop: '7rem', marginLeft: '.9rem', fontFamily: 'Abel'}}>
+                        Grab it now
                     </div>
                 </>))}
             </CouponTextWrapper>

@@ -20,7 +20,7 @@ export const MobileNavbar = () => {
     <>
         {isOpen 
         ? 
-            <div style={{ position: 'fixed', zIndex: '2', backgroundColor: 'rgba(0, 0, 0, 0.92)', color: 'white', width: '100%', height: '100%'}}>
+            <div style={{ position: 'fixed', zIndex: '100', backgroundColor: 'rgba(0, 0, 0, 0.92)', color: 'white', width: '100%', height: '100%'}}>
                 <div style={{ paddingLeft: '8px', textAlign: 'center'}}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', paddingRight: '12px'}}>
                     <h3>Menu</h3>
@@ -45,12 +45,12 @@ export const MobileNavbar = () => {
         :
             ''
         }
-        <div style={{ display: 'flex', padding: '12px', justifyContent: 'space-between', textAlign: 'center', paddingTop: '20px'}}>
-            <div style={{display: 'flex', justifyContent: 'center'}}>
-                <GiHamburgerMenu style={{ height: '40px', width: '40px', cursor: 'pointer'}} onClick={() => setIsOpen(!isOpen)}/>
+        <div style={{ display: 'flex', justifyContent: 'space-between', textAlign: 'center', paddingTop: '20px', marginLeft: '2rem', marginRight: '2rem'}}>
+            <div style={{ }}>
+                <GiHamburgerMenu style={{ height: '25px', width: '30px', cursor: 'pointer', paddingTop: '8px'}} onClick={() => setIsOpen(!isOpen)}/>
             </div>
-            <div style={{ fontFamily: 'Bebas Neue, sans-serif', fontSize: '30px', fontWeight: 'bold'}} onClick={() => navigate('/')}>Poke Store</div>
-            <div style={{ marginRight: '18px'}}>
+            <div style={{ fontFamily: 'Abel', fontSize: '30px', fontWeight: 'bold', paddingTop: '4px'}} onClick={() => navigate('/')}>Poke Store</div>
+            <div style={{ }}>
                 <NavCart />
             </div>
         </div>

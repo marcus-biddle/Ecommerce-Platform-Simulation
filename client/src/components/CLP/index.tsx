@@ -15,10 +15,10 @@ const GridCoupon = () => {
   return (
     <>
       <div style={{ backgroundColor: '#141E42', width: '100%', borderRadius: '25px', position: 'relative', overflow: 'hidden'}}>
-        <img src={poke_throw} alt='Pokemon Center Coupon' style={{ position: 'absolute', height: '150px', width: '450px', objectFit: 'cover', opacity: '.8'}}/>
-        <div style={{ textAlign: 'center', paddingLeft: '5rem'}}>
-          <p style={{ color: 'red', opacity: '.6', lineHeight: '5px'}}>Limited Offer</p>
-          <p style={{ color: 'silver', opacity: '.9', fontSize: '30px', paddingLeft: '15rem', lineHeight: '28px'}}>Get 15% off on select pokemon <br/> 'Til Midnight</p>
+        <img src={poke_throw} alt='Pokemon Center Coupon' style={{ position: 'absolute', height: '100px', width: '450px', objectFit: 'cover', opacity: '.8'}}/>
+        <div style={{ textAlign: 'center', paddingLeft: '5rem', lineHeight: '0'}}>
+          <p style={{ color: 'red', opacity: '.6'}}>Limited Offer</p>
+          <p style={{ color: 'silver', opacity: '.9', fontSize: '26px', paddingLeft: '15rem', lineHeight: '28px'}}>Get 15% off on select pokemon <br/> 'Til Midnight</p>
         </div>
       </div>
     </>

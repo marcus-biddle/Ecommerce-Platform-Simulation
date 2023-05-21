@@ -38,10 +38,10 @@ export const BannerStyle = styled.div`
 `;
 
 export const H1Style = styled.h1`
-    font-family: 'Abel', sans-serif;
+    font-family: Abel;
     font-size: 2.5rem;
     letter-spacing: .05px;
-    text-align: center;
+    text-align: left;
 
     @media only ${Breakpoint.small} {
         font-size: 1.97rem;
@@ -53,6 +53,7 @@ export const MainSection = styled.div`
     flex-direction: column;
     margin-right: 4rem;
     margin-left: 4rem;
+    z-index: 10;
 
     @media only ${Breakpoint.small} {
         flex-direction: row;
@@ -84,6 +85,7 @@ export const SubSection = styled.div`
         margin-bottom: 4rem;
         margin-right: 10rem;
         margin-left: 10rem;
+        margin-top: 4rem;
         flex-direction: row;
     }
 `;
@@ -96,6 +98,7 @@ export const DropdownStyle = styled.div`
     margin: auto;
     display: flex;
     justify-content: space-between;
+    z-index: 10;
 `;
 
 export const SelectButton = styled(GoTriangleDown).attrs(props => ({

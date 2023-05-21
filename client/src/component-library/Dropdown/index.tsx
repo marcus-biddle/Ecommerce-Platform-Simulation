@@ -3,12 +3,12 @@ import { DropdownItem, DropdownList } from './styled';
 
 export const Dropdown = ({ handleFilterClick, open, trigger }: any) => {
     return (
-    <div style={{ position: 'relative', zIndex: '90', width: '100%'}}>
+    <div style={{ position: 'relative', zIndex: '20', width: '100%'}}>
         {/* Trigger button */} 
         {/* https://www.robinwieruch.de/react-dropdown/ */}
         <div style={{ display: 'flex', justifyContent: 'space-between', height: '50px', marginLeft: '1.2rem'}}>
             <div style={{ fontSize: '17px', margin: 'auto'}}>Filter By Type</div>
-            <div style={{ margin: 'auto'}}>
+            <div style={{ margin: 'auto', zIndex: '1'}}>
             {trigger}
             </div>
         </div>

@@ -18,15 +18,17 @@ export const NavbarStyle = styled.div`
     margin-left: 10rem;
     padding-bottom: 10px;
     a:hover {
-        color: rgba(205, 77, 8, 0.885);
+        opacity: .5;
     }
 `;
 
 export const StyledNavUL = styled.div`
     padding-left: 4rem;
     padding-right: 4rem;
-    padding-top: .75rem;
+    padding-top: 1rem;
     height: 100%;
+    font-family: Abel;
+    font-weight: bold;
 `;
 
 export const NavbarCategoryWrapper = styled.div`

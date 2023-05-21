@@ -53,8 +53,7 @@ const NavbarCouponMessage = () => {
     <>
     {showOnLoad(show)(
       <CouponStyle>
-        {/* need to underline sign up and create link */}
-      <div>Sign up and <strong>GET 20% OFF</strong> for your first order. Sign up now</div> 
+      <div><strong>GET 20% OFF</strong> for your first order. <span style={{ textDecorationLine: 'underline'}}>Sign up</span> now</div> 
       <div style={{ position: 'absolute', float: 'right', top: '3.3px', right: '12rem', cursor: 'pointer'}} onClick={() => setShow(false)}>X</div>
       </CouponStyle>
     )('')}
@@ -66,7 +65,7 @@ const NavbarCouponMessage = () => {
 const Logo = () => {
   return (
     <NavbarHeaderWrapper>
-          <Link to='/' style={{ fontFamily: 'Abel, sans-serif', fontSize: '14px', fontWeight: 'bold'}}>Poke Center</Link>
+          <Link to='/' style={{ fontFamily: 'Abel', fontSize: '16px', fontWeight: 'bold'}}>Poke Center</Link>
     </NavbarHeaderWrapper>
   )
 }

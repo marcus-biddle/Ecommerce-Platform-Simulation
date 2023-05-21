@@ -10,7 +10,8 @@ export type CartItem = {
     id: number;
     name: string;
     quantity: number;
-    price: number; //price is the original price, no added expenses
+    price: number;
+    original_price: number;
     level: number;
 }
 
@@ -21,7 +22,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
 
     useEffect(() => {
         setLocalStorageCart(cartItems, 'cartItems');
-        console.log(cartItems);
+        console.log('ShoppingContext', cartItems);
         console.log(`Saved ${cartItems.length} items to localstorage.`)
     }, [cartItems]);
 
@@ -29,14 +30,16 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         return cartItems.find(item => item.id === id)?.quantity || 0;
     };
 
-    function increaseCartQuantity(id: number, price: number, name: string, amount: number, level: number) {
+    function increaseCartQuantity(id: number, price: number, original_price: number ,name: string, amount: number, level: number, pdp: boolean) {
         setCartItems(currItems => {
+            // returns a new item if not found
             if (currItems.find(item => item.id === id && item.level === level) === undefined) {
-                return [...currItems, { id, name, price, quantity: amount, level: level}]
+                return [...currItems, { id, name, price, original_price, quantity: amount, level: level}]
             } else {
+                // returns the item with updated price and quantity
                 return currItems.map(item => {
                     if (item.id === id && item.level === level) {
-                        return { id, name, price: price, quantity: amount, level};
+                        return {id, name, price: price, original_price, quantity: pdp ? item.quantity + amount : amount, level};
                     } else {
                         return item;
                     }
@@ -62,9 +65,17 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         })
     }
 
-    function removeFromCart(id: number) {
+    function removeFromCart(id: number, level: number) {
         setCartItems(currItems => {
-            return currItems.filter(item => item.id !== id);
+            return currItems.filter(item => {
+                if (item.id === id) {
+                    if (item.level !== level) {
+                        return item
+                    }
+                } else if (item.id !== id) {
+                    return item
+                }
+            });
         })
     }
 

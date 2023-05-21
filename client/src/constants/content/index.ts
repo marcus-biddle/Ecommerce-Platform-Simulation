@@ -101,6 +101,7 @@ export const GAURANTEES: GauranteeProps[] = [
 ];
 
 export interface FeatureProps {
+    id: number;
     img: string;
     sale: boolean;
     name: string;
@@ -110,6 +111,7 @@ export interface FeatureProps {
 
 export const FEATURED_POKEMON: FeatureProps[] = [
     {
+        id: 158,
         img: toto,
         sale: true,
         name: 'Totodile',
@@ -117,6 +119,7 @@ export const FEATURED_POKEMON: FeatureProps[] = [
         path: '/joto/pokemon/157'
     },
     {
+        id: 4,
         img: char,
         sale: false,
         name: 'Charmander',
@@ -124,6 +127,7 @@ export const FEATURED_POKEMON: FeatureProps[] = [
         path: '/kanto/pokemon/3'
     },
     {
+        id: 1,
         img: bulba,
         sale: true,
         name: 'Bulbasaur',

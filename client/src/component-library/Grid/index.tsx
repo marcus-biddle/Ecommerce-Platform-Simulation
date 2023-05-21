@@ -6,13 +6,13 @@ import { ProductCard } from '../Card';
 import { Grid } from './styled';
 import { getPathname } from '../../helpers/navigation';
 import { getFilteredPokemon, getSelectedPokemon } from '../../helpers/pokemon';
+import { useLocation } from 'react-router';
 
 export const CardGrid = ({ currentRegion, activeFilter }: any) => {
     const { pokemon, isLoading } = usePokemonContext();
     const fallback = (<p>Loading...</p>)
-
-    const path = getPathname();
-    const regional_pokemon = getSelectedPokemon(path, pokemon);
+    const { pathname } = useLocation();
+    const regional_pokemon = getSelectedPokemon(pathname, pokemon);
     const filtered_pokemon = getFilteredPokemon(regional_pokemon, activeFilter);
    
     return (
@@ -21,7 +21,7 @@ export const CardGrid = ({ currentRegion, activeFilter }: any) => {
                     REGIONS.map((region) => {
                         return (
                             <>
-                            { region.path === path ?
+                            { region.path === pathname ?
                             filtered_pokemon.slice(0,18).map((pokemon: any) => {
                                 return (
                                     <React.Fragment key={pokemon.id}>

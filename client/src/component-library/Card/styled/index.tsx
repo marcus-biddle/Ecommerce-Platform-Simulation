@@ -15,6 +15,7 @@ const fadeIn = keyframes`
 
 export const CardStyle = styled.div`
     animation: ${fadeIn} .25s linear;
+    z-index: 1;
 `;
 
 export const CardHeader = styled.div`
@@ -81,12 +82,12 @@ export const StyledImg = styled.img`
 
 export const CardInfoWrapper = styled.div`
     height: 60px;
+    width: 265px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: .5rem;
     margin-left: 5px;
-    margin-right: 5px;
 
     @media only ${Breakpoint.small} {
         margin-left: 16px;
@@ -116,8 +117,8 @@ export const SaleSticker = styled.div`
     color: white;
     letter-spacing: 2px;
     background-color: red;
-    margin-left: 45px;
-    margin-top: 45px;
+    margin-left: 20px;
+    margin-top: 20px;
     padding-left: 4px;
     padding-right: 4px;
     border-radius: 6px;

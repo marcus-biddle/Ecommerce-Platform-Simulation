@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { Breakpoint } from '../../../helpers/media';
+import { BsCartPlusFill } from 'react-icons/bs';
 
 export const GlobalStyle = createGlobalStyle`
     body {
@@ -55,14 +56,13 @@ export const HeroButton = styled.button`
     position: absolute;
     background-color: black;
     color: white;
-    text-transform: uppercase;
     padding: 10px;
-    border-radius: 20px;
-    margin-top: 5rem;
+    border-radius: 12px;
+    margin-top: 8rem;
     cursor: pointer;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px;
-    left: 2rem;
+    font-family: Abel;
+    font-size: 16px;
+    left: 6rem;
 
     @media only ${Breakpoint.small} {
         margin-top: 0;
@@ -293,26 +293,38 @@ export const PokeName = styled.div`
     letter-spacing: 1.2px;
     opacity: .6;
     font-size: 28px;
-    margin-left: 2rem;
+    margin-left: 3rem;
+    font-family: Abel;
 
     @media only ${Breakpoint.small} {
-        font-size: 24px
+        font-size: 24px;
+        margin-left: 2.5rem;
     }
 `;
 
 export const PriceWrapper = styled.div`
     display: flex;
     justify-content: space-between;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    margin-left: 3rem;
 
     @media only ${Breakpoint.small} {
-        
+        margin-left: 2.5rem;
+    }
+`;
+
+export const InfoSection = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin-right: 2.75rem;
+
+    @media only ${Breakpoint.small} {
+        margin-right: 0;
     }
 `;
 
 export const PokePrice = styled.span`
     font-size: 36px;
+    font-family: Abel;
 `;
 
 export const DiscountPrice = styled.span`
@@ -320,6 +332,7 @@ export const DiscountPrice = styled.span`
     font-size: 26px;
     text-decoration-line: line-through;
     opacity: .5;
+    font-family: Abel;
 `;
 
 export const CouponWrapper = styled.div`
@@ -376,9 +389,24 @@ export const IconWrapper = styled.div`
     text-align: center;
     border-radius: 10px;
     margin-top: 21px;
+    margin-right: .5rem;
 
     @media only ${Breakpoint.small} {
         height: 40px;
         width: 46px;
+        margin-right: 1rem;
     }
 `;
+
+export const CTAButton = styled(BsCartPlusFill)`
+    height: 40px;
+    width: 40px;
+    padding-top: 8px;
+    padding-bottom: 5px;
+    color: wheat;
+
+    @media only ${Breakpoint.small} {
+        height: 24px;
+        width: 24px;
+    }
+    `;
