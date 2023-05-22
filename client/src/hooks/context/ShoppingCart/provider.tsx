@@ -30,7 +30,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         return cartItems.find(item => item.id === id)?.quantity || 0;
     };
 
-    function increaseCartQuantity(id: number, price: number, original_price: number ,name: string, amount: number, level: number, pdp: boolean) {
+    function updateCart(id: number, price: number, original_price: number ,name: string, amount: number, level: number, pdp: boolean) {
         setCartItems(currItems => {
             // returns a new item if not found
             if (currItems.find(item => item.id === id && item.level === level) === undefined) {
@@ -85,7 +85,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
 
     const values = {
         getItemQuantity,
-        increaseCartQuantity,
+        updateCart,
         decreaseCartQuantity,
         removeFromCart,
         clearCart,

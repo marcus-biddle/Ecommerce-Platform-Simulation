@@ -8,7 +8,7 @@ import { capitlizeText, getPokemonImages } from '../../helpers/pokemon';
 
 import { numToUSD } from '../../helpers/currency';
 import { AiFillStar } from 'react-icons/ai';
-import { LEVEL_OPTIONS, Levels } from '../../constants/content';
+import { LEVEL_OPTIONS } from '../../constants/content';
 
 const ProductImages = ({ pokemon }: any) => {
   const pokeImages = getPokemonImages(pokemon);
@@ -45,14 +45,14 @@ const StarRating = ({ pokemon }: any) => {
 
   return (
     <div>
-      {stars.map(() => {
+      {stars.map((index: any) => {
         return (
-          <AiFillStar style={{ color: 'gold'}}/>
+          <AiFillStar key={index} style={{ color: 'gold'}}/>
         )
       })}
-      {blackStars.map(() => {
+      {blackStars.map((index: any) => {
         return (
-          <AiFillStar />
+          <AiFillStar key={index} />
         )
       })}
     </div>
@@ -94,11 +94,13 @@ const LevelSelection = ({level, setLevel}: any) => {
             {LEVEL_OPTIONS.map((option) => {
                 const isActive = level === option.level;
                 return (
-                  <div onClick={() => setLevel(option.level)}
-                  style={{ backgroundColor: 'rgba(2,0,36,.8)', color: 'white',height: '40px', width: '40px', borderRadius: '50%', border: `${isActive ? '3px solid orange' : '3px solid transparent'}`}}>
-                    <div style={{ textAlign: 'center', paddingTop: '10px'}}>
-                      {option.level}
-                    </div>
+                  <div 
+                    key={option.level}
+                    onClick={() => setLevel(option.level)}
+                    style={{ backgroundColor: 'rgba(2,0,36,.8)', color: 'white',height: '40px', width: '40px', borderRadius: '50%', border: `${isActive ? '3px solid orange' : '3px solid transparent'}`}}>
+                      <div style={{ textAlign: 'center', paddingTop: '10px'}}>
+                        {option.level}
+                      </div>
                   </div>
                 )
               })}
@@ -110,7 +112,7 @@ const LevelSelection = ({level, setLevel}: any) => {
 export const Product = () => {
     const { id } = useParams();
     const { pokemon, isLoading } = usePokemonContext();
-    const { increaseCartQuantity } = useShoppingCartContext();
+    const { updateCart } = useShoppingCartContext();
     const pokeId = Number(id);
     const pokemonPDP = pokemon[pokeId || 0];
     const [amount, setAmount] = useState(1);
@@ -118,7 +120,7 @@ export const Product = () => {
     
 
   const handleCTA = () => {
-    increaseCartQuantity(
+    updateCart(
       pokemonPDP.id, 
       showSale(pokemonPDP.height, pokemonPDP.id)(discountPrice)(price),
       showSale(pokemonPDP.height, pokemonPDP.id)(discountPrice)(price),

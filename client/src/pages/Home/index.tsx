@@ -66,7 +66,7 @@ const BrandMessage = () => {
 const GuaranteeMessage = () =>  {
     return (
         <>
-            {GAURANTEES.map((item: GauranteeProps) => {
+            {GAURANTEES.map((item: GauranteeProps, index: any) => {
                 const Icon = item.icon;
                 const GuarenteeIcon = styled(Icon)`
                 height: 40px;
@@ -81,7 +81,7 @@ const GuaranteeMessage = () =>  {
                 }
                 `;
                 return (
-                    <GuaranteeItem>
+                    <GuaranteeItem key={index}>
                         <IconWrapper>
                             <GuarenteeIcon />
                         </IconWrapper>
@@ -95,7 +95,7 @@ const GuaranteeMessage = () =>  {
 }
 
 const FeaturedPokemon = () => {
-    const { increaseCartQuantity } = useShoppingCartContext();
+    const { updateCart } = useShoppingCartContext();
     
     return (
         <>
@@ -103,7 +103,7 @@ const FeaturedPokemon = () => {
             <PokeWrapper>
                 {FEATURED_POKEMON.map((feature: FeatureProps) => {
                     return (
-                        <div>
+                        <div key={feature.id}>
                             {feature.sale 
                             ? 
                             <SaleStyle>
@@ -134,7 +134,7 @@ const FeaturedPokemon = () => {
                                 </PriceWrapper>
                                 </div>
                                 <Link to='/cart'>
-                                    <IconWrapper onClick={() => increaseCartQuantity(feature.id, feature.price, feature.price, feature.name, 1, 1, true)}>
+                                    <IconWrapper onClick={() => updateCart(feature.id, feature.price, feature.price, feature.name, 1, 1, true)}>
                                         <CTAButton />
                                     </IconWrapper>
                                 </Link>

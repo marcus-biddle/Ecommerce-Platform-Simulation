@@ -8,7 +8,7 @@ import { useShoppingCartContext } from '../../hooks';
 import { showSale } from '../../helpers/conditionals'
 
 export const ProductCard = ({ pokemon, region }: any) => {
-    const { increaseCartQuantity } = useShoppingCartContext();
+    const { updateCart } = useShoppingCartContext();
     const price = getPriceNum(pokemon);
 
   return (
@@ -47,7 +47,7 @@ export const ProductCard = ({ pokemon, region }: any) => {
                     )
                 }
             </div>
-            <Link to={'/cart'} onClick={() => increaseCartQuantity(pokemon.id, showSale(pokemon.height, pokemon.id)(getDiscount(price, .15))(price), showSale(pokemon.height, pokemon.id)(getDiscount(price, .15))(price), pokemon.name, 1, 1, true)}>
+            <Link to={'/cart'} onClick={() => updateCart(pokemon.id, showSale(pokemon.height, pokemon.id)(getDiscount(price, .15))(price), showSale(pokemon.height, pokemon.id)(getDiscount(price, .15))(price), pokemon.name, 1, 1, true)}>
                 <div className='grid-cta-wrapper'>
                     <BsCartPlusFill className='icon-CTA-grid'/>
                 </div>

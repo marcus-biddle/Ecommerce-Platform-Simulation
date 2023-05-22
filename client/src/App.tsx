@@ -46,7 +46,6 @@ const router = createBrowserRouter(
 let history = createBrowserHistory();
 history.listen(({ location, action }) => {
   // this is called whenever new locations come in
-  // the action is POP, PUSH, or REPLACE
   history.push('/')
 });
 

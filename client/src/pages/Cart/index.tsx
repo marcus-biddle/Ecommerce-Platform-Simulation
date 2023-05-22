@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { CartList } from '../../components/Cart/CartList';
-import { CartSidebar } from '../../components/Cart/CartSidebar';
-import { cartHasItems, getSubtotal } from '../../helpers/cart';
+import { getSubtotal } from '../../helpers/cart';
 import { usePokemonContext, useShoppingCartContext } from '../../hooks';
-import { CartColumn, CartItem, CartSectionText, CartSummary, CartWrapper, DeleteText, DiscountSection, HeaderText, LeftArrow, LevelText, PaymentButtonText, RightArrow, SideMenuSection } from './styled';
+import { CartItem, CartSectionText, CartSummary, CartWrapper, DeleteText, DiscountSection, HeaderText, LeftArrow, LevelText, PaymentButtonText, RightArrow, SideMenuSection } from './styled';
 import { capitlizeText, getPokemonImages } from '../../helpers/pokemon';
-import { getPriceNum, numToUSD } from '../../helpers/currency';
+import { numToUSD } from '../../helpers/currency';
 import { showIfOrElseWindow } from '../../helpers/media';
 import { useWindowDemension } from '../../hooks/mobile';
 import { Link } from 'react-router-dom';
@@ -13,16 +11,14 @@ import { Link } from 'react-router-dom';
 
 const Item = ({ item }: any) => {
   const { pokemon, isLoading } = usePokemonContext();
-  // rename function to updateCart. Fix pricing
-  const { increaseCartQuantity, removeFromCart } = useShoppingCartContext();
+  const { updateCart, removeFromCart } = useShoppingCartContext();
   const [newQuantity, updateQuantity] = useState(item.quantity);
   const [newPrice, updatePrice] = useState(item.original_price * item.quantity);
-  const { cartItems } = useShoppingCartContext();
   const window = useWindowDemension();
   
   useEffect(() => {
     if (item.quantity !== newQuantity) {
-      increaseCartQuantity(item.id, newPrice, item.original_price, item.name, newQuantity, item.level, false);
+      updateCart(item.id, newPrice, item.original_price, item.name, newQuantity, item.level, false);
       updatePrice(item.original_price * newQuantity);
     }
   }, [newQuantity])
@@ -143,7 +139,6 @@ export const Cart = () => {
         <DiscountSection>
           <p style={{ letterSpacing: '1px'}}>Discount Code</p>
           <div style={{ display: 'flex', justifyContent: 'center'}}>
-            {/* fix padding issue */}
             <input style={{ border: '1px solid grey', borderTopLeftRadius: '5px', borderBottomLeftRadius: '5px', paddingLeft: '4px'}}/>
             <div style={{ border: '1px solid grey', padding: '8px', borderTopRightRadius: '5px', borderBottomRightRadius: '5px'}}>Apply</div>
           </div>
