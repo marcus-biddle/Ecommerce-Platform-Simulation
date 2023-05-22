@@ -1,1 +1,1 @@
-# FAKE E-COMMERCE SITE
+# mock-poke-store
